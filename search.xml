@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[JAVA核心技术英语原版阅读完之第六章英语单词翻译]]></title>
+    <url>%2F2017%2F07%2F07%2FJAVA%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%8B%B1%E8%AF%AD%E5%8E%9F%E7%89%88%E9%98%85%E8%AF%BB%E5%AE%8C%E4%B9%8B%E7%AC%AC%E5%85%AD%E7%AB%A0%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D%E7%BF%BB%E8%AF%91%2F</url>
+    <content type="text"><![CDATA[学海无涯苦作舟以下单词的出现顺序是按照看书的页面遇到单词的的顺序为标准的 nature : 性质tool chest : 工具箱cover : 介绍move on : 继续concise : 简洁的elegant : 优雅proxy : 代理concrete : 具体的proxies : 代理conform : 符合avail itself : 利用自己eminently reasonable : 非常合理assure : 保证constant : 常量ulitity classes : 实用类up to now : 到现在visualize : 想象shallow : 浅 demostrate : 演示patch up : 修补merely : 仅仅paranoid : 偏执specification : 规范formalize : 形式化carries out : 完成parenthese : 括号deduce : 推断compelling : 引人注目stick with : 坚持suppose : 假设regardless of : 不管handy : 便利innovative : 创新]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>英语原版</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JAVA核心技术英语原版阅读完之第五章英语单词翻译]]></title>
     <url>%2F2017%2F07%2F05%2FJAVA%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%8B%B1%E8%AF%AD%E5%8E%9F%E7%89%88%E9%98%85%E8%AF%BB%E5%AE%8C%E4%B9%8B%E7%AC%AC%E4%BA%94%E7%AB%A0%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D%E7%BF%BB%E8%AF%91%2F</url>
     <content type="text"><![CDATA[学海无涯苦作舟以下单词的出现顺序是按照看书的页面遇到单词的的顺序为标准的 tool builders : 工具构建者application programmers : 应用程序员retain : 保留hallmark : 特点derives : 导出ties : 联系factoring out : 分解结果remarkable ；值得注意的pick out : 选出substitution principle : 替代原则overloading resolution : 重载分析methods’s signature : 方法签名compatible : 兼容的covariant : 协变buddy : 伙伴actual : 实际 instruction : 指令table lookup : 表查找consult : 查询scenario : 情况，脚本is slightly different : 略有不同fetch : 取semantics ； 语义move up : 提升hierarchy : 等级scatter : 分散，散开trade-offs : 权衡humongous ；幽默的brackets : 括号pass into : 传入costly : 昂贵的reallocation : 重新分配permanent : 固定的trim : 修剪reclaim : 回收excess : 多余过量的 autoboxing : 自动封箱unboxing : 拆箱arithmetic : 算术varargs : 可变参数]]></content>
@@ -150,17 +162,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS之贪心算法]]></title>
-    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
-      <categories>
-        <category>JS世界里的算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[sublime3的经典操作和快捷键]]></title>
     <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
@@ -169,6 +170,17 @@
       </categories>
       <tags>
         <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS之贪心算法]]></title>
+    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
+      <categories>
+        <category>JS世界里的算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -422,22 +434,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[产品经理的职业修养]]></title>
-    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
-    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
+    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
+    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
+    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
       <categories>
-        <category>产品经理</category>
+        <category>释放团队力量</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
-    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
-    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
+    <title><![CDATA[产品经理的职业修养]]></title>
+    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
+    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
       <categories>
-        <category>释放团队力量</category>
+        <category>产品经理</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
