@@ -322,6 +322,151 @@
   
   
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/15/解开Return的奥秘/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/15/解开Return的奥秘/" itemprop="url">解开Return的奥秘</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-15T16:07:29+08:00">
+                2016-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB前端/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="苦恼"><a href="#苦恼" class="headerlink" title="苦恼"></a>苦恼</h2><blockquote>
+<p>每次写JS代码的时候总是会遇到各种return语句，很头疼。最近整理了return的各种隐蔽的知识，写下总结分析出来。</p>
+</blockquote>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> <span class="literal">false</span>;</div></pre></td></tr></table></figure>
+<p>上面一句代码到底有几层含义<br><strong>第一层含义：只是对当前函数有效，并不会影响其他函数的执行。</strong><br><strong>第二层含义：阻止默认事件行为。</strong></p>
+<h2 id="比较下面两段代码"><a href="#比较下面两段代码" class="headerlink" title="比较下面两段代码"></a>比较下面两段代码</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> <span class="keyword">call</span>() &#123;</div><div class="line">	var  b = <span class="number">2</span>+<span class="number">3</span>;</div><div class="line">	<span class="keyword">return</span> b;</div><div class="line">&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">call</span>());</div></pre></td></tr></table></figure>
+<p>输出入下：<br><img src="/images/return_1.png" alt=""><br>call函数用return语句返回一个表达式结果，然后调用call函数打印结果值。</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span></span> <span class="keyword">call</span>() &#123;</div><div class="line">	var  b = <span class="number">2</span>+<span class="number">3</span>;</div><div class="line">&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="keyword">call</span>());</div></pre></td></tr></table></figure>
+<p>输出入下：<br><img src="/images/return_2.png" alt=""><br>call函数没有写return语句来返回一个值，那么这个call函数返回的结果是undefined，所以打印call函数调用的结果是undefined。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><blockquote>
+<p>return 后面的语句不会再执行【仅限return所在的函数中】<br><strong>如果函数有一个结果，然后调用这个函数，则需要在函数中return来保存函数结果。</strong></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
   <article class="post post-type-tags,categories " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/APP开发步骤/">
 
@@ -791,147 +936,6 @@
   
 
   <article class="post post-type-tags,categories " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/15/让创业团队拧成一股绳的不败法则/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/15/让创业团队拧成一股绳的不败法则/" itemprop="url">让创业团队拧成一股绳的不败法则</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-15T00:00:00+08:00">
-                2016-09-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/释放团队力量/" itemprop="url" rel="index">
-                    <span itemprop="name">释放团队力量</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>序：千人同心,则得千人之力;万人异心,则无一人之用。</strong></p>
-<h2 id="团队生存法则"><a href="#团队生存法则" class="headerlink" title="团队生存法则"></a>团队生存法则</h2><p>记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。</p>
-<p>追求公平，不如崇尚公正。</p>
-<p>不管什么事，都要做好最坏的打算。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/09/15/让创业团队拧成一股绳的不败法则/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags,categories " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/09/15/产品经理的职业修养/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1114,7 +1118,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
