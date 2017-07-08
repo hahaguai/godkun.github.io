@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="德智体全面发展的幼年狮">
+<meta name="description" content="输入url: godkun.me  详细步骤1、拉取浏览器cache，判断是否需要更新，如果不需要更新则从缓存获取内容直接渲染。判断是否更新的主要依据有：Expires时间、cache设置，浏览器的设置。 2、发送页面header请求。  这个过程发生了一下几个事件：   浏览器向OS询问server的ip地址。 OS发送DNS寻址，并且返回ip以及端口。 建立tcp连接。 页面通过tcp连接发送">
 <meta name="keywords" content="HTTP,TCP,IP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从前端角度看输入一个url后会发生什么">
 <meta property="og:url" content="http://yoursite.com/2017/07/08/从前端角度看输入一个url后会发生什么/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="德智体全面发展的幼年狮">
-<meta property="og:updated_time" content="2017-07-08T10:47:33.163Z">
+<meta property="og:description" content="输入url: godkun.me  详细步骤1、拉取浏览器cache，判断是否需要更新，如果不需要更新则从缓存获取内容直接渲染。判断是否更新的主要依据有：Expires时间、cache设置，浏览器的设置。 2、发送页面header请求。  这个过程发生了一下几个事件：   浏览器向OS询问server的ip地址。 OS发送DNS寻址，并且返回ip以及端口。 建立tcp连接。 页面通过tcp连接发送">
+<meta property="og:updated_time" content="2017-07-08T11:51:33.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从前端角度看输入一个url后会发生什么">
-<meta name="twitter:description" content="德智体全面发展的幼年狮">
+<meta name="twitter:description" content="输入url: godkun.me  详细步骤1、拉取浏览器cache，判断是否需要更新，如果不需要更新则从缓存获取内容直接渲染。判断是否更新的主要依据有：Expires时间、cache设置，浏览器的设置。 2、发送页面header请求。  这个过程发生了一下几个事件：   浏览器向OS询问server的ip地址。 OS发送DNS寻址，并且返回ip以及端口。 建立tcp连接。 页面通过tcp连接发送">
 
 
 
@@ -424,7 +424,28 @@
       
 
       
-        
+        <p><strong>输入url: godkun.me </strong></p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p><strong>1、拉取浏览器cache，判断是否需要更新，如果不需要更新则从缓存获取内容直接渲染。判断是否更新的主要依据有：Expires时间、cache设置，浏览器的设置。</strong></p>
+<p><strong>2、发送页面header请求。</strong></p>
+<blockquote>
+<p>这个过程发生了一下几个事件：</p>
+</blockquote>
+<ul>
+<li>浏览器向OS询问server的ip地址。</li>
+<li>OS发送DNS寻址，并且返回ip以及端口。</li>
+<li>建立tcp连接。</li>
+<li>页面通过tcp连接发送http头请求 。</li>
+<li>接收完成了服务器返回的header</li>
+<li>接收完header后，浏览器得到了返回的请求类型（200、304……）、服务器资源是否有更新（如果没有更新直接从cache获取缓存渲染）等信息。</li>
+</ul>
+<a id="more"></a>
+<p><strong>3、如果页面需要进行缓存则将页面缓存起来，同时对页面进行解码（包括gzip解压等）。</strong></p>
+<p><strong>4、根据返回的数据类型（html类型、图片类型、声音…）进行页面渲染。</strong></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>通过对单个请求的分析，可以从另一个方面知道页面的性能瓶颈在哪里。</strong><br><strong>最耗时间的是下面两个过程：</strong></p>
+<blockquote>
+<p>接收body部分 ,这与应用层响应时间、网速、服务器出口带宽有关。<br>Tcp连接建立（这与dns解析，网速有关）。</p>
+</blockquote>
+
       
     </div>
 
@@ -527,8 +548,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -626,6 +656,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#详细步骤"><span class="nav-number">1.</span> <span class="nav-text">详细步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

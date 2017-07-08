@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[从前端角度看输入一个url后会发生什么]]></title>
     <url>%2F2017%2F07%2F08%2F%E4%BB%8E%E5%89%8D%E7%AB%AF%E8%A7%92%E5%BA%A6%E7%9C%8B%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAurl%E5%90%8E%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[输入url: godkun.me 详细步骤1、拉取浏览器cache，判断是否需要更新，如果不需要更新则从缓存获取内容直接渲染。判断是否更新的主要依据有：Expires时间、cache设置，浏览器的设置。 2、发送页面header请求。 这个过程发生了一下几个事件： 浏览器向OS询问server的ip地址。 OS发送DNS寻址，并且返回ip以及端口。 建立tcp连接。 页面通过tcp连接发送http头请求 。 接收完成了服务器返回的header 接收完header后，浏览器得到了返回的请求类型（200、304……）、服务器资源是否有更新（如果没有更新直接从cache获取缓存渲染）等信息。 3、如果页面需要进行缓存则将页面缓存起来，同时对页面进行解码（包括gzip解压等）。 4、根据返回的数据类型（html类型、图片类型、声音…）进行页面渲染。 总结通过对单个请求的分析，可以从另一个方面知道页面的性能瓶颈在哪里。最耗时间的是下面两个过程： 接收body部分 ,这与应用层响应时间、网速、服务器出口带宽有关。Tcp连接建立（这与dns解析，网速有关）。]]></content>
       <categories>
         <category>HTTP&amp;TCP&amp;IP</category>
       </categories>
