@@ -1,8 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[从前端角度看输入一个url后会发生什么]]></title>
+    <url>%2F2017%2F07%2F08%2F%E4%BB%8E%E5%89%8D%E7%AB%AF%E8%A7%92%E5%BA%A6%E7%9C%8B%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%AAurl%E5%90%8E%E4%BC%9A%E5%8F%91%E7%94%9F%E4%BB%80%E4%B9%88%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>HTTP&amp;TCP&amp;IP</category>
+      </categories>
+      <tags>
+        <tag>HTTP</tag>
+        <tag>TCP</tag>
+        <tag>IP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JAVA核心技术英语原版阅读完之第九章英语单词翻译]]></title>
+    <url>%2F2017%2F07%2F08%2FJAVA%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%8B%B1%E8%AF%AD%E5%8E%9F%E7%89%88%E9%98%85%E8%AF%BB%E5%AE%8C%E4%B9%8B%E7%AC%AC%E4%B9%9D%E7%AB%A0%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D%E7%BF%BB%E8%AF%91%2F</url>
+    <content type="text"><![CDATA[学海无涯苦作舟以下单词的出现顺序是按照看书的页面遇到单词的的顺序为标准的 establish : 建立semster : 学期comprehessive : 详尽全面的framework : 框架complexity : 复杂的controversial : 有争议的pioneered : 首创generic algorithms : 泛型算法tail : 尾部retrieve : 取回，检索minimal : 最小的circular array : 环形数组 finite : 有限iterator : 迭代器duplicate : 重复tightly coupled : 紧密耦合skip over : 省略jump over : 跳过ulitity : 实用]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>英语原版</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JAVA核心技术英语原版阅读完之第八章英语单词翻译]]></title>
-    <url>%2F2017%2F07%2F08%2FJAVA%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%8B%B1%E8%AF%AD%E5%8E%9F%E7%89%88%E9%98%85%E8%AF%BB%E5%AE%8C%E4%B9%8B%E7%AC%AC%E5%85%AB%E7%AB%A0%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D%E7%BF%BB%E8%AF%91-1%2F</url>
+    <url>%2F2017%2F07%2F08%2FJAVA%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E8%8B%B1%E8%AF%AD%E5%8E%9F%E7%89%88%E9%98%85%E8%AF%BB%E5%AE%8C%E4%B9%8B%E7%AC%AC%E5%85%AB%E7%AB%A0%E8%8B%B1%E8%AF%AD%E5%8D%95%E8%AF%8D%E7%BF%BB%E8%AF%91%2F</url>
     <content type="text"><![CDATA[学海无涯苦作舟以下单词的出现顺序是按照看书的页面遇到单词的的顺序为标准的 constitute : 构成formulate : 制定desirable : 合意的littered : 散落ubiquitous : 常见的plug in : 插入onerous : 繁重的anticipate : 预料grapple with : 掌握ingenious : 巧妙wildcard : 通配符primarily : 主要的troubleshooting : 解决distracted : 分心enclosed in : 包含在ordinary : 普通 decipher : 解码bound : 绑定]]></content>
       <categories>
         <category>Java</category>
