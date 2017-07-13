@@ -323,6 +323,166 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/27/AJAX的日常使用方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/12/27/AJAX的日常使用方法/" itemprop="url">AJAX的日常使用方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-27T16:07:29+08:00">
+                2016-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB前端/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><blockquote>
+<p>Asynchronous JavaScript XML</p>
+</blockquote>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>无需刷新页面就能从服务器获得数据的一种方法。</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><blockquote>
+<p>使用XHR对象取得新数据，再通过DOM将新数据 插入到页面中。</p>
+</blockquote>
+<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p><strong>检测原生XHR对象是否存在</strong></p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">var xhr</span> = createXHR();</div></pre></td></tr></table></figure>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.<span class="keyword">open</span>(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>调用open()方法，不会真正发送请求，只是启动一个请求以备发送。<br><strong>注意：参数 true 是异步请求方式，对应的 false 是同步请求，用AJAX的目的就是为了异步请求，所以我们基本都是用 true 做参数</strong></p>
+</blockquote>
+<p><strong>get方式</strong>：把数据放到网址url()里提交       —-&gt;  安全性很低  —-&gt;  容量很低，只有几K，几M 。<br><strong>post方式</strong>：把数据放到 html:content 里提交  —-&gt;  安全性一般  —-&gt;  容量很高，几乎无限。<br><strong>get主要用来获取，会缓存，便于分享，也就是把网址复制给别人。</strong><br><strong>post主要用来提交上传数据，不会缓存。</strong></p>
+<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.send()<span class="comment">;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>发送特定的请求，发送以后，请求就会被分配到服务器。</p>
+</blockquote>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><blockquote>
+<p>服务器收到请求后会发出一个响应给XHR对象，然后自动填充xhr的属性。<br><strong>填充xhr的属性主要有: responseTest  responseXML  status  statusText</strong></p>
+</blockquote>
+<p><strong>下面是 AJAX 异步请求代码</strong></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var xhr = createXHR();</div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span> &#123;</div><div class="line">	<span class="keyword">if</span> (xhr.readystate == <span class="number">4</span>) &#123;</div><div class="line">		<span class="keyword">if</span> (xhr.<span class="built_in">status</span> &gt;= <span class="number">200</span>&amp;&amp;xhr.<span class="built_in">status</span> &lt; <span class="number">300</span> || xhr.<span class="built_in">status</span> == <span class="number">304</span>) &#123;</div><div class="line">			alert(xhr.responseText);</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			alert(<span class="string">"Request was unsuccessful:"</span>+ xhr.<span class="built_in">status</span>);	</div><div class="line">				&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">xhr.<span class="built_in">open</span>(<span class="string">"get"</span>,<span class="string">"example.php"</span>,<span class="literal">true</span>);</div><div class="line">xhr.send();</div></pre></td></tr></table></figure>
+<h2 id="AJAX扩展"><a href="#AJAX扩展" class="headerlink" title="AJAX扩展"></a>AJAX扩展</h2><p>可以自定义请求头部信息：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setRequestHeader()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>上面这个方法要放在xhr.open()和xhr.send()之间。<br><strong>用下面方法可以取得所有头部信息</strong><br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xhr.getAllRequsetHeaders()<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/20/网站性能优化总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -918,149 +1078,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags,categories " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/03/必须知道的产品经理专业术语/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/10/03/必须知道的产品经理专业术语/" itemprop="url">必须知道的产品经理专业术语</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-03T00:00:00+08:00">
-                2016-10-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/产品经理/" itemprop="url" rel="index">
-                    <span itemprop="name">产品经理</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>MRD：Market Requirements Document (市场需求文档)</p>
-<p>PRD：Product Requirements Document (产品需求文档)</p>
-<p><strong>注意：MRD和PRD互为因果，有了输入MRD才能有输出PRD</strong></p>
-<p>KPI：Key Performance Indicator(关键绩效指标)</p>
-<p>PV：page view(页面浏览量)</p>
-<p>UV：unique visitor(独立IP)<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/10/03/必须知道的产品经理专业术语/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1110,7 +1127,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
