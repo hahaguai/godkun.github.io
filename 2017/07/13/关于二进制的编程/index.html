@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。  解决代码如下 1234567891011121314151617181920212223public class Test2 &amp;#123;    public static void main(String[] args) &amp;#123;		        //">
+<meta name="description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于二进制的编程">
 <meta property="og:url" content="http://yoursite.com/2017/07/13/关于二进制的编程/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。  解决代码如下 1234567891011121314151617181920212223public class Test2 &amp;#123;    public static void main(String[] args) &amp;#123;		        //">
-<meta property="og:updated_time" content="2017-07-13T04:16:54.122Z">
+<meta property="og:description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。">
+<meta property="og:updated_time" content="2017-07-13T09:00:54.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于二进制的编程">
-<meta name="twitter:description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。  解决代码如下 1234567891011121314151617181920212223public class Test2 &amp;#123;    public static void main(String[] args) &amp;#123;		        //">
+<meta name="twitter:description" content="问题描述： 请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。">
 
 
 
@@ -427,6 +427,7 @@
         <h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
 <p>请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。</p>
 </blockquote>
+<a id="more"></a>
 <p><strong>解决代码如下</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// 从控制台中输入一个整数</span></div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">int</span> c = in.nextInt();</div><div class="line">        System.out.println(getNum(c));</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">// 主类中的静态方法</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// 设定 1 的个数初始化值为0</span></div><div class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (n != <span class="number">0</span>)&#123;</div><div class="line">            num++;</div><div class="line">			</div><div class="line">            <span class="comment">// 将整数减 1，再和原整数做与运算，会使该整数最右边的一个 1 变成 0</span></div><div class="line">            n = (n-<span class="number">1</span>) &amp; n;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
@@ -552,7 +553,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -563,7 +564,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -574,7 +575,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

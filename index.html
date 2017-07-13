@@ -412,13 +412,16 @@
 
       
         
-          
-            <h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
+          <h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
 <p>请实现一个函数，输入一个整数，输出该二进制表示中 1 的个数。例如把 10 表示成二进制是 1010， 有 2 位是 1。</p>
 </blockquote>
-<p><strong>解决代码如下</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test2</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// 从控制台中输入一个整数</span></div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">int</span> c = in.nextInt();</div><div class="line">        System.out.println(getNum(c));</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">// 主类中的静态方法</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getNum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">		</div><div class="line">        <span class="comment">// 设定 1 的个数初始化值为0</span></div><div class="line">        <span class="keyword">int</span> num = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (n != <span class="number">0</span>)&#123;</div><div class="line">            num++;</div><div class="line">			</div><div class="line">            <span class="comment">// 将整数减 1，再和原整数做与运算，会使该整数最右边的一个 1 变成 0</span></div><div class="line">            n = (n-<span class="number">1</span>) &amp; n;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/13/关于二进制的编程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -549,13 +552,17 @@
 
       
         
-          
-            <h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
+          <h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><blockquote>
 <p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否函数该整数。</p>
 </blockquote>
 <p><strong>解决代码如下</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *编程思路：先选择右上角作为比较元素。</div><div class="line"> *如果比寻找的元素大，则删除比较元素所在的列，同时比较元素继续是右上角的数字。</div><div class="line"> *如果比寻找的元素小，则删除比较元素所在的行，同时比较元素继续是右上角的数字。</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test1</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> [][] arr = &#123;</div><div class="line">                &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">8</span>, <span class="number">9</span>&#125;,</div><div class="line">                &#123;<span class="number">2</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">12</span>&#125;,</div><div class="line">                &#123;<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>&#125;,</div><div class="line">                &#123;<span class="number">6</span>, <span class="number">8</span>, <span class="number">11</span>, <span class="number">15</span>&#125;</div><div class="line">        &#125;;</div><div class="line">		</div><div class="line">		<span class="comment">// 用while循环来实现多次输入待寻找数据</span></div><div class="line">		<span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</div><div class="line">		</div><div class="line">            <span class="comment">// 使用Scanner类实现控制台输入</span></div><div class="line">			Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">			<span class="keyword">int</span> c = in.nextInt();</div><div class="line">			</div><div class="line">            <span class="comment">// 静态方法在主函数中可以用写类前缀，直接调用</span></div><div class="line">			System.out.println(search(arr, c));</div><div class="line">		&#125;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">	</div><div class="line">    <span class="comment">// 使用私有静态方法</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">search</span><span class="params">(<span class="keyword">int</span>[][] arr, <span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">	</div><div class="line">        <span class="comment">// 二维数组的列数</span></div><div class="line">        <span class="keyword">int</span> a = arr[<span class="number">0</span>].length;</div><div class="line">		</div><div class="line">        <span class="comment">// 二维数组的行数</span></div><div class="line">        <span class="keyword">int</span> b = arr.length;</div><div class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> j = a-<span class="number">1</span>;</div><div class="line">		</div><div class="line">        <span class="keyword">while</span> (i&lt;=b-<span class="number">1</span> &amp;&amp; j&gt;=<span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">if</span> (arr[i][j]==value)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (arr[i][j] &gt; value)&#123;</div><div class="line">                j--;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> &#123;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/12/二维数组的游戏/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -829,8 +836,7 @@
 
       
         
-          
-            <h2 id="移动端常用开发技巧"><a href="#移动端常用开发技巧" class="headerlink" title="移动端常用开发技巧"></a>移动端常用开发技巧</h2><ul>
+          <h2 id="移动端常用开发技巧"><a href="#移动端常用开发技巧" class="headerlink" title="移动端常用开发技巧"></a>移动端常用开发技巧</h2><ul>
 <li>flex弹性布局</li>
 <li>CSS stickfooter</li>
 <li>酷炫的交互设计</li>
@@ -841,21 +847,13 @@
 <li><strong>目标：通过尽可能简单的API实现响应的数据绑定和组合的视图组件</strong></li>
 <li><strong>一个MVVM框架图</strong></li>
 </ul>
-<h2 id="安装Vue-cli"><a href="#安装Vue-cli" class="headerlink" title="安装Vue-cli"></a>安装Vue-cli</h2><blockquote>
-<p>首先要先安装 node  然后</p>
-</blockquote>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install vue-<span class="keyword">cli</span> -g</div></pre></td></tr></table></figure>
-<p><strong>如果出现找不到命令（vue），则是因为npm的路径不再PATH中，将其添加到PATH中即可。</strong></p>
-<blockquote>
-<p>之后执行<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue <span class="built_in">list</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>命令查看vue安装成功后的情况</p>
-<blockquote>
-<p>进入项目文件，执行<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">ll</span> -<span class="keyword">a</span></div><div class="line">npm install</div><div class="line"><span class="keyword">ll</span> -<span class="keyword">a</span></div><div class="line"><span class="keyword">cd</span> node_modules</div><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">ls</span></div><div class="line">npm run dev</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p><strong>即可完成vue-cli的安装和页面测试</strong></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/12/VUE学习第一篇/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1074,7 +1072,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1085,7 +1083,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1096,7 +1094,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
