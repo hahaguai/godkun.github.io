@@ -95,19 +95,19 @@
 
 
 
-<meta name="description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。">
+<meta name="description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。  在循环中缓存array.length 看下面这个数组循环  123for(var">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="个人总结的一些JavaScript小技巧">
 <meta property="og:url" content="http://yoursite.com/2017/07/14/个人总结的一些JavaScript小技巧/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。">
+<meta property="og:description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。  在循环中缓存array.length 看下面这个数组循环  123for(var">
 <meta property="og:image" content="http://yoursite.com/images/tips1.png">
 <meta property="og:image" content="http://yoursite.com/images/tips2.png">
-<meta property="og:updated_time" content="2017-07-14T09:08:40.199Z">
+<meta property="og:updated_time" content="2017-07-14T09:53:08.435Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人总结的一些JavaScript小技巧">
-<meta name="twitter:description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。">
+<meta name="twitter:description" content="使用 + 将字符串转换成数字测试代码如图：   提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。  还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。  在循环中缓存array.length 看下面这个数组循环  123for(var">
 <meta name="twitter:image" content="http://yoursite.com/images/tips1.png">
 
 
@@ -434,6 +434,14 @@
 </blockquote>
 <p><strong>还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。</strong></p>
 <p><img src="/images/tips2.png" alt=""></p>
+<h3 id="在循环中缓存array-length"><a href="#在循环中缓存array-length" class="headerlink" title="在循环中缓存array.length"></a>在循环中缓存array.length</h3><blockquote>
+<p>看下面这个数组循环</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(array[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>如果是小数组，上面这样很好，如果是处理一个很大的数组，这段代码在每次迭代时，都会重新计算数组的大小，就会影响性能，为了避免这种现象，可以将array.length做一个缓存，如下面代码所示：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> length = array.length;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(array[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><blockquote>
+<p>合并两个数组，一般情况之下你都会使用Array.concat()函数，然而这个函数并不适合用来合并两个大型的数组，因为会消耗大量的内存来存储新创建的数组。可以使用Array.pus().apply(arr1,arr2)来替代创建一个新数组。这种方法不是用来创建一个新的数组，其只是将第一个第二个数组合并在一起，同时减少内存的使用。代码如图所示：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var array1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]; </div><div class="line">var array2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]; </div><div class="line">console.log(array1.push.apply(array1, array2)); <span class="comment">// [1,2,3,4,5,6];</span></div></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
@@ -651,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-将字符串转换成数字"><span class="nav-number">1.</span> <span class="nav-text">使用 + 将字符串转换成数字</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-将字符串转换成数字"><span class="nav-number">1.</span> <span class="nav-text">使用 + 将字符串转换成数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在循环中缓存array-length"><span class="nav-number">2.</span> <span class="nav-text">在循环中缓存array.length</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并数组"><span class="nav-number">3.</span> <span class="nav-text">合并数组</span></a></li></ol></div>
             
 
           </div>
