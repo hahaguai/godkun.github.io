@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[用Java实现二叉树插入，修改，查找，遍历]]></title>
+    <url>%2F2017%2F07%2F16%2F%E7%94%A8Java%E5%AE%9E%E7%8E%B0%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%2F</url>
+    <content type="text"><![CDATA[要想用Java实现一个二叉树，首先先定义一个节点类，在Java中，类就相当于C和C++中的数据结构。这个节点类命名为Node。 代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061package binaryTree;/** * Created by 杨昆 on 2017/7/16. */public class Node &#123; // 关键字 private int keyData; // 其他数据 private int otherData; // 左子节点 private Node leftNode; // 右子节点 private Node rightNode; public Node(int keyData, int otherData) &#123; this.keyData = keyData; this.otherData = otherData; &#125; public int getKeyData() &#123; return keyData; &#125; public void setKeyData(int keyData) &#123; this.keyData = keyData; &#125; public int getOtherData() &#123; return otherData; &#125; public void setOtherData(int otherData) &#123; this.otherData = otherData; &#125; public Node getLeftNode() &#123; return leftNode; &#125; public void setLeftNode(Node leftNode) &#123; this.leftNode = leftNode; &#125; public Node getRightNode() &#123; return rightNode; &#125; public void setRightNode(Node rightNode) &#123; this.rightNode = rightNode; &#125; // 显示方法 public void display()&#123; System.out.println(keyData+ "," + otherData); &#125;&#125; 上面代码中，一个节点需要有数据，以及左右子树的引用，在Java中，引用就是指针。 有了节点后，就应该有一个树结构，也就是一个名为Tree的类 代码如下：12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485package binaryTree;/** * Created by 杨昆 on 2017/7/16. */public class Tree &#123; // 根 private Node root; // 插入方法 public void insert(int keyData, int otherData)&#123; Node newNode = new Node(keyData, otherData); if (root == null)&#123; root = newNode; &#125;else &#123; Node current = root; Node parent; while (true)&#123; parent = current; if (keyData &lt; current.getKeyData())&#123; current = current.getLeftNode(); if (current == null)&#123; parent.setLeftNode(newNode); return; &#125; &#125;else &#123; current = current.getRightNode(); if (current == null)&#123; parent.setRightNode(newNode); return; &#125; &#125; &#125; &#125; &#125; // 查找方法 public Node find(int keyData)&#123; Node current = root; while (current.getKeyData() != keyData)&#123; if ( keyData &lt; current.getKeyData())&#123; current = current.getLeftNode(); &#125;else &#123; current = current.getRightNode(); &#125; if (current == null)&#123; return null; &#125; &#125; return current; &#125; // 删除方法 public void delete(int keyData)&#123; &#125; // 修改方法 public void change(int keyData, int newOtherData)&#123; Node findNode = find(keyData); findNode.setOtherData(newOtherData); &#125; // 先序遍历方法 public void preOrder(Node node)&#123; if (node != null)&#123; node.display(); preOrder(node.getLeftNode()); preOrder(node.getRightNode()); &#125; &#125; // 中序遍历方法 public void inOrder(Node node) &#123; if (node != null) &#123; inOrder(node.getLeftNode()); node.display(); inOrder(node.getRightNode()); &#125; &#125; public Node getRoot()&#123; return root; &#125;&#125; 最后需要一个测设类，命名为TreeTest。 代码如下：12345678910111213141516171819202122232425262728293031package binaryTree;/** * Created by 杨昆 on 2017/7/16. */public class TestTree &#123; public static void main(String[] args) &#123; Tree tree = new Tree(); tree.insert(80,80); tree.insert(49,49); tree.insert(42,42); tree.insert(30,30); tree.insert(45,45); tree.insert(90,90); tree.insert(150,150); tree.insert(130,130); tree.insert(82,82); // 先序遍历 tree.preOrder(tree.getRoot()); // 换行 System.out.println(); // 后序遍历 tree.inOrder(tree.getRoot()); &#125;&#125;]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于动态规划]]></title>
     <url>%2F2017%2F07%2F15%2F%E5%85%B3%E4%BA%8E%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%2F</url>
     <content type="text"><![CDATA[概念 先把问题分割成若干个子问题，然后求出子问题的答案，最后再利用这些答案得出整个问题的最终答案。 注意：动态规划的核心就是将子问题的答案预先保存到内存中。这个保存答案的内存区域就是缓存。然后重复利用其结果就能显著提高运算速度。 动态规划就是通过预存（重复计算两次以上的）子问题结果值来提高运算速度的算法设计。 对比递归可以看出，递归没有对子问题运算的结果进行保存，这会出现很多重复计算。 如何运用动态规划 这里我们要时刻想到把计算结果缓存下来，对于用什么缓存数据结构，因题目而异，多数情况下用数组就看满足缓存要求。]]></content>
@@ -197,7 +208,7 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[用Java实现单链表和双链表结构]]></title>
+    <title><![CDATA[用Java实现单链表]]></title>
     <url>%2F2017%2F07%2F02%2F%E7%94%A8Java%E5%AE%9E%E7%8E%B0%E5%8D%95%E9%93%BE%E8%A1%A8%E5%92%8C%E5%8F%8C%E9%93%BE%E8%A1%A8%E7%BB%93%E6%9E%84%2F</url>
     <content type="text"><![CDATA[普及一个知识点：Java中对象的引用其实就是C和C++中的指针。 单链表的实现 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106package structure;/** * Created by 杨昆 on 2017/7/02. */class Link &#123; public int iData; public double dData; public Link next; public Link(int id, double dd) &#123; iData = id; dData = dd; next = null; &#125; public void displayLink() &#123; System.out.print("&#123;" + iData + "," + dData + "&#125;"); &#125;&#125;class LinkList &#123; private Link first; public LinkList() &#123; first = null; &#125; public boolean isEmpty() &#123; return (first == null); &#125; public void insertFirst(int id, double dd) &#123; Link newLink = new Link(id, dd); newLink.next = first; first = newLink; &#125; public Link find(int key) &#123; Link current = first; while (current.iData != key) &#123; if (current.next == null) &#123; return null; &#125; else &#123; current = current.next; &#125; &#125; return current; &#125; public Link delete(int key) &#123; Link current = first; Link previous = first; while (current.iData != key) &#123; if (current.next == null) &#123; return null; &#125; else &#123; previous = current; current = current.next; &#125; &#125; if (current == first) first = first.next; else previous.next = current.next; return current; &#125; public void displayList() &#123; Link current = first; while (current != null) &#123; current.displayLink(); current = current.next; &#125; System.out.println(); &#125;&#125;public class LinkListTest &#123; public static void main(String[] args) &#123; LinkList myList = new LinkList(); myList.insertFirst(12, 1.2); myList.insertFirst(14, 11.2); myList.insertFirst(13, 8.2); myList.insertFirst(15, 7.2); myList.insertFirst(16, 2.2); myList.insertFirst(22, 3.2); myList.insertFirst(32, 4.2); myList.displayList(); Link f = myList.find(22); if (f != null) &#123; System.out.println("可以找到：" + f.iData); &#125; else &#123; System.out.println("不能找到关键词"); &#125; Link d = myList.delete(16); if (d != null) &#123; System.out.println("删除的值为：" + d.iData); &#125; else &#123; System.out.println("无法删除"); &#125; myList.displayList(); &#125;&#125; 输出代码如图所示：]]></content>
       <categories>
@@ -567,8 +578,8 @@
         <category>WEB前端</category>
       </categories>
       <tags>
-        <tag>JS</tag>
         <tag>AJAX</tag>
+        <tag>JS</tag>
       </tags>
   </entry>
   <entry>

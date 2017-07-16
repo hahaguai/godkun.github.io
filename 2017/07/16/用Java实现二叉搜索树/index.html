@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="分治法,递归法," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -95,19 +95,17 @@
 
 
 
-<meta name="description" content="递归调用总是把问题分解为一个小问题和剩下的所有问题。分治法会把问题分解为同等大小的子问题。 下面一张图就可以很明显的看出两者的区别   上图左边是递归调用算法，右边是分治算法。">
-<meta name="keywords" content="分治法,递归法">
+<meta name="description" content="要想用Java实现一个二叉树，首先先定义一个节点类，在Java中，类就相当于C和C++中的数据结构。这个节点类命名为Node。 代码如下：">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分治法和递归法的区别">
-<meta property="og:url" content="http://yoursite.com/2017/07/14/分治法和递归法的区别/index.html">
+<meta property="og:title" content="用Java实现二叉树插入，修改，查找，遍历">
+<meta property="og:url" content="http://yoursite.com/2017/07/16/用Java实现二叉搜索树/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="递归调用总是把问题分解为一个小问题和剩下的所有问题。分治法会把问题分解为同等大小的子问题。 下面一张图就可以很明显的看出两者的区别   上图左边是递归调用算法，右边是分治算法。">
-<meta property="og:image" content="http://yoursite.com/images/algo1.png">
-<meta property="og:updated_time" content="2017-07-14T12:59:58.413Z">
+<meta property="og:description" content="要想用Java实现一个二叉树，首先先定义一个节点类，在Java中，类就相当于C和C++中的数据结构。这个节点类命名为Node。 代码如下：">
+<meta property="og:updated_time" content="2017-07-16T10:27:55.517Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分治法和递归法的区别">
-<meta name="twitter:description" content="递归调用总是把问题分解为一个小问题和剩下的所有问题。分治法会把问题分解为同等大小的子问题。 下面一张图就可以很明显的看出两者的区别   上图左边是递归调用算法，右边是分治算法。">
-<meta name="twitter:image" content="http://yoursite.com/images/algo1.png">
+<meta name="twitter:title" content="用Java实现二叉树插入，修改，查找，遍历">
+<meta name="twitter:description" content="要想用Java实现一个二叉树，首先先定义一个节点类，在Java中，类就相当于C和C++中的数据结构。这个节点类命名为Node。 代码如下：">
 
 
 
@@ -135,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/14/分治法和递归法的区别/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/16/用Java实现二叉搜索树/"/>
 
 
 
 
 
-  <title>分治法和递归法的区别 | godkun的博客</title>
+  <title>用Java实现二叉树插入，修改，查找，遍历 | godkun的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -325,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/分治法和递归法的区别/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/16/用Java实现二叉搜索树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">分治法和递归法的区别</h1>
+          <h1 class="post-title" itemprop="name headline">用Java实现二叉树插入，修改，查找，遍历</h1>
         
 
         <div class="post-meta">
@@ -354,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T20:52:51+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-16T15:07:57+08:00">
+                2017-07-16
               </time>
             
 
@@ -377,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -395,7 +393,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/07/14/分治法和递归法的区别/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/07/16/用Java实现二叉搜索树/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -426,12 +424,15 @@
       
 
       
-        <p><strong>递归调用总是把问题分解为一个小问题和剩下的所有问题。</strong><br><strong>分治法会把问题分解为同等大小的子问题。</strong></p>
-<p>下面一张图就可以很明显的看出两者的区别</p>
-<p><img src="/images/algo1.png" alt=""></p>
+        <p><strong>要想用Java实现一个二叉树，首先先定义一个节点类，在Java中，类就相当于C和C++中的数据结构。这个节点类命名为Node。</strong></p>
+<p><strong>代码如下：</strong><br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> binaryTree;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 杨昆 on 2017/7/16.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</div><div class="line">    <span class="comment">// 关键字</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> keyData;</div><div class="line"></div><div class="line">    <span class="comment">// 其他数据</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> otherData;</div><div class="line"></div><div class="line">    <span class="comment">//  左子节点</span></div><div class="line">    <span class="keyword">private</span> Node leftNode;</div><div class="line"></div><div class="line">    <span class="comment">// 右子节点</span></div><div class="line">    <span class="keyword">private</span> Node rightNode;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> keyData, <span class="keyword">int</span> otherData)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.keyData = keyData;</div><div class="line">        <span class="keyword">this</span>.otherData = otherData;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getKeyData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> keyData;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setKeyData</span><span class="params">(<span class="keyword">int</span> keyData)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.keyData = keyData;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOtherData</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> otherData;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setOtherData</span><span class="params">(<span class="keyword">int</span> otherData)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.otherData = otherData;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">getLeftNode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> leftNode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLeftNode</span><span class="params">(Node leftNode)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.leftNode = leftNode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">getRightNode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> rightNode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRightNode</span><span class="params">(Node rightNode)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.rightNode = rightNode;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 显示方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(keyData+ <span class="string">","</span> + otherData);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>上图左边是递归调用算法，右边是分治算法。</p>
+<p>上面代码中，一个节点需要有数据，以及左右子树的引用，在Java中，引用就是指针。</p>
 </blockquote>
+<p><strong>有了节点后，就应该有一个树结构，也就是一个名为Tree的类</strong></p>
+<p><strong>代码如下：</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> binaryTree;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 杨昆 on 2017/7/16.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tree</span> </span>&#123;</div><div class="line">    <span class="comment">// 根</span></div><div class="line">    <span class="keyword">private</span> Node root;</div><div class="line"></div><div class="line">    <span class="comment">// 插入方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> keyData, <span class="keyword">int</span> otherData)</span></span>&#123;</div><div class="line">        Node newNode = <span class="keyword">new</span> Node(keyData, otherData);</div><div class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>)&#123;</div><div class="line">            root = newNode;</div><div class="line">        &#125;<span class="keyword">else</span> &#123;</div><div class="line">            Node current = root;</div><div class="line">            Node parent;</div><div class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</div><div class="line">                parent = current;</div><div class="line">                <span class="keyword">if</span> (keyData &lt; current.getKeyData())&#123;</div><div class="line">                    current = current.getLeftNode();</div><div class="line">                    <span class="keyword">if</span> (current == <span class="keyword">null</span>)&#123;</div><div class="line">                        parent.setLeftNode(newNode);</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;<span class="keyword">else</span> &#123;</div><div class="line">                    current = current.getRightNode();</div><div class="line">                    <span class="keyword">if</span> (current == <span class="keyword">null</span>)&#123;</div><div class="line">                        parent.setRightNode(newNode);</div><div class="line">                        <span class="keyword">return</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 查找方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">find</span><span class="params">(<span class="keyword">int</span> keyData)</span></span>&#123;</div><div class="line">        Node current = root;</div><div class="line">        <span class="keyword">while</span> (current.getKeyData() != keyData)&#123;</div><div class="line">            <span class="keyword">if</span> ( keyData &lt; current.getKeyData())&#123;</div><div class="line">                current = current.getLeftNode();</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                current = current.getRightNode();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (current == <span class="keyword">null</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 删除方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> keyData)</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 修改方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> keyData, <span class="keyword">int</span> newOtherData)</span></span>&#123;</div><div class="line">        Node findNode = find(keyData);</div><div class="line">        findNode.setOtherData(newOtherData);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  先序遍历方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(Node node)</span></span>&#123;</div><div class="line">        <span class="keyword">if</span> (node != <span class="keyword">null</span>)&#123;</div><div class="line">            node.display();</div><div class="line">            preOrder(node.getLeftNode());</div><div class="line">            preOrder(node.getRightNode());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 中序遍历方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(Node node)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (node != <span class="keyword">null</span>) &#123;</div><div class="line">            inOrder(node.getLeftNode());</div><div class="line">            node.display();</div><div class="line">            inOrder(node.getRightNode());</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Node <span class="title">getRoot</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> root;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>最后需要一个测设类，命名为TreeTest。</strong></p>
+<p><strong>代码如下：</strong><br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">package binaryTree;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by 杨昆 on 2017/7/16.</div><div class="line"> */</div><div class="line">public class TestTree &#123;</div><div class="line">    public static void main(String[] args) &#123;</div><div class="line">        Tree tree = new Tree();</div><div class="line">        tree.insert(<span class="number">80</span>,<span class="number">80</span>);</div><div class="line">        tree.insert(<span class="number">49</span>,<span class="number">49</span>);</div><div class="line">        tree.insert(<span class="number">42</span>,<span class="number">42</span>);</div><div class="line">        tree.insert(<span class="number">30</span>,<span class="number">30</span>);</div><div class="line">        tree.insert(<span class="number">45</span>,<span class="number">45</span>);</div><div class="line">        tree.insert(<span class="number">90</span>,<span class="number">90</span>);</div><div class="line">        tree.insert(<span class="number">150</span>,<span class="number">150</span>);</div><div class="line">        tree.insert(<span class="number">130</span>,<span class="number">130</span>);</div><div class="line">        tree.insert(<span class="number">82</span>,<span class="number">82</span>);</div><div class="line">		</div><div class="line">		</div><div class="line">		</div><div class="line">		<span class="comment">// 先序遍历</span></div><div class="line">        tree.preOrder(tree.getRoot());</div><div class="line">		</div><div class="line">		<span class="comment">// 换行</span></div><div class="line">        System.out.println();</div><div class="line">		</div><div class="line">		<span class="comment">// 后序遍历</span></div><div class="line">        tree.inOrder(tree.getRoot());</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -461,9 +462,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分治法/" rel="tag"># 分治法</a>
-          
-            <a href="/tags/递归法/" rel="tag"># 递归法</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -476,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/14/个人总结的一些JavaScript小技巧/" rel="next" title="个人总结的一些JavaScript小技巧">
-                <i class="fa fa-chevron-left"></i> 个人总结的一些JavaScript小技巧
+              <a href="/2017/07/15/关于动态规划/" rel="next" title="关于动态规划">
+                <i class="fa fa-chevron-left"></i> 关于动态规划
               </a>
             
           </div>
@@ -485,10 +484,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/15/关于动态规划/" rel="prev" title="关于动态规划">
-                关于动态规划 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
