@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[矩阵的最短路径和]]></title>
+    <url>%2F2017%2F07%2F22%2F%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%92%8C%2F</url>
+    <content type="text"><![CDATA[123456789101112131415161718192021222324252627282930313233package recursiveAndDp;/** * Created by godkun on 2017/7/22. */public class MinPathSum &#123; public static void main(String[] args) &#123; int[][] a = &#123;&#123;1,4,9,18&#125;,&#123;9,5,8,12&#125;,&#123;15,5,11,12&#125;,&#123;22,13,15,12&#125;&#125;; System.out.println(f1(a)); &#125; public static int f1(int[][] m) &#123; if (m == null || m.length == 0 || m[0] == null || m[0].length == 0) &#123; return 0; &#125; int row = m.length; int col = m[0].length; int[][] dp = new int[row][col]; dp[0][0] = m[0][0]; for (int i = 1; i &lt; row; i++)&#123; dp[i][0] = dp[i-1][0] + m[i][0]; &#125; for (int j = 1; j &lt; col; j++)&#123; dp[0][j] = dp[0][j - 1] + m[0][j]; &#125; for (int i = 1; i &lt; row; i++)&#123; for (int j = 1; j &lt; col; j++)&#123; dp[i][j] = Math.min(dp[i - 1][j],dp[i][j - 1]) + m[i][j]; &#125; &#125; // 返回最小路径和，也就是二维数组表里的最后一个值 return dp[row - 1][col - 1]; &#125;&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法能力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于我的大四和找工作]]></title>
     <url>%2F2017%2F07%2F20%2F%E5%85%B3%E4%BA%8E%E6%88%91%E7%9A%84%E5%A4%A7%E5%9B%9B%E5%92%8C%E6%89%BE%E5%B7%A5%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[犹豫？ 找工作，或者考研？？，我选择哪一个？作为一个即将大四的学生，我该如何抉择？ 答案？ 没有人能给我答案，随心？，不存在的，还是去追求内心的那一个通天大道吧。 做一个会思考的人，做一个快乐的人，做一个有梦想的人，做一个财务自由的人。Enough.]]></content>
