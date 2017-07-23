@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数组的划分]]></title>
+    <url>%2F2017%2F07%2F24%2F%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%92%E5%88%86%2F</url>
+    <content type="text"><![CDATA[问题 给定一个数组arr，其中只含有0,1,2三种元素，请对arr进行排序 代码如下123456789101112131415161718192021222324252627282930313233343536373839404142434445public class Partition &#123; public static void main(String[] args) &#123; int[] arr = &#123;0,0,1,2,1,2,1,0,2,1&#125;; // 调用排序函数 sortPart(arr); // 循环输出数组 for (int j = 0; j &lt; arr.length; j++)&#123; System.out.print(arr[j] + " "); &#125; &#125; public static void sortPart(int[] arr)&#123; // 判断数组是否为空 if (arr == null || arr.length == 0)&#123; return; &#125; // 定义存放0的区域为left，存放1的区域为index，存放2的区域为right int left = -1; int right = arr.length; int index = 0; // 关键代码，通过if判断加上互相交换函数，进行数值划分 while(index &lt; right)&#123; if (arr[index] == 0)&#123; swap(arr, ++left, index++); &#125; else if (arr[index] == 2)&#123; swap(arr, index, --right); &#125;else &#123; index++; &#125; &#125; &#125; // 对数组中的两个值进行交换 public static void swap(int[] arr, int i, int j)&#123; int temp = arr[i]; arr[i] = arr[j]; arr[j] = temp; &#125;&#125; 输出如下图 复杂度时间复杂度为O(N),是最优解。]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法能力</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[用一个栈实现另一个栈的排序]]></title>
     <url>%2F2017%2F07%2F23%2F%E7%94%A8%E4%B8%80%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%A0%88%E7%9A%84%E6%8E%92%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[题目： 一个栈元素的类型为整数，现在要想将该栈从顶到底按从大到小的顺序排列。要求：只允许申请一个栈，除此之外，可以申请一个变量，可以申请额外的变量，但是不能申请额外的数据结构，如何完成排序 代码如下123456789101112131415161718192021222324252627282930313233343536373839public class NO2 &#123; public static void main(String[] args) &#123; Stack&lt;Integer&gt; s = new Stack&lt;&gt;(); s.push(2); s.push(4); s.push(3); s.push(5); s.push(22); s.push(7); s.push(1); s = sortByStack(s); while (!s.isEmpty())&#123; System.out.println(s.pop()); &#125; &#125; public static Stack&lt;Integer&gt; sortByStack(Stack&lt;Integer&gt; stack1)&#123; Stack&lt;Integer&gt; help = new Stack&lt;Integer&gt;(); while (!stack1.isEmpty())&#123; // 需要用到pop的值时，应该先用一个变量将其保存下来。 int cur = stack1.pop(); while (!help.isEmpty() &amp;&amp; cur &gt; help.peek())&#123; // 这里要注意哦，help栈弹出数据以后，先push到stack1中，否则弹出的数据无法得到利用。 stack1.push(help.pop()); &#125; help.push(cur); &#125; // 依次将help栈中的数据放入stack1栈中 while (!help.isEmpty())&#123; stack1.push(help.pop()); &#125; // 返回已经排好序的stack1 return stack1; &#125;&#125; 思路这种题直接用内置栈实例化一个栈对象即可，再在方法里实例化一个空的新栈用来保存前一个栈弹出的数据，并且进行比较排序，最后将新栈的数据依次放入目标栈中。 复杂度 时间复杂度：属于O(N)的算法]]></content>
@@ -103,7 +114,7 @@
   <entry>
     <title><![CDATA[连续子数组的最大和]]></title>
     <url>%2F2017%2F07%2F13%2F%E8%BF%9E%E7%BB%AD%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C%2F</url>
-    <content type="text"><![CDATA[问题描述： 输入一个整型数组，数组里有正数，也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为 O(n)。 解决代码如下 12345678910111213141516171819202122232425public class Test3 &#123; public static void main(String[] args) &#123; int[] arr = &#123;1, 2, 3, -6, 7, 1, -1&#125;; System.out.println(maxSub(arr)); &#125; // 用到了动态规划的思想 private static int maxSub(int[] arr)&#123; int max = 0; int n = arr.length; int sum = 0; for(int i = 0; i&lt;n; i++)&#123; sum += arr[i]; if (sum &gt; max)&#123; max = sum; &#125; else if(sum &lt; 0)&#123; sum = 0; &#125; &#125; return max; &#125;&#125;]]></content>
+    <content type="text"><![CDATA[问题描述： 输入一个整型数组，数组里有正数，也有负数。数组中一个或连续的多个整数组成一个子数组。求所有子数组的和的最大值。要求时间复杂度为 O(n)。 解决代码如下 1234567891011121314151617181920212223242526272829public class Test3 &#123; public static void main(String[] args) &#123; int[] arr = &#123;1, 2, 3, -6, 7, 1, -1&#125;; System.out.println(maxSub(arr)); &#125; // 用到了动态规划的思想 private static int maxSub(int[] arr)&#123; if(arr == null || arr.length == 0)&#123; return 0; &#125; int max = 0; int n = arr.length; int sum = 0; for(int i = 0; i&lt;n; i++)&#123; sum += arr[i]; if (sum &gt; max)&#123; max = sum; &#125; else if(sum &lt; 0)&#123; sum = 0; &#125; &#125; return max; &#125;&#125;]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -388,17 +399,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
-    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
-      <categories>
-        <category>编辑器和工具使用</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JS之贪心算法]]></title>
     <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
@@ -407,6 +407,17 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
+    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
+      <categories>
+        <category>编辑器和工具使用</category>
+      </categories>
+      <tags>
+        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -683,22 +694,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[产品经理的职业修养]]></title>
-    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
-    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
+    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
+    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
+    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
       <categories>
-        <category>产品经理</category>
+        <category>释放团队力量</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
-    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
-    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
+    <title><![CDATA[产品经理的职业修养]]></title>
+    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
+    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
       <categories>
-        <category>释放团队力量</category>
+        <category>产品经理</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
