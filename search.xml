@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[感悟吧]]></title>
+    <url>%2F2017%2F08%2F01%2F%E6%84%9F%E6%82%9F%E5%90%A7%2F</url>
+    <content type="text"><![CDATA[个人反省 看的书挺多的，但是很多没有实践，其实有点原因吧，因为学习原因，我的专业学校要求的很严，实习都强制本专业实习，就因为全国排名高，上课花式点名，不敢逃课，关键大三的时候几乎天天满课，已经很利用时间学习我热爱的事情，尽可能的买书看，多吸收好的知识，等用到的时候有印象，或者很熟悉，直接翻翻书就可以搞了。另一方面自己的专业必须要先学好，我也算是完成的比较好，因为有学产品经理的背景，我和别人沟通很流程，换句总结的话说：我的同理心很好，我在10个成员的小组里担任代表上台给公司负责人和老师们做演讲。我很开心，很开心他们主动选我做代表，说我演讲的挺棒的。有感染力。我也算是对自己的本专业尽职尽责了。 这方面我做的还行吧，安慰一下自己。 个人目前遇到的问题 缺少实践，缺少实践，没有实习。。挺困扰我的，能做的就是在大四的时候有时间的时间内，多去弥补这个弱项。 不要被自己感动 有github，并且配合git好好利用了，有个人网站，自己学习搭的，有自己的博客，里面笔记自己写的，虽然会忘，但是依旧会认真写。学习的东西也不少了，总之没有虚度光阴吧，追随我热爱的，一直下去。 算是感悟么会一直更加努力下去的，学海无涯苦作舟，没有为什么，仅仅是我的人生梦想。]]></content>
+      <categories>
+        <category>人生</category>
+      </categories>
+      <tags>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[通用的事件侦听器函数]]></title>
     <url>%2F2017%2F07%2F31%2F%E9%80%9A%E7%94%A8%E7%9A%84%E4%BA%8B%E4%BB%B6%E4%BE%A6%E5%90%AC%E5%99%A8%E5%87%BD%E6%95%B0%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576object.Event = &#123; // 页面加载完成后 readyEvent : function(fn) &#123; if (fn==null) &#123; fn=document; &#125; var oldonload = window.onload; if (typeof window.onload != 'function') &#123; window.onload = fn; &#125; else &#123; window.onload = function() &#123; oldonload(); fn(); &#125;; &#125; &#125;, // 根据能力分别使用dom0||dom2||IE方式 来绑定事件 // 参数： 操作的元素,事件名称 ,事件处理程序 addEvent : function(element, type, handler) &#123; if (element.addEventListener) &#123; //事件类型、需要执行的函数、是否捕捉 element.addEventListener(type, handler, false); &#125; else if (element.attachEvent) &#123; element.attachEvent('on' + type, function() &#123; handler.call(element); &#125;); &#125; else &#123; element['on' + type] = handler; &#125; &#125;, // 移除事件 removeEvent : function(element, type, handler) &#123; if (element.removeEnentListener) &#123; element.removeEnentListener(type, handler, false); &#125; else if (element.detachEvent) &#123; element.detachEvent('on' + type, handler); &#125; else &#123; element['on' + type] = null; &#125; &#125;, // 阻止事件 (主要是事件冒泡，因为IE不支持事件捕获) stopPropagation : function(ev) &#123; if (ev.stopPropagation) &#123; ev.stopPropagation(); &#125; else &#123; ev.cancelBubble = true; &#125; &#125;, // 取消事件的默认行为 preventDefault : function(event) &#123; if (event.preventDefault) &#123; event.preventDefault(); &#125; else &#123; event.returnValue = false; &#125; &#125;, // 获取事件目标 getTarget : function(event) &#123; return event.target || event.srcElement; &#125;, // 获取event对象的引用，取到事件的所有信息，确保随时能使用event； getEvent : function(e) &#123; var ev = e || window.event; if (!ev) &#123; var c = this.getEvent.caller; while (c) &#123; ev = c.arguments[0]; if (ev &amp;&amp; Event == ev.constructor) &#123; break; &#125; c = c.caller; &#125; &#125; return ev; &#125;&#125;;]]></content>
@@ -576,6 +587,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[用Axure写产品需求文档]]></title>
+    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
+      <categories>
+        <category>Axure</category>
+      </categories>
+      <tags>
+        <tag>Axure</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端进阶文章目录]]></title>
     <url>%2F2017%2F05%2F11%2F%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[很棒的文章，看完进阶没有问题。前端基础进阶（一）：内存空间详细图解http://www.jianshu.com/p/996671d4dcc4 前端基础进阶（二）：执行上下文详细图解http://www.jianshu.com/p/a6d37c77e8db 前端基础进阶（三）：变量对象详解http://www.jianshu.com/p/330b1505e41d 前端基础进阶（四）：详细图解作用域链与闭包http://www.jianshu.com/p/21a16d44f150 前端基础进阶（五）：全方位解读thishttp://www.jianshu.com/p/d647aa6d1ae6 前端基础进阶（六）：在chrome开发者工具中观察函数调用栈、作用域链与闭包http://www.jianshu.com/p/73122bb3d262 前端基础进阶（七）：函数与函数式编程http://www.jianshu.com/p/69dede6f7e5f 前端基础进阶（八）：深入详解函数的柯里化http://www.jianshu.com/p/5e1899fe7d6b 前端基础进阶（九）：详解面向对象、构造函数、原型与原型链http://www.jianshu.com/p/15ac7393bc1f 前端基础进阶（十）：面向对象实战之封装拖拽对象http://www.jianshu.com/p/b3dee0e84454 前端基础进阶（十一）：详细图解jQuery对象，以及如何扩展jQuery插件http://www.jianshu.com/p/3f97570d22b4 前端基础进阶（十二）：深入核心，详解事件循环机制http://www.jianshu.com/p/12b9f73c5a4f 前端基础进阶（十三）：Promise使用详解http://www.jianshu.com/p/fe5f173276bd 前端基础进阶（十四）：ES6基础知识合集http://www.jianshu.com/p/cfb0893c34f1 前端基础进阶（十五）：详解 ES6 Moduleshttp://www.jianshu.com/p/3f97570d22b4 我想这将是最有价值的react入门与进阶教程http://www.jianshu.com/p/83bda9cd8c67]]></content>
@@ -589,17 +611,6 @@
         <tag>this</tag>
         <tag>Promise</tag>
         <tag>Jquery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[用Axure写产品需求文档]]></title>
-    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
-    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
-      <categories>
-        <category>Axure</category>
-      </categories>
-      <tags>
-        <tag>Axure</tag>
       </tags>
   </entry>
   <entry>
@@ -738,22 +749,22 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[产品经理的职业修养]]></title>
-    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
-    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
+    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
+    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
+    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
       <categories>
-        <category>产品经理</category>
+        <category>释放团队力量</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[让创业团队拧成一股绳的不败法则]]></title>
-    <url>%2F2016%2F09%2F15%2F%E8%AE%A9%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F%E6%8B%A7%E6%88%90%E4%B8%80%E8%82%A1%E7%BB%B3%E7%9A%84%E4%B8%8D%E8%B4%A5%E6%B3%95%E5%88%99%2F</url>
-    <content type="text"><![CDATA[序：千人同心,则得千人之力;万人异心,则无一人之用。 团队生存法则记住：没有人能能够脱离团队的力量而独自生存，不论你有多强。 追求公平，不如崇尚公正。 不管什么事，都要做好最坏的打算。 什么样的人在团队中有较好的前景呢？经验丰富者；最年轻和富有活力者；最机智而年富力强者，这是自然的选择。 在一个团队中，喜欢说谎者必须离开。 懒惰的强者必须离开。 交流和沟通能力存在巨大问题的也得离开。 喜欢在团队中尔虞我诈的人必须离开，阴谋的爱好者，最后会死于阴谋。 必须谦虚而尊重同事，否则将被淘汰。 在激烈的团队竞争中，个人的生存只有两条路，支持和反对，如果你想走第三条路，一定会失败。 利用一切办法，让别人了解你，理解你。 做一个诚实的人，这一点永远不要改变。 团队管理法则必须有明确的分工，这样团队中的成员才能知道自己该做什么，需要达到什么目标。 团队获得的利益一定要共享，必须确保每一个团队成员都能获得公正的利益。公正的分配方式是最有利的武器。 不管你有多么成功，切记，将功劳与荣耀归于团队的伙伴。 知人善用。 守承诺，讲信用，答应的事情一定要做到。 保持自信和乐观。 必须具备很高的交际能力，他可以与任何人就任何话题沟通，并总能说服对方，或者大度的被说服。 对待下属要有人情味。 团队团结奥秘把同事当队友，而非你的对手。 心胸大点，不要去排挤同事。 你成就了团队，团队也会成就你。 团队个人法则做决定时犹豫不决和在工作中依赖别人的人，难以晋升。 永远不要埋怨。]]></content>
+    <title><![CDATA[产品经理的职业修养]]></title>
+    <url>%2F2016%2F09%2F15%2F%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E8%81%8C%E4%B8%9A%E4%BF%AE%E5%85%BB%2F</url>
+    <content type="text"><![CDATA[序：学道客，修养莫迟迟，光景斯须如梦里。 8句话诚实。 有所长有所短。 对产品有信心并且做好了长期吃苦的思想准备。 能够在行进中不断开火，而不是纸上谈兵。 愿意倾听用户的意见和其他人善意的建议。 不推卸责任。 不会认为理论上可行就等于彻底搞定。 不会去浪费时间重新发明轮子。]]></content>
       <categories>
-        <category>释放团队力量</category>
+        <category>产品经理</category>
       </categories>
       <tags>
         <tag>产品经理</tag>
