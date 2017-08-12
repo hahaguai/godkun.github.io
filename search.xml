@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常用的JS代码片]]></title>
+    <url>%2F2017%2F08%2F09%2F%E5%B8%B8%E7%94%A8%E7%9A%84JS%E4%BB%A3%E7%A0%81%E7%89%87%2F</url>
+    <content type="text"><![CDATA[功能测试123456789101112if (element.addEventListener &#123; // 在使用W3C方法之前检测它是否可用 element.addEventListener("keydown", handler, false); element.addEventListener("keypress",handler, false); &#125; else if(element.attachEvent) &#123; // 在使用IE方法之前检测它 element.attachEvent("onkeydown", handler); element.attachEvent("onkeypress", handler); &#125; else&#123; // 都不能用的时候，选择普遍支持的技术 element.onkeydown = element.onkeypress = handler; &#125;]]></content>
+      <categories>
+        <category>代码片</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于BFC的经典文章]]></title>
+    <url>%2F2017%2F08%2F02%2F%E5%85%B3%E4%BA%8EBFC%E7%9A%84%E7%BB%8F%E5%85%B8%E6%96%87%E7%AB%A0%2F</url>
+    <content type="text"><![CDATA[看这两篇文章就够了，讲解的很透彻 CSS之BFC详解http://www.html-js.com/article/1866 深入理解BFC和Margin Collapsehttp://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>BFC</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[感悟吧]]></title>
     <url>%2F2017%2F08%2F01%2F%E6%84%9F%E6%82%9F%E5%90%A7%2F</url>
     <content type="text"><![CDATA[个人反省 看的书挺多的，但是很多没有实践，其实有点原因吧，因为学习原因，我的专业学校要求的很严，实习都强制本专业实习，就因为全国排名高，上课花式点名，不敢逃课，关键大三的时候几乎天天满课，已经很利用时间学习我热爱的事情，尽可能的买书看，多吸收好的知识，等用到的时候有印象，或者很熟悉，直接翻翻书就可以搞了。 另一方面自己的专业必须要先学好，我也算是完成的比较好，因为有学产品经理的背景，我和别人沟通很流程，换句总结的话说：我的同理心很好，我在10个成员的小组里担任代表上台给公司负责人和老师们做演讲。我很开心，很开心他们主动选我做代表，说我演讲的挺棒的。有感染力。我也算是对自己的本专业尽职尽责了。 这方面我做的还行吧，安慰一下自己。 个人目前遇到的问题 缺少实践，缺少实践，没有实习。。挺困扰我的，能做的就是在大四的时候有时间的时间内，多去弥补这个弱项。 不要被自己感动 有github，并且配合git好好利用了，有个人网站，自己学习搭的，有自己的博客，里面笔记自己写的，虽然会忘，但是依旧会认真写。学习的东西也不少了，总之没有虚度光阴吧，追随我热爱的，一直下去。 算是感悟么会一直更加努力下去的，学海无涯苦作舟，没有为什么，仅仅是我的人生梦想。]]></content>
@@ -343,7 +365,7 @@
   <entry>
     <title><![CDATA[前端开发中遇到的陌生英文单词【一直更新】]]></title>
     <url>%2F2017%2F07%2F01%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%99%8C%E7%94%9F%E8%8B%B1%E6%96%87%E5%8D%95%E8%AF%8D%E3%80%90%E4%B8%80%E7%9B%B4%E6%9B%B4%E6%96%B0%E3%80%91%2F</url>
-    <content type="text"><![CDATA[运用webpack,&emsp;react 过程中遇到的单词enforce : 执行omit : 忽略customize : 定制pinned : 固定API schema ；API模式emit : 发射chunk : 块hot module replacement : 热模块交换component : 组件loader : 加载器encrypt : 加密progressive enhancement : 渐进增强delegation : 代理，委托wrap : 包bind : 约束toggle : 切换siblings : 兄弟，同级enabled : 可用状态trigger : 触发器agent : 代理embed : 嵌入]]></content>
+    <content type="text"><![CDATA[运用webpack,&emsp;react 过程中遇到的单词enforce : 执行omit : 忽略customize : 定制pinned : 固定API schema ；API模式emit : 发射chunk : 块hot module replacement : 热模块交换component : 组件loader : 加载器encrypt : 加密progressive enhancement : 渐进增强delegation : 代理，委托wrap : 包bind : 约束toggle : 切换siblings : 兄弟，同级enabled : 可用状态trigger : 触发器agent : 代理embed : 嵌入 compose : 撰写delegate : 代理]]></content>
       <categories>
         <category>单词翻译</category>
       </categories>
@@ -454,17 +476,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
-    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
-      <categories>
-        <category>编辑器和工具使用</category>
-      </categories>
-      <tags>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JS之贪心算法]]></title>
     <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
@@ -473,6 +484,17 @@
       </categories>
       <tags>
         <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
+    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
+      <categories>
+        <category>编辑器和工具使用</category>
+      </categories>
+      <tags>
+        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -587,17 +609,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[用Axure写产品需求文档]]></title>
-    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
-    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
-      <categories>
-        <category>Axure</category>
-      </categories>
-      <tags>
-        <tag>Axure</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[前端进阶文章目录]]></title>
     <url>%2F2017%2F05%2F11%2F%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[很棒的文章，看完进阶没有问题。前端基础进阶（一）：内存空间详细图解http://www.jianshu.com/p/996671d4dcc4 前端基础进阶（二）：执行上下文详细图解http://www.jianshu.com/p/a6d37c77e8db 前端基础进阶（三）：变量对象详解http://www.jianshu.com/p/330b1505e41d 前端基础进阶（四）：详细图解作用域链与闭包http://www.jianshu.com/p/21a16d44f150 前端基础进阶（五）：全方位解读thishttp://www.jianshu.com/p/d647aa6d1ae6 前端基础进阶（六）：在chrome开发者工具中观察函数调用栈、作用域链与闭包http://www.jianshu.com/p/73122bb3d262 前端基础进阶（七）：函数与函数式编程http://www.jianshu.com/p/69dede6f7e5f 前端基础进阶（八）：深入详解函数的柯里化http://www.jianshu.com/p/5e1899fe7d6b 前端基础进阶（九）：详解面向对象、构造函数、原型与原型链http://www.jianshu.com/p/15ac7393bc1f 前端基础进阶（十）：面向对象实战之封装拖拽对象http://www.jianshu.com/p/b3dee0e84454 前端基础进阶（十一）：详细图解jQuery对象，以及如何扩展jQuery插件http://www.jianshu.com/p/3f97570d22b4 前端基础进阶（十二）：深入核心，详解事件循环机制http://www.jianshu.com/p/12b9f73c5a4f 前端基础进阶（十三）：Promise使用详解http://www.jianshu.com/p/fe5f173276bd 前端基础进阶（十四）：ES6基础知识合集http://www.jianshu.com/p/cfb0893c34f1 前端基础进阶（十五）：详解 ES6 Moduleshttp://www.jianshu.com/p/3f97570d22b4 我想这将是最有价值的react入门与进阶教程http://www.jianshu.com/p/83bda9cd8c67]]></content>
@@ -611,6 +622,17 @@
         <tag>this</tag>
         <tag>Promise</tag>
         <tag>Jquery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[用Axure写产品需求文档]]></title>
+    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
+      <categories>
+        <category>Axure</category>
+      </categories>
+      <tags>
+        <tag>Axure</tag>
       </tags>
   </entry>
   <entry>
