@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[常用的JS代码片]]></title>
-    <url>%2F2017%2F08%2F09%2F%E5%B8%B8%E7%94%A8%E7%9A%84JS%E4%BB%A3%E7%A0%81%E7%89%87%2F</url>
-    <content type="text"><![CDATA[功能测试123456789101112if (element.addEventListener &#123; // 在使用W3C方法之前检测它是否可用 element.addEventListener("keydown", handler, false); element.addEventListener("keypress",handler, false); &#125; else if(element.attachEvent) &#123; // 在使用IE方法之前检测它 element.attachEvent("onkeydown", handler); element.attachEvent("onkeypress", handler); &#125; else&#123; // 都不能用的时候，选择普遍支持的技术 element.onkeydown = element.onkeypress = handler; &#125;]]></content>
-      <categories>
-        <category>代码片</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[关于BFC的经典文章]]></title>
     <url>%2F2017%2F08%2F02%2F%E5%85%B3%E4%BA%8EBFC%E7%9A%84%E7%BB%8F%E5%85%B8%E6%96%87%E7%AB%A0%2F</url>
     <content type="text"><![CDATA[看这两篇文章就够了，讲解的很透彻 CSS之BFC详解http://www.html-js.com/article/1866 深入理解BFC和Margin Collapsehttp://www.w3cplus.com/css/understanding-bfc-and-margin-collapse.html]]></content>
@@ -609,6 +598,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[用Axure写产品需求文档]]></title>
+    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
+    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
+      <categories>
+        <category>Axure</category>
+      </categories>
+      <tags>
+        <tag>Axure</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[前端进阶文章目录]]></title>
     <url>%2F2017%2F05%2F11%2F%E5%89%8D%E7%AB%AF%E8%BF%9B%E9%98%B6%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%2F</url>
     <content type="text"><![CDATA[很棒的文章，看完进阶没有问题。前端基础进阶（一）：内存空间详细图解http://www.jianshu.com/p/996671d4dcc4 前端基础进阶（二）：执行上下文详细图解http://www.jianshu.com/p/a6d37c77e8db 前端基础进阶（三）：变量对象详解http://www.jianshu.com/p/330b1505e41d 前端基础进阶（四）：详细图解作用域链与闭包http://www.jianshu.com/p/21a16d44f150 前端基础进阶（五）：全方位解读thishttp://www.jianshu.com/p/d647aa6d1ae6 前端基础进阶（六）：在chrome开发者工具中观察函数调用栈、作用域链与闭包http://www.jianshu.com/p/73122bb3d262 前端基础进阶（七）：函数与函数式编程http://www.jianshu.com/p/69dede6f7e5f 前端基础进阶（八）：深入详解函数的柯里化http://www.jianshu.com/p/5e1899fe7d6b 前端基础进阶（九）：详解面向对象、构造函数、原型与原型链http://www.jianshu.com/p/15ac7393bc1f 前端基础进阶（十）：面向对象实战之封装拖拽对象http://www.jianshu.com/p/b3dee0e84454 前端基础进阶（十一）：详细图解jQuery对象，以及如何扩展jQuery插件http://www.jianshu.com/p/3f97570d22b4 前端基础进阶（十二）：深入核心，详解事件循环机制http://www.jianshu.com/p/12b9f73c5a4f 前端基础进阶（十三）：Promise使用详解http://www.jianshu.com/p/fe5f173276bd 前端基础进阶（十四）：ES6基础知识合集http://www.jianshu.com/p/cfb0893c34f1 前端基础进阶（十五）：详解 ES6 Moduleshttp://www.jianshu.com/p/3f97570d22b4 我想这将是最有价值的react入门与进阶教程http://www.jianshu.com/p/83bda9cd8c67]]></content>
@@ -622,17 +622,6 @@
         <tag>this</tag>
         <tag>Promise</tag>
         <tag>Jquery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[用Axure写产品需求文档]]></title>
-    <url>%2F2017%2F05%2F11%2F%E7%94%A8Axure%E5%86%99%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%2F</url>
-    <content type="text"><![CDATA[链接如下： http://www.jianshu.com/p/2006f660d2b0]]></content>
-      <categories>
-        <category>Axure</category>
-      </categories>
-      <tags>
-        <tag>Axure</tag>
       </tags>
   </entry>
   <entry>
