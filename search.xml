@@ -365,7 +365,7 @@
   <entry>
     <title><![CDATA[前端开发中遇到的陌生英文单词【一直更新】]]></title>
     <url>%2F2017%2F07%2F01%2F%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%99%8C%E7%94%9F%E8%8B%B1%E6%96%87%E5%8D%95%E8%AF%8D%E3%80%90%E4%B8%80%E7%9B%B4%E6%9B%B4%E6%96%B0%E3%80%91%2F</url>
-    <content type="text"><![CDATA[运用webpack,&emsp;react 过程中遇到的单词enforce : 执行omit : 忽略customize : 定制pinned : 固定API schema ；API模式emit : 发射chunk : 块hot module replacement : 热模块交换component : 组件loader : 加载器encrypt : 加密progressive enhancement : 渐进增强delegation : 代理，委托wrap : 包bind : 约束toggle : 切换siblings : 兄弟，同级enabled : 可用状态trigger : 触发器agent : 代理embed : 嵌入 compose : 撰写delegate : 代理deprecate ：忽视shorthand for ：速记为]]></content>
+    <content type="text"><![CDATA[运用webpack,&emsp;react 过程中遇到的单词enforce : 执行omit : 忽略customize : 定制pinned : 固定API schema ；API模式emit : 发射chunk : 块hot module replacement : 热模块交换component : 组件loader : 加载器encrypt : 加密progressive enhancement : 渐进增强delegation : 代理，委托wrap : 包bind : 约束toggle : 切换siblings : 兄弟，同级enabled : 可用状态trigger : 触发器agent : 代理embed : 嵌入 compose : 撰写delegate : 代理deprecate ：忽视shorthand for ：速记为dialog : 对话，一般用做对话框emitter : 发射debounce 去抖tooltip 提示plotLines 主要情节revert 还原Trailing spaces not allowed : 闲置空间不允许Missing semicolon 缺少分号Missing trailing comma 缺少逗号slat 板条scale 规模feature 特征stock 股票， stockChart 想股票那样的图表subject : 科目，主题，主体util : 包polyfill : 填充工具Dispatch a request 发出请求zone 区mutations 突变daispath 调度advanced features 高级功能function parentheses 函数括号validation：验证validate: 验证dispatch: 分发，派遣quota：配额commit：提交mutation: 突变paginationendpoint 端点unexpected trailing comma 意外的逗号]]></content>
       <categories>
         <category>单词翻译</category>
       </categories>
