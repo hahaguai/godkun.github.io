@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 ###">
+<meta name="description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 一些值得思考的地方字面量是什么意识在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。比如 x = 5; 这里的 x 是">
 <meta name="keywords" content="JSON">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSON心得">
 <meta property="og:url" content="http://yoursite.com/2017/10/27/JSON心得/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 ###">
-<meta property="og:updated_time" content="2017-10-27T07:40:12.646Z">
+<meta property="og:description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 一些值得思考的地方字面量是什么意识在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。比如 x = 5; 这里的 x 是">
+<meta property="og:updated_time" content="2017-10-27T11:50:04.354Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON心得">
-<meta name="twitter:description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 ###">
+<meta name="twitter:description" content="JSON的总结1: 是一种数据交换格式2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 一些值得思考的地方字面量是什么意识在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。比如 x = 5; 这里的 x 是">
 
 
 
@@ -425,7 +425,11 @@
 
       
         <h3 id="JSON的总结"><a href="#JSON的总结" class="headerlink" title="JSON的总结"></a>JSON的总结</h3><p>1: 是一种数据交换格式<br>2: 独立于编程语言<br>3：基于JS对象字面量表示法<br>4：表达数据的方式对通用的编程概念都很友好<br>注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。</p>
-<p>### </p>
+<h3 id="一些值得思考的地方"><a href="#一些值得思考的地方" class="headerlink" title="一些值得思考的地方"></a>一些值得思考的地方</h3><h4 id="字面量是什么意识"><a href="#字面量是什么意识" class="headerlink" title="字面量是什么意识"></a>字面量是什么意识</h4><p>在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。<br>比如 x = 5; 这里的 x 是变量<br>x = x + 5;  这里我们肯定知道 x = 10了，其中的 5 就是字面量，也就是我们看到的实际值，就是字面的值。<br>比如5美元就是字面量，而行用卡就是变量</p>
+<h4 id="书写正确的格式"><a href="#书写正确的格式" class="headerlink" title="书写正确的格式"></a>书写正确的格式</h4><p>json中的名称一定要用双引号包裹，值不一定用，值可以是字符串、数字、布尔值、null、对象或者数组。<br>json中，多个名称-值对使用逗号分割<br>json媒体类型是application/json</p>
+<h4 id="验证json是否正确"><a href="#验证json是否正确" class="headerlink" title="验证json是否正确"></a>验证json是否正确</h4><p>使用JSONLint</p>
+<h4 id="从机器的角度去理解JSON"><a href="#从机器的角度去理解JSON" class="headerlink" title="从机器的角度去理解JSON"></a>从机器的角度去理解JSON</h4><p>{ 指开始读取对象<br>} 指结束读取对象<br>[ 指开始读取数组<br>] 指结束读取数组<br>: 指在名称-值对中分割名称和值<br>，逗号指分割对象中的名称-值对，或者分割数组中的值，也可以认为是一个新部分的开始</p>
+<p>所以如果书写不正确，就无法解析，比如你在名称-值对列表的结尾处加上一个逗号，就会报错，因为<br>你给机器的指令是”一个新部分的开始“，但是后面什么都没有，所以当然报错了</p>
 
       
     </div>
@@ -643,7 +647,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON的总结"><span class="nav-number">1.</span> <span class="nav-text">JSON的总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON的总结"><span class="nav-number">1.</span> <span class="nav-text">JSON的总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些值得思考的地方"><span class="nav-number">2.</span> <span class="nav-text">一些值得思考的地方</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#字面量是什么意识"><span class="nav-number">2.1.</span> <span class="nav-text">字面量是什么意识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#书写正确的格式"><span class="nav-number">2.2.</span> <span class="nav-text">书写正确的格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#验证json是否正确"><span class="nav-number">2.3.</span> <span class="nav-text">验证json是否正确</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从机器的角度去理解JSON"><span class="nav-number">2.4.</span> <span class="nav-text">从机器的角度去理解JSON</span></a></li></ol></li></ol></div>
             
 
           </div>
