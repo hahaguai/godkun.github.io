@@ -419,7 +419,11 @@
 <h4 id="验证json是否正确"><a href="#验证json是否正确" class="headerlink" title="验证json是否正确"></a>验证json是否正确</h4><p>使用JSONLint</p>
 <h4 id="从机器的角度去理解JSON"><a href="#从机器的角度去理解JSON" class="headerlink" title="从机器的角度去理解JSON"></a>从机器的角度去理解JSON</h4><p>{ 指开始读取对象<br>} 指结束读取对象<br>[ 指开始读取数组<br>] 指结束读取数组<br>: 指在名称-值对中分割名称和值<br>，逗号指分割对象中的名称-值对，或者分割数组中的值，也可以认为是一个新部分的开始</p>
 <p>所以如果书写不正确，就无法解析，比如你在名称-值对列表的结尾处加上一个逗号，就会报错，因为<br>你给机器的指令是”一个新部分的开始“，但是后面什么都没有，所以当然报错了</p>
-
+<h4 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h4><p>1: json不是JavaScript对象字面量，它只是基于JavaScript对象字面量，所以在JSON中，仅允许使用双引号来包裹字符串。<br>2：当值中含有双引号和反斜线等字符时，要用反斜线进行转义，不然会报错。<br>3：对象和数组很关键的一个区别就是，对象是名称-值对构成的列表或集合，数组是值构成的列表或集合。<br>4：数组中所有的值应具有相同的数据类型。<br>5：JSON中的null值的所有字母必须小写</p>
+<h4 id="JSON-Schema"><a href="#JSON-Schema" class="headerlink" title="JSON Schema"></a>JSON Schema</h4><p>是对JSON数据格式的一致性进行验证，是数据发送方节约时间，保证数据正确的好工具<br>可以解决以下问题<br>1: 值的数据类型是否正确？   可以具体规定一个值是数字、字符串等类型<br>2：是否包含所需要的数据？   可以规定哪些数据是需要的，哪些是不需要的<br>3：值的形式是不是我需要的？ 可以指定范围，最小值和最大值</p>
+<h4 id="json安全问题"><a href="#json安全问题" class="headerlink" title="json安全问题"></a>json安全问题</h4><p>1：不要使用顶层数组，顶层数组是合法的JavaScript脚本，它们可以用<script>标签链接并使用<br>2：对于不想公开的资源，仅允许使用HTTP POST方法请求，而不是GET方法，GET方法可以通过URL来请求，甚至可以放在<script>标签中<br>3：使用JSON.parse()来代替eval()， eval()函数会将传入的字符串编译并执行，这会让你的代码易被攻击。仅仅使用JSON.parse()来解析JSON数据<br>4：要对值内的<div>这种代码进行转码，比如转成&lt;div&gt; 不转码的话会有安全风险</p>
+<h4 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h4><p>1：顶层JSON数组<br>存在于JSON名称-值对之外的位于文档最顶层的JSON数组<br>2：服务端<br>当页面或资源被请求时，在服务器上执行的一系列操作。服务器为互联网浏览器提供其处理和加载的响应</p>
+</script></p>
           
         
       
