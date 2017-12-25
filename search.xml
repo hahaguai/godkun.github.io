@@ -487,17 +487,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS之贪心算法]]></title>
-    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
-      <categories>
-        <category>JS世界里的算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[sublime3的经典操作和快捷键]]></title>
     <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
@@ -506,6 +495,17 @@
       </categories>
       <tags>
         <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS之贪心算法]]></title>
+    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
+      <categories>
+        <category>JS世界里的算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
@@ -677,8 +677,8 @@
         <category>WEB前端</category>
       </categories>
       <tags>
-        <tag>AJAX</tag>
         <tag>JS</tag>
+        <tag>AJAX</tag>
       </tags>
   </entry>
   <entry>
