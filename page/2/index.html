@@ -323,567 +323,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/25/用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标/" itemprop="url">用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T23:50:41+08:00">
-                2017-07-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="比较简单，直接上代码了"><a href="#比较简单，直接上代码了" class="headerlink" title="比较简单，直接上代码了"></a>比较简单，直接上代码了</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryFind</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">234</span>&#125;;</div><div class="line">		</div><div class="line">        <span class="keyword">int</span> a = f1(arr, <span class="number">4</span>);</div><div class="line">        System.out.println(<span class="string">"4第一次出现的下标为："</span> + a);</div><div class="line">        <span class="keyword">int</span> b = f2(arr, <span class="number">4</span>);</div><div class="line">        System.out.println(<span class="string">"4最后一次出现的下标为: "</span> + b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  用二分法打印打一次出现的目标元素的下标</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> right = arr.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</div><div class="line"></div><div class="line">            <span class="comment">//  这里是关键代码，向右进位需要多加1</span></div><div class="line">            mid = (left + right) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (arr[mid] &lt; value)&#123;</div><div class="line">                left = mid + <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                right = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] == value)</div><div class="line">            <span class="keyword">return</span> left;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  用二分法打印打最后出现的目标元素的下标</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> right = arr.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</div><div class="line">            mid = (left + right + <span class="number">1</span>) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (arr[mid] &gt; value)&#123;</div><div class="line">                right = mid - <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                left = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] == value)</div><div class="line">            <span class="keyword">return</span> left;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>在最简单的二分法的实现上进行了优化，使其可以选择输出目标元素的位置。这里需要注意代码中，字为关键代码的注释的那句代码，如果不加1，则会死循环。<br><strong>时间复杂度为O(lgN)</strong></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/打印两个有序链表的公共部分/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/打印两个有序链表的公共部分/" itemprop="url">打印两个有序链表的公共部分</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T17:39:18+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="直接上代码了"><a href="#直接上代码了" class="headerlink" title="直接上代码了"></a>直接上代码了</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseSingleLink</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Node head1 = <span class="keyword">new</span> Node(<span class="number">1</span>);</div><div class="line">        Node head2 = <span class="keyword">new</span> Node(<span class="number">3</span>);</div><div class="line">		</div><div class="line">        Node node1 = <span class="keyword">new</span> Node(<span class="number">2</span>);</div><div class="line">        Node node2 = <span class="keyword">new</span> Node(<span class="number">3</span>);</div><div class="line">        Node node3 = <span class="keyword">new</span> Node(<span class="number">4</span>);</div><div class="line">        Node node4 = <span class="keyword">new</span> Node(<span class="number">5</span>);</div><div class="line">		</div><div class="line">        head1.next = node1;</div><div class="line">        node1.next = node2;</div><div class="line">        node2.next = node3;</div><div class="line"></div><div class="line">        head2.next = node4;</div><div class="line">		</div><div class="line">        printCommonPart(head1,head2);</div><div class="line">        System.out.print(<span class="string">"head1链表为："</span>);</div><div class="line">        </div><div class="line">		<span class="comment">// 打印出链表head1</span></div><div class="line">        <span class="keyword">while</span> (head1 != <span class="keyword">null</span>)&#123;</div><div class="line">            System.out.print(head1.value+<span class="string">" "</span>);</div><div class="line">            head1 = head1.next;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">        System.out.print(<span class="string">"head2链表为："</span>);</div><div class="line">		</div><div class="line">		<span class="comment">// 打印出链表head2</span></div><div class="line">        <span class="keyword">while</span> (head2 != <span class="keyword">null</span>)&#123;</div><div class="line">            System.out.print(head2.value+<span class="string">" "</span>);</div><div class="line">            head2 = head2.next;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCommonPart</span><span class="params">(Node head1, Node head2)</span> </span>&#123;</div><div class="line">        System.out.print(<span class="string">"公共部分是："</span>);</div><div class="line">		</div><div class="line">		<span class="comment">// 关键代码</span></div><div class="line">        <span class="keyword">while</span> (head1 != <span class="keyword">null</span> &amp;&amp; head2 != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (head1.value &lt; head2.value) &#123;</div><div class="line">                head1 = head1.next;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (head1.value &gt; head2.value) &#123;</div><div class="line">                head2 = head2.next;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                System.out.print(head1.value + <span class="string">" "</span>);</div><div class="line">                head1 = head1.next;</div><div class="line">                head2 = head2.next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>输出截图</strong></p>
-<p><img src="/images/printCommon.png" alt=""></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>如果head1的值小于head2，head1往后移动一位</li>
-<li>如果head1的值大于head2，head2往后移动一位</li>
-<li>如果head1的值等于head2，则打印出这个值，并同时使head1和head2往后移动一位</li>
-<li>直到head1或者head2其中任何一个移动到了null，整个过程就停止</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>很简单，时间复杂度为O(N)</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/判断一个数是否是回文数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/判断一个数是否是回文数/" itemprop="url">判断一个数是否是回文数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T16:20:44+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="回文数的定义"><a href="#回文数的定义" class="headerlink" title="回文数的定义"></a>回文数的定义</h3><blockquote>
-<p>对于非负数 其左右两边完全相同 则是回文。 例如: 121、22。<br>对于负数 其绝对值左右两边完全相同 则是回文。 例如: -121、-22。<br>设计一个算法判断给定的数是否为回文数，如果是，输出true 反之 输出false。</p>
-</blockquote>
-<p>代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Palindrome</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 主函数，用于测试，在控制台输入一个数。</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Palindrome test = <span class="keyword">new</span> Palindrome();</div><div class="line">        Scanner in = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">int</span> s = in.nextInt();</div><div class="line">        System.out.println(<span class="string">"输入的数是："</span>+ s);</div><div class="line">        System.out.println(<span class="string">"是否是回文数："</span>+ test.isPalindrome(s));</div><div class="line"></div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="comment">// 判断回文数方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">	</div><div class="line">	    <span class="comment">// 如果已经</span></div><div class="line">        <span class="keyword">if</span> (n == Integer.MIN_VALUE)&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">		</div><div class="line">		<span class="comment">// 取绝对值</span></div><div class="line">        n = Math.abs(n);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> help = <span class="number">1</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 将help位数变为与n一致  </span></div><div class="line">        <span class="keyword">while</span> ( n / help &gt;= <span class="number">10</span>)&#123;</div><div class="line">            help *= <span class="number">10</span>;</div><div class="line">        &#125;</div><div class="line">		</div><div class="line">		<span class="comment">// n = 0 表示所有位比较完  </span></div><div class="line">        <span class="keyword">while</span> (n != <span class="number">0</span>)&#123;</div><div class="line">			</div><div class="line">			<span class="comment">// 最高位 != 最低位  </span></div><div class="line">            <span class="keyword">if</span> (n / help != n % <span class="number">10</span>)&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">			</div><div class="line">			<span class="comment">// 去掉最高位和最低位，因为已经比较过了  </span></div><div class="line">            n = (n % help) / <span class="number">10</span>;</div><div class="line">			</div><div class="line">			<span class="comment">// 由于去掉两位，所以help要除以100</span></div><div class="line">            help /= <span class="number">100</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>输出截图</strong></p>
-<p><img src="/images/huiwenshu.png" alt=""></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>非常好的思路，时间复杂度为O(N)</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/数组的划分/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/数组的划分/" itemprop="url">数组的划分</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T00:27:41+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><blockquote>
-<p>给定一个数组arr，其中只含有0,1,2三种元素，请对arr进行排序</p>
-</blockquote>
-<h3 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Partition</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>&#125;;</div><div class="line">		</div><div class="line">		<span class="comment">// 调用排序函数</span></div><div class="line">        sortPart(arr);</div><div class="line">		</div><div class="line">		<span class="comment">// 循环输出数组</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr.length; j++)&#123;</div><div class="line">            System.out.print(arr[j] + <span class="string">" "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sortPart</span><span class="params">(<span class="keyword">int</span>[] arr)</span></span>&#123;</div><div class="line">        <span class="comment">// 判断数组是否为空</span></div><div class="line">        <span class="keyword">if</span> (arr == <span class="keyword">null</span> || arr.length == <span class="number">0</span>)&#123;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line">		</div><div class="line">		<span class="comment">// 定义存放0的区域为left，存放1的区域为index，存放2的区域为right</span></div><div class="line">        <span class="keyword">int</span> left = -<span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> right = arr.length;</div><div class="line">        <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">		</div><div class="line">		<span class="comment">// 关键代码，通过if判断加上互相交换函数，进行数值划分</span></div><div class="line">        <span class="keyword">while</span>(index &lt; right)&#123;</div><div class="line">            <span class="keyword">if</span> (arr[index] == <span class="number">0</span>)&#123;</div><div class="line">                swap(arr, ++left, index++);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (arr[index] == <span class="number">2</span>)&#123;</div><div class="line">                swap(arr, index, --right);</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                index++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	<span class="comment">// 对数组中的两个值进行交换</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> temp = arr[i];</div><div class="line">        arr[i] = arr[j];</div><div class="line">        arr[j] = temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>输出如下图</strong></p>
-<p><img src="/images/partition.png" alt=""></p>
-<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p><strong>时间复杂度为O(N),是最优解。</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/23/用一个栈实现另一个栈的排序/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1016,11 +455,581 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/矩阵的最短路径和/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/22/矩阵的最短路径和/" itemprop="url">矩阵的最短路径和</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T23:40:03+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
+<p>给定一个矩阵m，从左上角开始每次只能向右或者向下走，最后到达右下角的位置，路径上所有的数字累加起来就是路径和，返回所有路径中最小的路径和。 </p>
+</blockquote>
+<h3 id="解决的代码如下："><a href="#解决的代码如下：" class="headerlink" title="解决的代码如下："></a>解决的代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> recursiveAndDp;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by godkun on 2017/7/22.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MinPathSum</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[][] a = &#123;&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">18</span>&#125;,&#123;<span class="number">9</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">12</span>&#125;,&#123;<span class="number">15</span>,<span class="number">5</span>,<span class="number">11</span>,<span class="number">12</span>&#125;,&#123;<span class="number">22</span>,<span class="number">13</span>,<span class="number">15</span>,<span class="number">12</span>&#125;&#125;;</div><div class="line">        System.out.println(f1(a));</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span>[][] m)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (m == <span class="keyword">null</span> || m.length == <span class="number">0</span> || m[<span class="number">0</span>] == <span class="keyword">null</span> || m[<span class="number">0</span>].length == <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> row = m.length;</div><div class="line">        <span class="keyword">int</span> col = m[<span class="number">0</span>].length;</div><div class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[row][col];</div><div class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = m[<span class="number">0</span>][<span class="number">0</span>];</div><div class="line">		<span class="comment">// 第一行只能从左到右</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; row; i++)&#123;</div><div class="line">            dp[i][<span class="number">0</span>] = dp[i-<span class="number">1</span>][<span class="number">0</span>] + m[i][<span class="number">0</span>];</div><div class="line">        &#125;</div><div class="line">		</div><div class="line">		<span class="comment">// 第一列只能从上到下</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; col; j++)&#123;</div><div class="line">            dp[<span class="number">0</span>][j] = dp[<span class="number">0</span>][j - <span class="number">1</span>] + m[<span class="number">0</span>][j];</div><div class="line">        &#125;</div><div class="line">		</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; row; i++)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; col; j++)&#123;</div><div class="line">                dp[i][j] = Math.min(dp[i - <span class="number">1</span>][j],dp[i][j - <span class="number">1</span>]) + m[i][j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 返回最小路径和，也就是二维数组表里的最后一个值</span></div><div class="line">        <span class="keyword">return</span> dp[row - <span class="number">1</span>][col - <span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><blockquote>
+<p>使用动态规划做，先定义一个一样大小的二维数组dp[][], 先对dp[0][j]这一行进行确定最短路径，然后对dp[i][0]这一列进行确定最短路径，最后通过dp[i][j] = Math.min(dp[i - 1][j],dp[i][j - 1]) + m[i][j];也就是通过前面已经求出的一行和一列推出最短路的和。</p>
+</blockquote>
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><p><strong>时间复杂度是O(M x N)，由于dp[i][j]，所以空间复杂度也是O(M X N)。</strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/15/关于动态规划/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/15/关于动态规划/" itemprop="url">关于动态规划</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T12:07:27+08:00">
+                2017-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><blockquote>
+<p>先把问题分割成若干个子问题，然后求出子问题的答案，最后再利用这些答案得出整个问题的最终答案。</p>
+</blockquote>
+<p><strong>注意：动态规划的核心就是将子问题的答案预先保存到内存中。这个保存答案的内存区域就是缓存。然后重复利用其结果就能显著提高运算速度。</strong></p>
+<p><strong>动态规划就是通过预存（重复计算两次以上的）子问题结果值来提高运算速度的算法设计。</strong></p>
+<p>对比递归可以看出，递归没有对子问题运算的结果进行保存，这会出现很多重复计算。</p>
+<h3 id="如何运用动态规划"><a href="#如何运用动态规划" class="headerlink" title="如何运用动态规划"></a>如何运用动态规划</h3><blockquote>
+<p>这里我们要时刻想到把计算结果缓存下来，对于用什么缓存数据结构，因题目而异，多数情况下用数组就看满足缓存要求。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/分治法和递归法的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/分治法和递归法的区别/" itemprop="url">分治法和递归法的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T20:52:51+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>递归调用总是把问题分解为一个小问题和剩下的所有问题。</strong><br><strong>分治法会把问题分解为同等大小的子问题。</strong></p>
+<p>下面一张图就可以很明显的看出两者的区别</p>
+<p><img src="/images/algo1.png" alt=""></p>
+<blockquote>
+<p>上图左边是递归调用算法，右边是分治算法。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/个人总结的一些JavaScript小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/个人总结的一些JavaScript小技巧/" itemprop="url">个人总结的一些JavaScript小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T16:55:14+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="使用-将字符串转换成数字"><a href="#使用-将字符串转换成数字" class="headerlink" title="使用 + 将字符串转换成数字"></a>使用 + 将字符串转换成数字</h3><p>测试代码如图：</p>
+<p><img src="/images/tips1.png" alt=""></p>
+<blockquote>
+<p>提示一下，只适合字符串数据是全数字的，如果是”abc”或者”1ab”，则输出NaN，还有一个非常好的技巧，如果是”012”或者”0023”，则输出12，自动把字符串的最前面的所有0去掉。</p>
+</blockquote>
+<p><strong>还有一个好处，如下图，在new Date()前面加上 +  将返回一个时间戳。</strong></p>
+<p><img src="/images/tips2.png" alt=""></p>
+<h3 id="在循环中缓存array-length"><a href="#在循环中缓存array-length" class="headerlink" title="在循环中缓存array.length"></a>在循环中缓存array.length</h3><blockquote>
+<p>看下面这个数组循环</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; array.length; i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(array[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>如果是小数组，上面这样很好，如果是处理一个很大的数组，这段代码在每次迭代时，都会重新计算数组的大小，就会影响性能，为了避免这种现象，可以将array.length做一个缓存，如下面代码所示：</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> length = array.length;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; length; i++)&#123;</div><div class="line">	<span class="built_in">console</span>.log(array[i]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="合并数组"><a href="#合并数组" class="headerlink" title="合并数组"></a>合并数组</h3><blockquote>
+<p>合并两个数组，一般情况之下你都会使用Array.concat()函数，然而这个函数并不适合用来合并两个大型的数组，因为会消耗大量的内存来存储新创建的数组。可以使用Array.pus().apply(arr1,arr2)来替代创建一个新数组。这种方法不是用来创建一个新的数组，其只是将第一个第二个数组合并在一起，同时减少内存的使用。代码如图所示：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var array1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]; </div><div class="line">var array2 = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]; </div><div class="line">console.log(array1.push.apply(array1, array2)); <span class="comment">// [1,2,3,4,5,6];</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1065,7 +1074,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">44</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1076,7 +1085,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1087,7 +1096,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-count">35</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
