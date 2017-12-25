@@ -313,7 +313,7 @@
     <url>%2F2017%2F06%2F21%2F%E6%9A%97%E6%97%B6%E9%97%B4%2F</url>
     <content type="text"><![CDATA[波普尔曾经说过：人生不过是解决问题。 挑几个重要的收获说吧： 你比别人往后多看一年，你就比别人领先一年的时间来准备。 思考问题，去追寻答案的时候，一定要学会联想。 一定不要把简单的事情搞复杂。 遇到问题一定要自己动手，不要直接问答案。 坚持写博客，记录笔记，与自己对话。 找到你的不可替代性和核心竞争力。 兴趣遍地都是，专注和持之以恒才是真正稀缺的。 过早退出是一切失败的根源。 生活中的选择远比我们想象的要多，细微的选择差异造就了不同的人生。 一生的知识积累，自学的起码占90%]]></content>
       <categories>
-        <category>能力提升</category>
+        <category>reading-note</category>
       </categories>
       <tags>
         <tag>reading-note</tag>
@@ -357,7 +357,7 @@
     <url>%2F2017%2F05%2F10%2FJS%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%2F</url>
     <content type="text"><![CDATA[冒泡排序 通俗的说就是把一堆数放进有序数组里，然后从第一个数开始，依次比较自己和后一个数的值，如果需要输出升序排列，那就要把大的数放在后面，于是很自然的想到如果自己比后一个数大，那就要互相交换值，如果不大，则不需要交换。依次往后循环即可完成升序排序。降序排列同理。 算法步骤1：比较相邻的元素。如果第一个比第二个大，就互相交换。 2：对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。做完后，最后的元素会将是最大的数。 3：针对所有的元素重复以上的步骤，除了最后一个。 JS代码如下：123456789101112131415function bubbleSort(arr) &#123; var len = arr.length; for (var i = 0; i &lt; len - 1; i++) &#123; for (var j = 0; j &lt; len - 1 - i; j++) &#123; if (arr[j] &gt; arr[j+1]) &#123; // 相邻元素两两对比 var temp = arr[j+1]; // 元素交换 arr[j+1] = arr[j]; arr[j] = temp; &#125; &#125; &#125; console.log(arr);&#125;bubbleSort([5,4,3,2,1]); 将上面程序保存名为 bubbleSort 的 js 文件，然后进入 bubbleSort 所在的目录下，用 node bubbleSort.js 命令运行程序，结果如下图。 算法性能分析 由于嵌套两层 for 循环，导致时间复杂度为 O(n2)，n2 是 n 的平方的意识。当 n 很大的时候，性能非常差。所以仅仅只适合 n 很小的情况。]]></content>
       <categories>
-        <category>JS世界里的算法</category>
+        <category>JavaScript-Algorithm</category>
       </categories>
       <tags>
         <tag>JavaScript-Algorithm</tag>
