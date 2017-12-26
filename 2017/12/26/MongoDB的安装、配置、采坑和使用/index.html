@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="版本提示这里我用的是3.2.4版本 安装和配置12345678linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 12345">
+<meta name="description" content="版本提示这里我用的是3.2.4版本 安装和配置1234567linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 123456">
 <meta name="keywords" content="MongDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MongoDB的安装、配置、采坑和使用">
 <meta property="og:url" content="http://yoursite.com/2017/12/26/MongoDB的安装、配置、采坑和使用/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="版本提示这里我用的是3.2.4版本 安装和配置12345678linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 12345">
-<meta property="og:updated_time" content="2017-12-26T04:16:09.875Z">
+<meta property="og:description" content="版本提示这里我用的是3.2.4版本 安装和配置1234567linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 123456">
+<meta property="og:updated_time" content="2017-12-26T04:45:22.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MongoDB的安装、配置、采坑和使用">
-<meta name="twitter:description" content="版本提示这里我用的是3.2.4版本 安装和配置12345678linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 12345">
+<meta name="twitter:description" content="版本提示这里我用的是3.2.4版本 安装和配置1234567linxu命令cd d:cmd命令d:然后执行mkdir mongomkdir MongoDB 将软件安装到mongo目录里，安装时选择custom模式。安装完成后。123456cd MondoDBmkdir datamkdir logsmkdir etccd etc/vi mongo.conf 按下 i 进入编辑模式，输入 123456">
 
 
 
@@ -425,7 +425,7 @@
 
       
         <h4 id="版本提示"><a href="#版本提示" class="headerlink" title="版本提示"></a>版本提示</h4><p>这里我用的是3.2.4版本</p>
-<h3 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">linxu命令</div><div class="line">cd d:</div><div class="line"><span class="keyword">cmd</span><span class="bash">命令</span></div><div class="line">d:</div><div class="line"></div><div class="line">然后执行</div><div class="line">mkdir mongo</div><div class="line">mkdir MongoDB</div></pre></td></tr></table></figure>
+<h3 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">linxu命令</div><div class="line">cd d:</div><div class="line"><span class="keyword">cmd</span><span class="bash">命令</span></div><div class="line">d:</div><div class="line">然后执行</div><div class="line">mkdir mongo</div><div class="line">mkdir MongoDB</div></pre></td></tr></table></figure>
 <p>将软件安装到mongo目录里，安装时选择custom模式。安装完成后。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd MondoDB</div><div class="line">mkdir data</div><div class="line">mkdir logs</div><div class="line">mkdir etc</div><div class="line">cd etc/</div><div class="line">vi mongo.conf</div></pre></td></tr></table></figure></p>
 <p>按下 i 进入编辑模式，输入</p>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">dbpath</span>=D:\MongoDB\data\db</div><div class="line"><span class="attr">logpath</span>=D:\MongoDB\logs\mongo.log</div><div class="line"><span class="attr">logappend</span>=<span class="literal">true</span></div><div class="line"><span class="attr">quiet</span>=<span class="literal">true</span></div><div class="line"><span class="attr">port</span>=<span class="number">27017</span></div><div class="line"><span class="attr">journal</span>=<span class="literal">true</span></div><div class="line"><span class="attr">httpinterface</span>=<span class="literal">true</span></div><div class="line"><span class="attr">storageEngine</span>=mmapv1</div></pre></td></tr></table></figure>
@@ -434,6 +434,7 @@
 <li>继续输入以下命令<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> data/</div><div class="line"><span class="keyword">mkdir</span> <span class="keyword">db</span></div><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> logs/</div><div class="line">touch mongo.<span class="built_in">log</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <p><strong>以上关于关键的安装和与数据库的链接都配置好了，下面进行环境变量配置</strong></p>
 <ul>
 <li>右击我的电脑，选择属性，点击高级系统设置，找到环境变量设置，点击进去，选择系统变量，找到<code>PATH</code>，将类似这种<code>D:\mongo\bin</code>路径添加进去，注意与前一个环境变量路径用分号隔开。然后重启dos，输入</li>
@@ -441,7 +442,7 @@
 <figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongo <span class="comment">--version</span></div></pre></td></tr></table></figure>
 <p>就可以查看mongo的版本了。</p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>dos窗口下输入：</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mongod <span class="params">--config</span> D:\MongoDB\etc\mongo.conf</div><div class="line"><span class="string">//</span> 对于将<span class="params">--config</span>也省略不写，</div></pre></td></tr></table></figure>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --config D:<span class="symbol">\M</span>ongoDB<span class="symbol">\e</span>tc<span class="symbol">\m</span>ongo.conf</div></pre></td></tr></table></figure>
 <ul>
 <li>就可以启动mongo了，输入命令后。<br>打开浏览器<code>localhost:27017</code>,可以看到一段文字<blockquote>
 <p>It looks like you are trying to access MongoDB over HTTP on the native driver port.<br>说明启动mongo成功，接着打开<code>localhost:28017</code>,会看到数据库的详细内容。</p>
@@ -470,7 +471,7 @@
 </blockquote>
 <p><strong>配置服务后，配置和命令什么的都对，执行完命令，换行结束，但是打开服务，刷新，没有发现MongDB服务。</strong></p>
 <blockquote>
-<p>最后查看了日志，发现拒绝访问，cmd没有管理员权限。然后用了管理员的方式打开了dos，重新执行了配置服务。成功解决了</p>
+<p>最后查看了日志，发现拒绝访问，cmd没有管理员权限。然后用了管理员的方式打开了dos，重新执行了配置服务，成功解决了。</p>
 </blockquote>
 
       
