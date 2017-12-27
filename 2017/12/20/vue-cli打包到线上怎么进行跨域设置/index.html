@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Experiences," />
+  <meta name="keywords" content="Vue," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
-<meta name="keywords" content="Experiences">
+<meta name="description" content="vue 在开发环境，涉及跨域，就在本地配置了代理。但是部署到服务器上，就不行了。  解决方法有一下几种 服务器端配置CORS 用nginx反向代理,和访问本地服务器是一样的。 可以修改成正式线上的地址，再build  推荐 使用nginx配置反向代理，这样就可以在前端彻底解决跨域问题。">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AMD、CMD、CommonJS、ES6比较">
-<meta property="og:url" content="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/index.html">
+<meta property="og:title" content="vue-cli打包到线上怎么进行跨域设置">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/vue-cli打包到线上怎么进行跨域设置/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
-<meta property="og:updated_time" content="2017-12-27T04:42:33.484Z">
+<meta property="og:description" content="vue 在开发环境，涉及跨域，就在本地配置了代理。但是部署到服务器上，就不行了。  解决方法有一下几种 服务器端配置CORS 用nginx反向代理,和访问本地服务器是一样的。 可以修改成正式线上的地址，再build  推荐 使用nginx配置反向代理，这样就可以在前端彻底解决跨域问题。">
+<meta property="og:updated_time" content="2017-12-27T07:10:23.680Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AMD、CMD、CommonJS、ES6比较">
-<meta name="twitter:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
+<meta name="twitter:title" content="vue-cli打包到线上怎么进行跨域设置">
+<meta name="twitter:description" content="vue 在开发环境，涉及跨域，就在本地配置了代理。但是部署到服务器上，就不行了。  解决方法有一下几种 服务器端配置CORS 用nginx反向代理,和访问本地服务器是一样的。 可以修改成正式线上的地址，再build  推荐 使用nginx配置反向代理，这样就可以在前端彻底解决跨域问题。">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/20/vue-cli打包到线上怎么进行跨域设置/"/>
 
 
 
 
 
-  <title>AMD、CMD、CommonJS、ES6比较 | godkun的博客</title>
+  <title>vue-cli打包到线上怎么进行跨域设置 | godkun的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/vue-cli打包到线上怎么进行跨域设置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">AMD、CMD、CommonJS、ES6比较</h1>
+          <h1 class="post-title" itemprop="name headline">vue-cli打包到线上怎么进行跨域设置</h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:42:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:24:22+08:00">
                 2017-12-20
               </time>
             
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Experiences/" itemprop="url" rel="index">
-                    <span itemprop="name">Experiences</span>
+                  <a href="/categories/Problem-Solved/" itemprop="url" rel="index">
+                    <span itemprop="name">Problem-Solved</span>
                   </a>
                 </span>
 
@@ -393,7 +393,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/12/20/AMD、CMD、CommonJS、ES6比较/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/12/20/vue-cli打包到线上怎么进行跨域设置/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -424,20 +424,17 @@
       
 
       
-        <h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><p><strong>都是前端模块化过程中的标准和规范。</strong></p>
-<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><blockquote>
-<p>是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。</p>
+        <blockquote>
+<p>vue 在开发环境，涉及跨域，就在本地配置了代理。但是部署到服务器上，就不行了。</p>
 </blockquote>
-<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><blockquote>
-<p>是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。</p>
+<h3 id="解决方法有一下几种"><a href="#解决方法有一下几种" class="headerlink" title="解决方法有一下几种"></a>解决方法有一下几种</h3><ul>
+<li>服务器端配置CORS</li>
+<li>用nginx反向代理,和访问本地服务器是一样的。</li>
+<li>可以修改成正式线上的地址，再build</li>
+</ul>
+<h4 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h4><blockquote>
+<p>使用nginx配置反向代理，这样就可以在前端彻底解决跨域问题。</p>
 </blockquote>
-<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><blockquote>
-<p>是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。</p>
-</blockquote>
-<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><blockquote>
-<p>是前端模块化划分标准，主流浏览器基本都支持。</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>每一种标准都是在为前端模块化做贡献，为前端发展做贡献。</strong></p>
 
       
     </div>
@@ -467,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Experiences/" rel="tag"># Experiences</a>
+            <a href="/tags/Vue/" rel="tag"># Vue</a>
           
         </div>
       
@@ -480,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/20/vue-cli打包到线上怎么进行跨域设置/" rel="next" title="vue-cli打包到线上怎么进行跨域设置">
-                <i class="fa fa-chevron-left"></i> vue-cli打包到线上怎么进行跨域设置
+              <a href="/2017/12/18/Vue相关的知识/" rel="next" title="Vue相关的知识">
+                <i class="fa fa-chevron-left"></i> Vue相关的知识
               </a>
             
           </div>
@@ -490,8 +487,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/26/MongoDB的安装、配置、采坑和使用/" rel="prev" title="MongoDB的安装、配置、采坑和使用">
-                MongoDB的安装、配置、采坑和使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/20/AMD、CMD、CommonJS、ES6比较/" rel="prev" title="AMD、CMD、CommonJS、ES6比较">
+                AMD、CMD、CommonJS、ES6比较 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -659,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#共同点"><span class="nav-number">1.</span> <span class="nav-text">共同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同点"><span class="nav-number">2.</span> <span class="nav-text">不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD"><span class="nav-number">2.1.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMD"><span class="nav-number">2.2.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.3.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6"><span class="nav-number">2.4.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法有一下几种"><span class="nav-number">1.</span> <span class="nav-text">解决方法有一下几种</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐"><span class="nav-number">1.1.</span> <span class="nav-text">推荐</span></a></li></ol></li></ol></div>
             
 
           </div>
