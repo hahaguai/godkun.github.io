@@ -620,6 +620,147 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/reduce用法/" itemprop="url">reduce用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
+</blockquote>
+<hr>
+<p>结合map，可以任意转成键值对对象</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
+<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/遍历在开发中的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -851,147 +992,6 @@
 <p>在浏览器环境中，<code>document.getElementsByTagName()</code>语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。</p>
 <p>在ECMAScript 5标准中，字符串string就是一个只读的类数组对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> s = <span class="string">"godkun"</span>;</div><div class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(s[<span class="number">3</span>]);</div><div class="line"><span class="comment">//输出：d</span></div><div class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.join.call(s, <span class="string">" "</span>));</div><div class="line"><span class="comment">//输出：g o d k u n</span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/reduce用法/" itemprop="url">reduce用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
-</blockquote>
-<hr>
-<p>结合map，可以任意转成键值对对象</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
-<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
-
           
         
       
