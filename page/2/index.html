@@ -620,7 +620,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/类数组对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/遍历在开发中的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -639,7 +639,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/类数组对象/" itemprop="url">类数组对象</a></h1>
+                <a class="post-title-link" href="/2017/10/28/遍历在开发中的使用/" itemprop="url">遍历在开发中的使用</a></h1>
         
 
         <div class="post-meta">
@@ -710,13 +710,8 @@
       
         
           
-            <p><strong>而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。</strong></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var o =&#123;<span class="number">0</span>:<span class="number">7</span>,<span class="number">1</span>:<span class="number">8</span>,<span class="number">2</span>:<span class="number">9</span>,<span class="built_in">length</span>:<span class="number">3</span>&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="number">0</span>);</div><div class="line">可以用Array.<span class="keyword">from</span>(o)来使其变成数组</div><div class="line">[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</div></pre></td></tr></table></figure>
-<p>与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.<span class="keyword">log</span>(<span class="built_in">Array</span>.prototype.<span class="keyword">join</span>.call(o));</div><div class="line"><span class="comment">//输出：“7,8,9”</span></div></pre></td></tr></table></figure>
-<p>在浏览器环境中，<code>document.getElementsByTagName()</code>语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。</p>
-<p>在ECMAScript 5标准中，字符串string就是一个只读的类数组对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> s = <span class="string">"godkun"</span>;</div><div class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(s[<span class="number">3</span>]);</div><div class="line"><span class="comment">//输出：d</span></div><div class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.join.call(s, <span class="string">" "</span>));</div><div class="line"><span class="comment">//输出：g o d k u n</span></div></pre></td></tr></table></figure>
+            <p><strong>下面这种遍历在开发中很常见，在这里总结一下。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> s2 = <span class="number">2</span>;</div><div class="line"><span class="keyword">const</span> obj = &#123; s1, s2 &#125;;</div><div class="line">上面显示为 obj = &#123; <span class="attr">s1</span>: <span class="number">1</span>, <span class="attr">s2</span>: <span class="number">2</span> &#125;</div><div class="line">一般是用<span class="built_in">Object</span>.keys(obj)方法获得obj对象的所有的键属性值</div><div class="line"><span class="keyword">let</span> arr = [<span class="string">"s1"</span>, <span class="string">"s2"</span>]</div><div class="line">然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作</div><div class="line">arr.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">  XXXXX = obj[key]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">获取对象的键对应的值，有两种方法，第一种直接obj.s1   第二种是obj[<span class="string">'s1'</span>]，一般用第二种，先将s1变成字符串形式</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -900,7 +895,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/遍历在开发中的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/类数组对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -919,7 +914,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/遍历在开发中的使用/" itemprop="url">遍历在开发中的使用</a></h1>
+                <a class="post-title-link" href="/2017/10/28/类数组对象/" itemprop="url">类数组对象</a></h1>
         
 
         <div class="post-meta">
@@ -990,8 +985,13 @@
       
         
           
-            <p><strong>下面这种遍历在开发中很常见，在这里总结一下。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> s2 = <span class="number">2</span>;</div><div class="line"><span class="keyword">const</span> obj = &#123; s1, s2 &#125;;</div><div class="line">上面显示为 obj = &#123; <span class="attr">s1</span>: <span class="number">1</span>, <span class="attr">s2</span>: <span class="number">2</span> &#125;</div><div class="line">一般是用<span class="built_in">Object</span>.keys(obj)方法获得obj对象的所有的键属性值</div><div class="line"><span class="keyword">let</span> arr = [<span class="string">"s1"</span>, <span class="string">"s2"</span>]</div><div class="line">然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作</div><div class="line">arr.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">  XXXXX = obj[key]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">获取对象的键对应的值，有两种方法，第一种直接obj.s1   第二种是obj[<span class="string">'s1'</span>]，一般用第二种，先将s1变成字符串形式</div></pre></td></tr></table></figure></p>
-
+            <p><strong>而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var o =&#123;<span class="number">0</span>:<span class="number">7</span>,<span class="number">1</span>:<span class="number">8</span>,<span class="number">2</span>:<span class="number">9</span>,<span class="built_in">length</span>:<span class="number">3</span>&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="number">0</span>);</div><div class="line">可以用Array.<span class="keyword">from</span>(o)来使其变成数组</div><div class="line">[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</div></pre></td></tr></table></figure>
+<p>与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.<span class="keyword">log</span>(<span class="built_in">Array</span>.prototype.<span class="keyword">join</span>.call(o));</div><div class="line"><span class="comment">//输出：“7,8,9”</span></div></pre></td></tr></table></figure>
+<p>在浏览器环境中，<code>document.getElementsByTagName()</code>语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。</p>
+<p>在ECMAScript 5标准中，字符串string就是一个只读的类数组对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> s = <span class="string">"godkun"</span>;</div><div class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(s[<span class="number">3</span>]);</div><div class="line"><span class="comment">//输出：d</span></div><div class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.join.call(s, <span class="string">" "</span>));</div><div class="line"><span class="comment">//输出：g o d k u n</span></div></pre></td></tr></table></figure>
           
         
       
