@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是requireJs产品的标准，异步加载，依赖前置。  CMD 是淘宝SeaJs的标准，依赖就近，同步加载，同步就是即用即返回的意识。  CommonJs 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。  ES6 是前端模块化划分标准，主流浏览器基本都支持。  总结每一种标准都是在为前端模块化做贡献，">
+<meta name="description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
 <meta name="keywords" content="Experiences">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AMD、CMD、CommonJS、ES6比较">
 <meta property="og:url" content="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是requireJs产品的标准，异步加载，依赖前置。  CMD 是淘宝SeaJs的标准，依赖就近，同步加载，同步就是即用即返回的意识。  CommonJs 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。  ES6 是前端模块化划分标准，主流浏览器基本都支持。  总结每一种标准都是在为前端模块化做贡献，">
-<meta property="og:updated_time" content="2017-12-27T03:02:04.809Z">
+<meta property="og:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
+<meta property="og:updated_time" content="2017-12-27T03:37:49.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMD、CMD、CommonJS、ES6比较">
-<meta name="twitter:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是requireJs产品的标准，异步加载，依赖前置。  CMD 是淘宝SeaJs的标准，依赖就近，同步加载，同步就是即用即返回的意识。  CommonJs 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。  ES6 是前端模块化划分标准，主流浏览器基本都支持。  总结每一种标准都是在为前端模块化做贡献，">
+<meta name="twitter:description" content="共同点都是前端模块化过程中的标准和规范。 不同点AMD 是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。  CMD 是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。  CommonJS 是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏">
 
 
 
@@ -426,12 +426,12 @@
       
         <h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><p><strong>都是前端模块化过程中的标准和规范。</strong></p>
 <h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><blockquote>
-<p>是requireJs产品的标准，异步加载，依赖前置。</p>
+<p>是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。</p>
 </blockquote>
 <h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><blockquote>
-<p>是淘宝SeaJs的标准，依赖就近，同步加载，同步就是即用即返回的意识。</p>
+<p>是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。</p>
 </blockquote>
-<h4 id="CommonJs"><a href="#CommonJs" class="headerlink" title="CommonJs"></a>CommonJs</h4><blockquote>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><blockquote>
 <p>是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。</p>
 </blockquote>
 <h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><blockquote>
@@ -480,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/27/JSON心得/" rel="next" title="JSON心得">
-                <i class="fa fa-chevron-left"></i> JSON心得
+              <a href="/2017/11/20/JS数组方法返回值的总结/" rel="next" title="JS数组方法返回值的总结">
+                <i class="fa fa-chevron-left"></i> JS数组方法返回值的总结
               </a>
             
           </div>
@@ -566,7 +566,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">40</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -588,7 +588,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -659,7 +659,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#共同点"><span class="nav-number">1.</span> <span class="nav-text">共同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同点"><span class="nav-number">2.</span> <span class="nav-text">不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD"><span class="nav-number">2.1.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMD"><span class="nav-number">2.2.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJs"><span class="nav-number">2.3.</span> <span class="nav-text">CommonJs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6"><span class="nav-number">2.4.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#共同点"><span class="nav-number">1.</span> <span class="nav-text">共同点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不同点"><span class="nav-number">2.</span> <span class="nav-text">不同点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#AMD"><span class="nav-number">2.1.</span> <span class="nav-text">AMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CMD"><span class="nav-number">2.2.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CommonJS"><span class="nav-number">2.3.</span> <span class="nav-text">CommonJS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6"><span class="nav-number">2.4.</span> <span class="nav-text">ES6</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
