@@ -323,147 +323,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法 - 副本 (2)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/reduce用法 - 副本 (2)/" itemprop="url">reduce用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
-</blockquote>
-<hr>
-<p>结合map，可以任意转成键值对对象</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
-<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/类数组对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -561,6 +420,281 @@
 <p>在浏览器环境中，<code>document.getElementsByTagName()</code>语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。</p>
 <p>在ECMAScript 5标准中，字符串string就是一个只读的类数组对象：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> s = <span class="string">"godkun"</span>;</div><div class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(s[<span class="number">3</span>]);</div><div class="line"><span class="comment">//输出：d</span></div><div class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.join.call(s, <span class="string">" "</span>));</div><div class="line"><span class="comment">//输出：g o d k u n</span></div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/遍历在开发中的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/遍历在开发中的使用/" itemprop="url">遍历在开发中的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>下面这种遍历在开发中很常见，在这里总结一下。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> s2 = <span class="number">2</span>;</div><div class="line"><span class="keyword">const</span> obj = &#123; s1, s2 &#125;;</div><div class="line">上面显示为 obj = &#123; <span class="attr">s1</span>: <span class="number">1</span>, <span class="attr">s2</span>: <span class="number">2</span> &#125;</div><div class="line">一般是用<span class="built_in">Object</span>.keys(obj)方法获得obj对象的所有的键属性值</div><div class="line"><span class="keyword">let</span> arr = [<span class="string">"s1"</span>, <span class="string">"s2"</span>]</div><div class="line">然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作</div><div class="line">arr.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">  XXXXX = obj[key]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">获取对象的键对应的值，有两种方法，第一种直接obj.s1   第二种是obj[<span class="string">'s1'</span>]，一般用第二种，先将s1变成字符串形式</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/reduce用法/" itemprop="url">reduce用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
+</blockquote>
+<hr>
+<p>结合map，可以任意转成键值对对象</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
+<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
+
           
         
       
@@ -871,154 +1005,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/打印两个有序链表的公共部分/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/24/打印两个有序链表的公共部分/" itemprop="url">打印两个有序链表的公共部分</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T17:39:18+08:00">
-                2017-07-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="直接上代码了"><a href="#直接上代码了" class="headerlink" title="直接上代码了"></a>直接上代码了</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseSingleLink</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Node head1 = <span class="keyword">new</span> Node(<span class="number">1</span>);</div><div class="line">        Node head2 = <span class="keyword">new</span> Node(<span class="number">3</span>);</div><div class="line">		</div><div class="line">        Node node1 = <span class="keyword">new</span> Node(<span class="number">2</span>);</div><div class="line">        Node node2 = <span class="keyword">new</span> Node(<span class="number">3</span>);</div><div class="line">        Node node3 = <span class="keyword">new</span> Node(<span class="number">4</span>);</div><div class="line">        Node node4 = <span class="keyword">new</span> Node(<span class="number">5</span>);</div><div class="line">		</div><div class="line">        head1.next = node1;</div><div class="line">        node1.next = node2;</div><div class="line">        node2.next = node3;</div><div class="line"></div><div class="line">        head2.next = node4;</div><div class="line">		</div><div class="line">        printCommonPart(head1,head2);</div><div class="line">        System.out.print(<span class="string">"head1链表为："</span>);</div><div class="line">        </div><div class="line">		<span class="comment">// 打印出链表head1</span></div><div class="line">        <span class="keyword">while</span> (head1 != <span class="keyword">null</span>)&#123;</div><div class="line">            System.out.print(head1.value+<span class="string">" "</span>);</div><div class="line">            head1 = head1.next;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">        System.out.print(<span class="string">"head2链表为："</span>);</div><div class="line">		</div><div class="line">		<span class="comment">// 打印出链表head2</span></div><div class="line">        <span class="keyword">while</span> (head2 != <span class="keyword">null</span>)&#123;</div><div class="line">            System.out.print(head2.value+<span class="string">" "</span>);</div><div class="line">            head2 = head2.next;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCommonPart</span><span class="params">(Node head1, Node head2)</span> </span>&#123;</div><div class="line">        System.out.print(<span class="string">"公共部分是："</span>);</div><div class="line">		</div><div class="line">		<span class="comment">// 关键代码</span></div><div class="line">        <span class="keyword">while</span> (head1 != <span class="keyword">null</span> &amp;&amp; head2 != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (head1.value &lt; head2.value) &#123;</div><div class="line">                head1 = head1.next;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (head1.value &gt; head2.value) &#123;</div><div class="line">                head2 = head2.next;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                System.out.print(head1.value + <span class="string">" "</span>);</div><div class="line">                head1 = head1.next;</div><div class="line">                head2 = head2.next;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        System.out.println();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>输出截图</strong></p>
-<p><img src="/images/printCommon.png" alt=""></p>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>如果head1的值小于head2，head1往后移动一位</li>
-<li>如果head1的值大于head2，head2往后移动一位</li>
-<li>如果head1的值等于head2，则打印出这个值，并同时使head1和head2往后移动一位</li>
-<li>直到head1或者head2其中任何一个移动到了null，整个过程就停止</li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>很简单，时间复杂度为O(N)</strong></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1063,7 +1054,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

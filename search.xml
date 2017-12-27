@@ -23,6 +23,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[对象、数组、字符串之间的各种形式转换]]></title>
+    <url>%2F2017%2F12%2F01%2F%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B9%8B%E9%97%B4%E7%9A%84%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2%2F</url>
+    <content type="text"><![CDATA[项目开发中总结的各种转换函数的写法 需要用到的工具函数1234567function splitEnv(str, separator = '=') &#123; const index = str.indexOf(separator); return [ str.slice(0, index), str.slice(index + 1), ];&#125;; [“name=yk”, “age=12”] ==&gt; [[“name”, “yk”], [“age”, “12”]]123// 将形如键值对的字符串分隔成含有键和值字符串的数组 const arr = ["name=yk", "age=12"];arr.map(str =&gt; splitEnv(str)); [[“name”, “yk”], [“age”, “12”]] ==&gt; [[“name”, “yk”]]12// 过滤出键不为‘age’的数组arr.filter(env =&gt; env[0] !== 'age'); [[“name”, “yk”]], ==&gt; [“name=yk”]12// 将数组中含有数组其中是键和值字符串，转换成键值形式字符串数组arr.map(item =&gt; item.join('=')); [“aa”, “bb”] ==&gt; [“aa”, “bb”, “cc”]在字符串数组里添加一个指定的字符串12345678910const arr = ["aa", "bb"];const str = "cc";// 第一种使用es6[...arr, str];//第二种使用concatarr.concat([str]);一般是用函数获得这个字符串，要考虑如果没有呢用 return str ? [str] : [] 将数字数组变成对象数组12345678910111213this.instance = &#123; ports: [80] &#125;;ports() &#123; const &#123; ports &#125; = this.instance; return ports.map(port =&gt; (&#123; port, protcol: 'http' &#125;));&#125;上面的结果就是ports = [&#123; port: 80, protcol: 'http'&#125;];也就是进入ports = [80]数组中，对元素80进行转换，然后将其在数组中的位置替代，这里将数字转换成了对象，然后将数字替换成了对象。port =&gt; (&#123; port, protcol: 'http' &#125;)这句是let port = ports[index];port: 80解构赋值了 字符串数组转换成对象数组1234567891011121314151617181920212223242526header: [ '变量 ID', '变量名', '类型', '变量描述', '是否必填', '默认值', &#123;text: '编辑'&#125;, ],header.map(h =&gt; (&#123; text: h.text ? h.text : h, tooltip: h.tooltip, &#125;));header: [ '变量 ID', '变量名', '类型', '变量描述', '是否必填', '默认值', &#123;text: '编辑'&#125;, ],输出如下： 对象组成的数组 转换成 数组组成的数组12345const objectArr = [&#123;age:12&#125;, &#123;sex:"man", &#123;hobby:"tea"&#125;];通过objectArr.map(item =&gt; Object.entries(item));可以转换成[ ["age", 12], ["sex", "man"], ["hobby", "tea"] ] 将对象组成的数组中的所有对象的键或者值保存在一个数组中12345const objectArr = [&#123;age:12&#125;, &#123;sex:"man", &#123;hobby:"tea"&#125;];通过objectArr.map(item =&gt; Object.keys(item).toString());可以转换成["age", "sex", "hobby"] 上面的做法不够鲁棒，有bug 下面的这写法很全面，很鲁棒，不改变值的数据类型，键默认都是字符串形式1234567891011var objectArr = [&#123;age:12, y:11&#125;, &#123;sex:"man"&#125;, &#123;hobby:"tea"&#125;];objectArr.((arr, cur) =&gt; &#123;return arr.concat(Object.keys(cur));&#125;, []);(输出) ["age", "y", "sex", "hobby"]var objectArr = [&#123;age:12, y:11&#125;, &#123;sex:"man"&#125;, &#123;hobby:"tea"&#125;];objectArr.reduce((arr, cur) =&gt; &#123;return arr.concat(Object.values(cur));&#125;, []);(输出) [12, 11, "man", "tea"]]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JS数组方法返回值的总结]]></title>
     <url>%2F2017%2F11%2F20%2FJS%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E8%BF%94%E5%9B%9E%E5%80%BC%E7%9A%84%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[不会改变原数组的方法 slice concat 返回新的数组 map filter forEach 改变原数组的方法 pop 返回被删除的元素的值 push 返回数组新的长度 shift unshift splice 返回新数组 sort 其他数组方法 join() 返回字符串 split() 将字符串解析成数组，返回数组，并且数组中的每个元素都是字符串 sort() 返回排序后的数组 filter() 返回的数组元素是调用的数组的一个子集，并且是新数组 map() 返回的是新数组 indexOf() 返回找到的第一个元素的索引值，没有则返回-1 isArray() 返回true或者false 用来检测是否为数组的最好的方法，比instanceof靠谱 reduce() 返回单个值 forEach() 返回一个数组的拷贝，不会修改原数组 find() 返回第一个找到的元素，没有找到就返回undefined]]></content>
@@ -34,31 +45,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
-      <categories>
-        <category>JavaScript-CSS-HTML</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%20(3)%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
-      <categories>
-        <category>JavaScript-CSS-HTML</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%20(2)%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F11%2F01%2Freduce%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%20(3)%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -70,6 +59,28 @@
     <title><![CDATA[类数组对象]]></title>
     <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>

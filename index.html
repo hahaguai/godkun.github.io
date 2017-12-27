@@ -501,7 +501,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T21:08:48+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:42:12+08:00">
                 2017-12-20
               </time>
             
@@ -574,6 +574,153 @@
 <p>是前端模块化划分标准，主流浏览器基本都支持。</p>
 </blockquote>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>每一种标准都是在为前端模块化做贡献，为前端发展做贡献。</strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/对象，数组，字符串之间的各种形式转换/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/01/对象，数组，字符串之间的各种形式转换/" itemprop="url">对象、数组、字符串之间的各种形式转换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T20:18:12+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>项目开发中总结的各种转换函数的写法</strong></p>
+<h4 id="需要用到的工具函数"><a href="#需要用到的工具函数" class="headerlink" title="需要用到的工具函数"></a>需要用到的工具函数</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function splitEnv(<span class="keyword">str</span>, separator = <span class="string">'='</span>) &#123;</div><div class="line">  const <span class="keyword">index</span> = <span class="keyword">str</span>.indexOf(separator);</div><div class="line">  <span class="keyword">return</span> [</div><div class="line">    <span class="keyword">str</span>.slice(<span class="number">0</span>, <span class="keyword">index</span>),</div><div class="line">    <span class="keyword">str</span>.slice(<span class="keyword">index</span> + <span class="number">1</span>),</div><div class="line">  ];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="“name-yk”-“age-12”-gt-“name”-“yk”-“age”-“12”"><a href="#“name-yk”-“age-12”-gt-“name”-“yk”-“age”-“12”" class="headerlink" title="[“name=yk”, “age=12”]  ==&gt; [[“name”, “yk”], [“age”, “12”]]"></a>[“name=yk”, “age=12”]  ==&gt; [[“name”, “yk”], [“age”, “12”]]</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将形如键值对的字符串分隔成含有键和值字符串的数组 </span></div><div class="line"><span class="keyword">const</span> arr = [<span class="string">"name=yk"</span>, <span class="string">"age=12"</span>];</div><div class="line">arr.<span class="built_in">map</span>(<span class="built_in">str</span> =&gt; splitEnv(<span class="built_in">str</span>));</div></pre></td></tr></table></figure>
+<h4 id="“name”-“yk”-“age”-“12”-gt-“name”-“yk”"><a href="#“name”-“yk”-“age”-“12”-gt-“name”-“yk”" class="headerlink" title="[[“name”, “yk”], [“age”, “12”]] ==&gt;  [[“name”, “yk”]]"></a>[[“name”, “yk”], [“age”, “12”]] ==&gt;  [[“name”, “yk”]]</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 过滤出键不为‘age’的数组</span></div><div class="line">arr.<span class="keyword">filter</span>(<span class="keyword">env</span> =&gt; <span class="keyword">env</span>[<span class="number">0</span>] !== <span class="string">'age'</span>);</div></pre></td></tr></table></figure>
+<h4 id="“name”-“yk”-gt-“name-yk”"><a href="#“name”-“yk”-gt-“name-yk”" class="headerlink" title="[[“name”, “yk”]], ==&gt; [“name=yk”]"></a>[[“name”, “yk”]], ==&gt; [“name=yk”]</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将数组中含有数组其中是键和值字符串，转换成键值形式字符串数组</span></div><div class="line">arr.map(<span class="function"><span class="params">item</span> =&gt;</span> item.join(<span class="string">'='</span>));</div></pre></td></tr></table></figure>
+<h4 id="“aa”-“bb”-gt-“aa”-“bb”-“cc”"><a href="#“aa”-“bb”-gt-“aa”-“bb”-“cc”" class="headerlink" title="[“aa”, “bb”]  ==&gt; [“aa”, “bb”, “cc”]"></a>[“aa”, “bb”]  ==&gt; [“aa”, “bb”, “cc”]</h4><p><strong>在字符串数组里添加一个指定的字符串</strong><br><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> arr = [<span class="string">"aa"</span>, <span class="string">"bb"</span>];</div><div class="line"><span class="keyword">const</span> <span class="built_in">str</span> = <span class="string">"cc"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 第一种使用es6</span></div><div class="line">[...arr, <span class="built_in">str</span>];</div><div class="line"></div><div class="line"><span class="comment">//第二种使用concat</span></div><div class="line">arr.<span class="built_in">concat</span>([<span class="built_in">str</span>]);</div><div class="line">一般是用函数获得这个字符串，要考虑如果没有呢</div><div class="line">用 <span class="keyword">return</span> <span class="built_in">str</span> ? [<span class="built_in">str</span>] : []</div></pre></td></tr></table></figure></p>
+<h5 id="将数字数组变成对象数组"><a href="#将数字数组变成对象数组" class="headerlink" title="将数字数组变成对象数组"></a>将数字数组变成对象数组</h5><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.instance = &#123; <span class="string">ports:</span> [<span class="number">80</span>] &#125;;</div><div class="line">ports() &#123;</div><div class="line">  const &#123; ports &#125; = <span class="keyword">this</span>.instance;</div><div class="line">  <span class="keyword">return</span> ports.map(port =&gt; (&#123; port, <span class="string">protcol:</span> <span class="string">'http'</span> &#125;));</div><div class="line">&#125;</div><div class="line">上面的结果就是ports = [&#123; <span class="string">port:</span> <span class="number">80</span>, <span class="string">protcol:</span> <span class="string">'http'</span>&#125;];</div><div class="line"></div><div class="line">也就是进入ports = [<span class="number">80</span>]数组中，对元素<span class="number">80</span>进行转换，然后将其在数组中的位置替代，这里将数字转换成了对象，然后将数字替换成了对象。</div><div class="line">port =&gt; (&#123; port, <span class="string">protcol:</span> <span class="string">'http'</span> &#125;)</div><div class="line">这句是</div><div class="line">let port = ports[index];</div><div class="line"><span class="string">port:</span> <span class="number">80</span></div><div class="line">解构赋值了</div></pre></td></tr></table></figure>
+<h4 id="字符串数组转换成对象数组"><a href="#字符串数组转换成对象数组" class="headerlink" title="字符串数组转换成对象数组"></a>字符串数组转换成对象数组</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">header: [</div><div class="line">      <span class="string">'变量 ID'</span>,</div><div class="line">      <span class="string">'变量名'</span>,</div><div class="line">      <span class="string">'类型'</span>,</div><div class="line">      <span class="string">'变量描述'</span>,</div><div class="line">      <span class="string">'是否必填'</span>,</div><div class="line">      <span class="string">'默认值'</span>,</div><div class="line">      &#123;<span class="attr">text</span>: <span class="string">'编辑'</span>&#125;,</div><div class="line">    ],</div><div class="line"></div><div class="line">header.map(<span class="function"><span class="params">h</span> =&gt;</span> (&#123;</div><div class="line">        <span class="attr">text</span>: h.text ? h.text : h,</div><div class="line">        <span class="attr">tooltip</span>: h.tooltip,</div><div class="line">      &#125;));</div><div class="line">header: [</div><div class="line"></div><div class="line">      <span class="string">'变量 ID'</span>,</div><div class="line">      <span class="string">'变量名'</span>,</div><div class="line">      <span class="string">'类型'</span>,</div><div class="line">      <span class="string">'变量描述'</span>,</div><div class="line">      <span class="string">'是否必填'</span>,</div><div class="line">      <span class="string">'默认值'</span>,</div><div class="line">      &#123;<span class="attr">text</span>: <span class="string">'编辑'</span>&#125;,</div><div class="line">    ],</div><div class="line">输出如下：</div></pre></td></tr></table></figure>
+<h4 id="对象组成的数组-转换成-数组组成的数组"><a href="#对象组成的数组-转换成-数组组成的数组" class="headerlink" title="对象组成的数组 转换成 数组组成的数组"></a>对象组成的数组 转换成 数组组成的数组</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">const objectArr = [&#123;age:<span class="number">12</span>&#125;, &#123;sex:<span class="string">"man"</span>, &#123;hobby:<span class="string">"tea"</span>&#125;];</div><div class="line">通过</div><div class="line">objectArr.map(item =&gt; <span class="symbol">Object</span>.entries(item));</div><div class="line">可以转换成</div><div class="line">[ [<span class="string">"age"</span>, <span class="number">12</span>], [<span class="string">"sex"</span>, <span class="string">"man"</span>], [<span class="string">"hobby"</span>, <span class="string">"tea"</span>] ]</div></pre></td></tr></table></figure>
+<h4 id="将对象组成的数组中的所有对象的键或者值保存在一个数组中"><a href="#将对象组成的数组中的所有对象的键或者值保存在一个数组中" class="headerlink" title="将对象组成的数组中的所有对象的键或者值保存在一个数组中"></a>将对象组成的数组中的所有对象的键或者值保存在一个数组中</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> objectArr = [&#123;<span class="attr">age</span>:<span class="number">12</span>&#125;, &#123;<span class="attr">sex</span>:<span class="string">"man"</span>, &#123;<span class="attr">hobby</span>:<span class="string">"tea"</span>&#125;];</div><div class="line">通过</div><div class="line">objectArr.map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Object</span>.keys(item).toString());</div><div class="line">可以转换成</div><div class="line">[<span class="string">"age"</span>, <span class="string">"sex"</span>, <span class="string">"hobby"</span>]</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的做法不够鲁棒，有bug</p>
+</blockquote>
+<p><strong>下面的这写法很全面，很鲁棒，不改变值的数据类型，键默认都是字符串形式</strong><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var objectArr = [&#123;<span class="string">age:</span><span class="number">12</span>, <span class="string">y:</span><span class="number">11</span>&#125;, &#123;<span class="string">sex:</span><span class="string">"man"</span>&#125;, &#123;<span class="string">hobby:</span><span class="string">"tea"</span>&#125;];</div><div class="line">objectArr.((arr, cur) =&gt; &#123;</div><div class="line"><span class="keyword">return</span> arr.concat(Object.keys(cur));</div><div class="line">&#125;, []);</div><div class="line">(输出) [<span class="string">"age"</span>, <span class="string">"y"</span>, <span class="string">"sex"</span>, <span class="string">"hobby"</span>]</div><div class="line"></div><div class="line">var objectArr = [&#123;<span class="string">age:</span><span class="number">12</span>, <span class="string">y:</span><span class="number">11</span>&#125;, &#123;<span class="string">sex:</span><span class="string">"man"</span>&#125;, &#123;<span class="string">hobby:</span><span class="string">"tea"</span>&#125;];</div><div class="line">objectArr.reduce((arr, cur) =&gt; &#123;</div><div class="line"><span class="keyword">return</span> arr.concat(Object.values(cur));</div><div class="line">&#125;, []);</div><div class="line">(输出) [<span class="number">12</span>, <span class="number">11</span>, <span class="string">"man"</span>, <span class="string">"tea"</span>]</div></pre></td></tr></table></figure></p>
 
           
         
@@ -777,7 +924,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/reduce用法 - 副本 (3)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -796,7 +943,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/reduce用法/" itemprop="url">reduce用法</a></h1>
+                <a class="post-title-link" href="/2017/11/01/reduce用法 - 副本 (3)/" itemprop="url">遍历在开发中的使用</a></h1>
         
 
         <div class="post-meta">
@@ -808,8 +955,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T21:08:48+08:00">
+                2017-11-01
               </time>
             
 
@@ -867,155 +1014,7 @@
       
         
           
-            <blockquote>
-<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
-</blockquote>
-<hr>
-<p>结合map，可以任意转成键值对对象</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
-<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法 - 副本 (3)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/reduce用法 - 副本 (3)/" itemprop="url">reduce用法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
-</blockquote>
-<hr>
-<p>结合map，可以任意转成键值对对象</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
-<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
+            <p><strong>下面这种遍历在开发中很常见，在这里总结一下。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> s2 = <span class="number">2</span>;</div><div class="line"><span class="keyword">const</span> obj = &#123; s1, s2 &#125;;</div><div class="line">上面显示为 obj = &#123; <span class="attr">s1</span>: <span class="number">1</span>, <span class="attr">s2</span>: <span class="number">2</span> &#125;</div><div class="line">一般是用<span class="built_in">Object</span>.keys(obj)方法获得obj对象的所有的键属性值</div><div class="line"><span class="keyword">let</span> arr = [<span class="string">"s1"</span>, <span class="string">"s2"</span>]</div><div class="line">然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作</div><div class="line">arr.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">  XXXXX = obj[key]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">获取对象的键对应的值，有两种方法，第一种直接obj.s1   第二种是obj[<span class="string">'s1'</span>]，一般用第二种，先将s1变成字符串形式</div></pre></td></tr></table></figure></p>
 
           
         
@@ -1054,7 +1053,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1099,7 +1098,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">46</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
