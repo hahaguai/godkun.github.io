@@ -23,6 +23,28 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Vue相关的知识]]></title>
+    <url>%2F2017%2F12%2F18%2FVue%E7%9B%B8%E5%85%B3%E7%9A%84%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[vue中带$前缀的变量名中的$是什么意识？这些只是Vue的命名规则，为了区分普通变量属性，避免我们自己声明或者添加自定义属性导致覆盖，比如$component $http $set。vue实例暴露了一些有用的实例属性和方法，它们都有前缀$，以便与用户定义的属性区分开来 router三要素 1：map关系，也就是映射关系 什么样的链接跳转到什么样的页面，什么样的区域显示什么样的页面。 2：link 3：页面中的链接 slot子组件中的slot有name属性，与父组件的slot的值相对应，那么就会匹配到。没有匹配到的先会显示在默认的slot中。 1234567891011121314&lt;game&gt; &lt;h1 slot="k1"&gt;王者荣耀&lt;/h1&gt; &lt;h2 slot="k2"&gt;王者荣耀&lt;/h2&gt; &lt;p&gt;小学生要背锅&lt;/p&gt; &lt;/game&gt; &lt;template&gt; &lt;div&gt; &lt;h4&gt;游戏&lt;/h4&gt; &lt;slot name="k1"&gt;&lt;/slot&gt; &lt;slot name="k2"&gt;&lt;/slot&gt; &lt;slot&gt;&lt;/slot&gt; &lt;/div&gt; &lt;/template&gt; 子组件里有slot，父组件中的子组件里如果没有内容，则用slot里的内容代替，如果有，则显示父组件里的内容来替代slot ref 和 refs在父组件里的js中，调用子组件里的绑定事件要用 refs，即在子组件里设置ref = “” 然后在父组件里的js中调用 this.refs.xxx.emit(&quot;&quot;)。最经典的用法是：父组件执行某个动作，该动作是调用子组件去触发一个自定义事件，然后触发这个事件后，在子组件里用this.$on(&#39;refresh&#39;, () =&gt; {})去监听这个事件，然后监听到就执行自己组件的一系列动作。123456789101112131415父组件和子组件通过事件进行数据交互&lt;dao-dialog &lt;ci-log ref="ciLog" &gt;&lt;/ci-log&gt;&lt;/dao-dialog&gt;然后在组件dao-dialog方法里调用func() &#123; this.$refs.cilog.$emit('refresh');&#125;然后在子组件ci-log中进行监听，一般是放在生命周期函数中，比如创建前 beforeCreate() &#123; // 绑定 refresh 事件，当触发时刷新构建日志初始数据 this.$on('refresh',() =&gt; &#123; this.init(); &#125;); &#125;, 调用子组件里的方法要用this.refs.xxx.方法名()，因为组件就是一个对象，可以引用此组件里的方法。 1&lt;div ref="chart"&gt;&lt;/div&gt; 可以用this.$refs.chart来获取DOM，这样可以减少DOM节点的消耗 router组件内部页面跳转用this.$router.push({path: &#39;/&#39;}) 每个vue实例在创建之前都要经过一系列的初始化过程，例如需要设置数据监听，编译，模板，挂载实例到DOM，在数据变化时更新DOM等。同时在这个过程中，也会运行一些叫做生命周期钩子的函数，给予用户机会在一些特定的场景下添加他们自己的代码。注意：在mounted, updated, destroyed等，钩子的this指向调用它的vue实例 任何一个vue应用都是通过vue函数创建一个新的vue实例开始的，创建一个实例时，需要传入一个选项对象。当实例被创建时，它向vue的响应式系统中加入其data对象中能找到的所有的属性，并且当这些属性的值改变时，视图将会产生响应，即匹配更新为新的值。但是很重要的一点是，只有当实例被创建时，data中存在的属性才是响应式的，也就是说，这个时候你再添加一个新的属性，比如vm.b=’hi’，那么b的改动将不会触发任何视图的更新，所以如果你知道你会在晚些时候需要一个属性，那么很简单，就在一开始的设置它为空或者不存在，也就是设置一些初始值。 箭头函数在vue实例中，不用箭头函数，因为箭头函数绑定父级上下文，也就是不绑定vue的实例对象。不要在选项属性或者回调上使用箭头函数，比如 12created: () =&gt; console.log(this.a) vm.$watch('a', newValue =&gt; this.myMethod()) 都是不行的，因为this不是如你预期的vue实例 this.myMetho是未定义的 生命周期函数钩子函数 对于前端来说，钩子函数就是指在所有函数执行前，我先执行的函数，即 钩住 我感兴趣的函数，只要它执行，我就先执行 watch 监听属性，只要属性变化，就立刻触发事件 watch方法只能监听一个data值的变化，而计算属性可以同时监听多个data值的变化，计算属性可以简化watch中重复的代码 当需要执行异步操作或者昂贵操作时，需要用到watch这个实例属性 watch里面可以有多个data值，但是每次只能监听一个 mounted 组件渲染完再执行，el被新创建的 vm.el替换，并挂载到实例上去之后调用该钩子 created 一个vue实例被生成后调用这个函数。因为一个vue实例被生成后还要绑定到某个html元素上，之后还要进行编译，然后再插入到document中。每一个阶段都会有一个钩子函数，方便开发者在不同阶段处理不同逻辑。一般可以在created函数中调用ajax获取页面初始化所需 computed计算属性的中的属性是关联当前组件的data里的属性的一般将一些函数写成计算属性中的返回值，这样就在用emit触发时就不用在每个函数中触发计算属性的依赖如果没有发生变化，当你再次调用计算属性的时候，能够立即返回上次缓存的计算值，而不需要从新执行计算属性的方法，而方法需要重新执行方法体 很短的知识点 v-mode.lazy 彻底输入完才执行 引入组件时，需要注册 组件是一个大的对象 v-for相当于 foreach(function(val, index){}) 计算属性是可以缓存的，但是方法不能缓存 transition组件中用name=”fade” 则自带fade-enter-in等 数据从哪创建的，就在哪修改，所以不能是父组件创建的，然后在子组件修改应该在子组件中用emit一个事件来让父组件修改 只要是插件，vue想使用的话，必须先用import加载进来，然后再用vue.use()进行注册,就相当于vue.prototype.$store = … 组件中可以直接用this.$store来获取 一般状态直接在子组件里加载，数据显示在父组件里加载 如果没有js文件里没有导入组件，在vue中却有这个组件，那就是全局组件，要在component目录下找对应的组件 我们在vue里面使用别人开发的组件，第一步就是install,第二步在main.js里面引入，第三步Vue.use这个组件 因为计算属性里的值不能传参，所以监听传参的数据必须用watch，如果不需要传参，应该在computed属性里进行监听 没有引用的话【也就是没有导入】就不会加载，就不会上线，对master代码库没有影响，就可以放在本地仓库里，不需要去删除它 自定义事件自定义事件onchange=”doSomethingOnSlideChange” 如果在子组件中的函数中用this.emit(‘onchange’, 参数)来触发事件，那么在父组件中事件绑定的函数是不能加括号的，也就是 onchange=”doSomethingOnSlideChange()” 这样写是错误的，以为这样写就是立即执行函数了，不是触发才执行的。 如果在子组件中传递了数据，那么父组件中的函数doSomethingOnSlideChange()中加参数的话就会关联子组件中的数据，如果不加参数就不会关联子组件中的数据 propsprops 在父组件中定义两个变量，动态绑定到子组件中 子组件要显式地用 props 选项声明它期待获得的数据var childNode = { template: ‘‘, props:[‘message’]}message就是期待的数据 mixinsvue中mixins是为了解决属性或者其他值的复用的，比如dialog这种弹窗组件，因为里面一堆数据配置，如果你在其他组件用这个组件的话，就必须写很多属性和函数，很麻烦用mixins就可以避免，直接导入。mixins只能返回一个对象，但是可以在一个对象中定义多个对象，然后导出extends 父组件和子组件进行通信的最好的原则 一般都是子组件CRUD后，触发自定义事件，自定义事件绑定了父组件里的方法，然后会自动触发父组件里对应的方法，由父组件进行CRUD的操作，然后再将操作后的值赋值给一个变量，比如envs，也就是更新了envs的数据。然后，在父组件vue文件里进行对子组件绑定属性，即:envs=&quot;envs&quot;，然后通过最新的envs传递到子组件中的props{envs: {type: Array}}中，对子组件也进行更新展示。以上操作的根本目的就是降低耦合，提高组件复用性，让子组件只是提高状态展示的功能，其他关于状态改变的操作全部放在父组件里完成，相当于子组件是木偶组件或者傻瓜组件，父组件是智能组件或者是容器组件。 $parent1234这是在子组件里调用close方法，比如click时执行close方法，然后通知父组件去执行父组件的onClose方法close() &#123; this.$parent.doClose(); &#125;, $emit高级用法12345678910 watch: &#123; model() &#123; this.$emit('update:ports', this.model); &#125;, &#125;, 此处的 this.$emit('update:ports', this.model);中的 update:ports没有搞明白此处是触发props属性里面的 ports 属性的值变为this.model]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[DOM和虚拟DOM差别在哪]]></title>
+    <url>%2F2017%2F12%2F10%2FDOM%E5%92%8C%E8%99%9A%E6%8B%9FDOM%E5%B7%AE%E5%88%AB%E5%9C%A8%E5%93%AA%2F</url>
+    <content type="text"><![CDATA[虚拟DOM核心思想：对复杂的文档DOM结构，提供一种方便的工具，进行最小化地DOM操作。 我个人理解DOM操作之所以慢，其实DOM加载并不慢，慢的是layout。 浏览器经常需要确定哪些地方需要重绘，当js把控制权交给浏览器的时候，他会调用layout算法，也就意味着如果进行了很多js把控制权交给浏览器的话，就会进行多次layout算法。 layout算法更准确地说就是：它会调用 CSS 重算算法，然后layout、然后重绘、重新组合。又由于layout在处理某些属性时，是同步触发的，同步就意味着等待，所以消耗性能。 使用虚拟DOM的优势就在于：它不像DOM操作那样粗放的处理，它会先等很多操作DOM的js语句执行完，然后再一起把控制权交给浏览器，这样就减少了很多次的layout算法。]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>VirtualDOM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[对象、数组、字符串之间的各种形式转换]]></title>
     <url>%2F2017%2F12%2F01%2F%E5%AF%B9%E8%B1%A1%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B9%8B%E9%97%B4%E7%9A%84%E5%90%84%E7%A7%8D%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2%2F</url>
     <content type="text"><![CDATA[项目开发中总结的各种转换函数的写法 需要用到的工具函数1234567function splitEnv(str, separator = '=') &#123; const index = str.indexOf(separator); return [ str.slice(0, index), str.slice(index + 1), ];&#125;; [“name=yk”, “age=12”] ==&gt; [[“name”, “yk”], [“age”, “12”]]123// 将形如键值对的字符串分隔成含有键和值字符串的数组 const arr = ["name=yk", "age=12"];arr.map(str =&gt; splitEnv(str)); [[“name”, “yk”], [“age”, “12”]] ==&gt; [[“name”, “yk”]]12// 过滤出键不为‘age’的数组arr.filter(env =&gt; env[0] !== 'age'); [[“name”, “yk”]], ==&gt; [“name=yk”]12// 将数组中含有数组其中是键和值字符串，转换成键值形式字符串数组arr.map(item =&gt; item.join('=')); [“aa”, “bb”] ==&gt; [“aa”, “bb”, “cc”]在字符串数组里添加一个指定的字符串12345678910const arr = ["aa", "bb"];const str = "cc";// 第一种使用es6[...arr, str];//第二种使用concatarr.concat([str]);一般是用函数获得这个字符串，要考虑如果没有呢用 return str ? [str] : [] 将数字数组变成对象数组12345678910111213this.instance = &#123; ports: [80] &#125;;ports() &#123; const &#123; ports &#125; = this.instance; return ports.map(port =&gt; (&#123; port, protcol: 'http' &#125;));&#125;上面的结果就是ports = [&#123; port: 80, protcol: 'http'&#125;];也就是进入ports = [80]数组中，对元素80进行转换，然后将其在数组中的位置替代，这里将数字转换成了对象，然后将数字替换成了对象。port =&gt; (&#123; port, protcol: 'http' &#125;)这句是let port = ports[index];port: 80解构赋值了 字符串数组转换成对象数组1234567891011121314151617181920212223242526header: [ '变量 ID', '变量名', '类型', '变量描述', '是否必填', '默认值', &#123;text: '编辑'&#125;, ],header.map(h =&gt; (&#123; text: h.text ? h.text : h, tooltip: h.tooltip, &#125;));header: [ '变量 ID', '变量名', '类型', '变量描述', '是否必填', '默认值', &#123;text: '编辑'&#125;, ],输出如下： 对象组成的数组 转换成 数组组成的数组12345const objectArr = [&#123;age:12&#125;, &#123;sex:"man", &#123;hobby:"tea"&#125;];通过objectArr.map(item =&gt; Object.entries(item));可以转换成[ ["age", 12], ["sex", "man"], ["hobby", "tea"] ] 将对象组成的数组中的所有对象的键或者值保存在一个数组中12345const objectArr = [&#123;age:12&#125;, &#123;sex:"man", &#123;hobby:"tea"&#125;];通过objectArr.map(item =&gt; Object.keys(item).toString());可以转换成["age", "sex", "hobby"] 上面的做法不够鲁棒，有bug 下面的这写法很全面，很鲁棒，不改变值的数据类型，键默认都是字符串形式1234567891011var objectArr = [&#123;age:12, y:11&#125;, &#123;sex:"man"&#125;, &#123;hobby:"tea"&#125;];objectArr.((arr, cur) =&gt; &#123;return arr.concat(Object.keys(cur));&#125;, []);(输出) ["age", "y", "sex", "hobby"]var objectArr = [&#123;age:12, y:11&#125;, &#123;sex:"man"&#125;, &#123;hobby:"tea"&#125;];objectArr.reduce((arr, cur) =&gt; &#123;return arr.concat(Object.values(cur));&#125;, []);(输出) [12, 11, "man", "tea"]]]></content>
@@ -45,31 +67,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F11%2F01%2Freduce%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%20(3)%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[SCSS用法简介]]></title>
+    <url>%2F2017%2F11%2F04%2Fscss%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[和CSS用法差不多，最大优点就是可以解决全局污染的问题，也就是限制作用域和嵌套编写CSS。以往CSS都是用前缀或者其他东西来解决全局污染，然而到了SCSS，只需要在最外层套一层带有class的div标签就可以了因为SCSS是用嵌套规则来书写样式的，每个域只在父层，比如 12345678910111213141516.fu&#123; font-size:16px; p&#123; background:red; .a-ref&#123; color:black; &#125; &#125;&#125;// 相当于&lt;div class="fu"&gt; &lt;p&gt; &lt;a&gt;&lt;/a&gt; &lt;/p&gt;&lt;/div&gt;]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
+        <tag>SCSS</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[类数组对象]]></title>
     <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
-      <categories>
-        <category>JavaScript-CSS-HTML</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -89,6 +100,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JSON心得]]></title>
     <url>%2F2017%2F10%2F27%2FJSON%E5%BF%83%E5%BE%97%2F</url>
     <content type="text"><![CDATA[JSON的总结1: 是一种数据交换格式，其实就是一个文本文件2: 独立于编程语言3：基于JS对象字面量表示法4：表达数据的方式对通用的编程概念都很友好注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。 一些值得思考的地方字面量是什么意识在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。比如 x = 5; 这里的 x 是变量x = x + 5; 这里我们肯定知道 x = 10了，其中的 5 就是字面量，也就是我们看到的实际值，就是字面的值。比如5美元就是字面量，而行用卡就是变量 书写正确的格式JSON中的名称一定要用双引号包裹，值不一定用，值可以是字符串、数字、布尔值、null、对象或者数组。JSON中，多个名称-值对使用逗号分割JSON媒体类型是application/json 验证json是否正确使用JSONLint 从机器的角度去理解JSON{ 指开始读取对象} 指结束读取对象[ 指开始读取数组] 指结束读取数组: 指在名称-值对中分割名称和值，逗号指分割对象中的名称-值对，或者分割数组中的值，也可以认为是一个新部分的开始 所以如果书写不正确，就无法解析，比如你在名称-值对列表的结尾处加上一个逗号，就会报错，因为你给机器的指令是”一个新部分的开始“，但是后面什么都没有，所以当然报错了 小知识1: JSON不是JavaScript对象字面量，它只是基于JavaScript对象字面量，所以在JSON中，仅允许使用双引号来包裹字符串。2：当值中含有双引号和反斜线等字符时，要用反斜线进行转义，不然会报错。3：对象和数组很关键的一个区别就是，对象是名称-值对构成的列表或集合，数组是值构成的列表或集合。4：数组中所有的值应具有相同的数据类型。5：JSON中的null值的所有字母必须小写6：JSON不能解析嵌套的对象 JSON Schema是对JSON数据格式的一致性进行验证，是数据发送方节约时间，保证数据正确的好工具链接地址：http://json-schema.org/examples.html可以解决以下问题1: 值的数据类型是否正确？ 可以具体规定一个值是数字、字符串等类型2：是否包含所需要的数据？ 可以规定哪些数据是需要的，哪些是不需要的3：值的形式是不是我需要的？ 可以指定范围，最小值和最大值 JSON安全问题1：不要使用顶层数组，顶层数组是合法的JavaScript脚本，它们可以用 script标签链接并使用2：对于不想公开的资源，仅允许使用HTTP POST方法请求，而不是GET方法，GET方法可以通过URL来请求，甚至可以放在script标签中3：使用JSON.parse()来代替eval()， eval()函数会将传入的字符串编译并执行，这会让你的代码易被攻击。仅仅使用JSON.parse()来解析JSON数据4：要对值内的div这种代码进行转码，比如转成&lt;div&gt; 不转码的话会有安全风险 术语解释1：顶层JSON数组存在于JSON名称-值对之外的位于文档最顶层的JSON数组也就是这种类型的：[ { “user”: “yk” }, { “age”: 22 }]属于合法的危险的JSON2：服务端当页面或资源被请求时，在服务器上执行的一系列操作。服务器为互联网浏览器提供其处理和加载的响应 前后端进行配合1：序列化：将对象转化为文本的操作2：反序列化；将文本转化为对象的操作3：客户端的XMLHTTPRequest需要服务端的支持来保证JSON资源请求成功 CORS [跨域资源共享，可以解决同源策略的影响说]服务器会在响应头额外加上一些带有Access-Control-Allow前缀的属性比如：Access-Control-Allow-Methods: POSTAccess-Control-Allow-Origin: http://www.example.com这表示我们仅允许通过POST来请求资源，如果有人想用script标签来进行请求，浏览器就会阻止他。并且浏览器会禁止除http://www.example.com以外的站点去获取资源。 JSON-PP是padding的意识，也就是内联，JSON-P就是指带有padding的JSON，内联是什么意识，就是将JS加入JSON文档例如：getTheAnimal( { “animal”: “cat” });函数参数是JSON，函数参数提供了一种将数据传递给函数的方式。如果需要一个函数来实现两数相加的功能，首先就需要一个能够将两个数传递给函数的方式。该函数是在客户端的JS代码中定义的服务器端也要对JSON-P提供一定的支持，它应允许用户自定义函数的名字。它通常是作为URL中的queryString的参数来传递的比如通过queryString告知服务器函数的名字script.src = “http://example.com/animal.json?callback=getThing“服务端根据callback参数的值动态的为在JSON中内联的函数命名]]></content>
@@ -97,6 +119,17 @@
       </categories>
       <tags>
         <tag>JSON</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue多级组件传值]]></title>
+    <url>%2F2017%2F10%2F21%2FVue%E5%A4%9A%E7%BA%A7%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[在vue2.0中，子组件只能将emit的事件传递给上一级的组件，不能越级传递给上一级的父组件，这在vue1.0中可以使用dispatch来，但是为了层级更清晰，在2.0中取消了dispatch。 如果你想从孙子组件触发事件传递给爷爷组件，那必须先传递给爸爸组件，爸爸组件触发事件绑定的函数后，继续将参数emit给爷爷组件，这样就成功的将孙子组件的参数传递给爷爷组件。]]></content>
+      <categories>
+        <category>Vue</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
@@ -240,17 +273,6 @@
       </categories>
       <tags>
         <tag>Computer-Composition</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Vue学习第一篇]]></title>
-    <url>%2F2017%2F07%2F12%2FVUE%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AF%87%2F</url>
-    <content type="text"><![CDATA[移动端常用开发技巧 flex弹性布局 CSS stickfooter 酷炫的交互设计 VUE.js简洁 一个构建数据驱动的web界面的库 只聚焦于视图层 目标：通过尽可能简单的API实现响应的数据绑定和组合的视图组件 一个MVVM框架图 安装Vue-cli 首先要先安装 node 然后 1npm install vue-cli -g 如果出现找不到命令（vue），则是因为npm的路径不再PATH中，将其添加到PATH中即可。 之后执行1vue list 命令查看vue安装成功后的情况 进入项目文件，执行1234567ll -anpm installll -acd node_modulescd ..lsnpm run dev 即可完成vue-cli的安装和页面测试]]></content>
-      <categories>
-        <category>Vue</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
       </tags>
   </entry>
   <entry>
