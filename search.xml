@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[mongoose和express和vue-cli配合初始化商品展示页面]]></title>
+    <url>%2F2017%2F12%2F27%2Fmongoose%E5%92%8Cexpress%E8%BF%9B%E8%A1%8C%E9%85%8D%E5%90%88%2F</url>
+    <content type="text"><![CDATA[1cnpm i mongoose --save 创建model 创建路由 基于mongoose首先启动mongdb数据库服务器，然后选择需要的数据库12345net start MongDBmongoshow dbsuse db_demo// db_demo数据库下有goods集合 然后在express建的目录下12mkdir modelstouch goods.js 在goods.js里面写入如下代码12345678910111213const mongoose = require('mongoose');const Schema = mongoose.Schema;// 和数据库进行映射const productSchema = new Schema(&#123; productId: &#123; type: String &#125;, productName: String, salePrice: Number, productImage: String,&#125;);// 输出一个Good--表的名字// 会自动在Good后面加一个s，再去数据库里进行匹配goods的集合module.exports = mongoose.model('Good', productSchema); 然后在routes目录下新建goods.js文件，写入如下代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546const express = require('express');const router = express.Router();const mongoose = require('mongoose');const Goods = require('../models/goods');// 连接MongDB数据库mongoose.connect('mongodb://127.0.0.1:27017/db_demo');mongoose.connection.on('connected', () =&gt; &#123; console.log('连接成功');&#125;);mongoose.connection.on('error', () =&gt; &#123; console.log('连接失败');&#125;);mongoose.connection.on('disconnected', () =&gt; &#123; console.log('连接dis');&#125;);// router.get('/', (req, res, next) =&gt; &#123;// res.send('hello goods list');// &#125;);router.get('/', (req, res, next) =&gt; &#123; Goods.find(&#123;&#125;, (err, doc) =&gt; &#123; if (err) &#123; res.json(&#123; status: '1', msg: err.message, &#125;); &#125; else &#123; res.json(&#123; status: '0', msg: '', result: &#123; count: doc.length, list: doc, &#125;, &#125;); &#125; &#125;);&#125;);module.exports = router; 然后在app.js里面写入如下代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950const express = require('express');const path = require('path');const favicon = require('serve-favicon');const logger = require('morgan');const cookieParser = require('cookie-parser');const bodyParser = require('body-parser');const index = require('./routes/index');const users = require('./routes/users');// 获取导出的goods对象const goods = require('./routes/goods');const app = express();// view engine setupapp.set('views', path.join(__dirname, 'views'));app.set('view engine', 'jade');// uncomment after placing your favicon in /public// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));app.use(logger('dev'));app.use(bodyParser.json());app.use(bodyParser.urlencoded(&#123; extended: false &#125;));app.use(cookieParser());app.use(express.static(path.join(__dirname, 'public')));app.use('/', index);app.use('/users', users);// 创建一级路由，并且输入此路由，获取goods对象app.use('/goods', goods);// catch 404 and forward to error handlerapp.use((req, res, next) =&gt; &#123; const err = new Error('Not Found'); err.status = 404; next(err);&#125;);// error handlerapp.use((err, req, res, next) =&gt; &#123; // set locals, only providing error in development res.locals.message = err.message; res.locals.error = req.app.get('env') === 'development' ? err : &#123;&#125;; // render the error page res.status(err.status || 500); res.render('error');&#125;);module.exports = app; 最后进入项目根目录，启动web服务器和客户端服务器。123node server/bin/www// 新开一个终端cnpm run dev 大功告成，就可以建立一个前端从服务器获取需要的资源，服务器从MongoDB数据库里获取对应的数据并且返回给前端，最后展示在浏览器网页上。]]></content>
+      <categories>
+        <category>MongDB</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>mongoose</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo博客上点开某一分类，出现404页面]]></title>
     <url>%2F2017%2F12%2F27%2Fhexo%E5%8D%9A%E5%AE%A2%E4%B8%8A%E7%82%B9%E5%BC%80%E6%9F%90%E4%B8%80%E5%88%86%E7%B1%BB%EF%BC%8C%E5%87%BA%E7%8E%B0404%E9%A1%B5%E9%9D%A2%2F</url>
     <content type="text"><![CDATA[坑了我30分钟。。。通过命令1hexo server 看到本地测试可以点开分类，但是部署到github上就出现404，这是因为部署的过程出现了问题，基本就是缓存问题。 问题 我将分类写成vue，但是分类格式没有写对，然后部署后，出现404，这时，我修改了分类格式，还是不行，修改成Vue也不行，部署后还是404。 原因 git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。 解决方法 进入到博客项目中 .deploy_git文件夹，修改 .git 目录下的config文件，将ignorecase=true 改为 ignorecase=false 然后删除博客项目中 .deploy_git 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。 清空github文件123git rm -rf *git commit -m 'clean all file'git push 重新部署123cd ..hexo cleanhexo deploy -generate]]></content>
@@ -100,9 +112,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -122,9 +134,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -386,17 +398,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS之贪心算法]]></title>
-    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
-      <categories>
-        <category>JavaScript-Algorithm</category>
-      </categories>
-      <tags>
-        <tag>JavaScript-Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[sublime3的经典操作和快捷键]]></title>
     <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
@@ -405,6 +406,17 @@
       </categories>
       <tags>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS之贪心算法]]></title>
+    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
+      <categories>
+        <category>JavaScript-Algorithm</category>
+      </categories>
+      <tags>
+        <tag>JavaScript-Algorithm</tag>
       </tags>
   </entry>
   <entry>
