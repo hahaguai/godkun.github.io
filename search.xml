@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[进程和线程]]></title>
+    <url>%2F2017%2F12%2F28%2Fscss%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。 通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。 但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。 这就是多进程： 多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。 线程 进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。 多线程：启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。]]></content>
+      <categories>
+        <category>Computer-Composition</category>
+      </categories>
+      <tags>
+        <tag>Computer-Composition</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[node.js总结]]></title>
     <url>%2F2017%2F12%2F28%2F%E5%AF%B9node%E7%9A%84%E6%B7%B1%E5%88%BB%E8%AE%A4%E7%9F%A5%2F</url>
     <content type="text"><![CDATA[学习node.js过程中的收获。 node.js是JavaScript的运行环境，或者说是web开发的runtime。 总的介绍 事件驱动 非阻塞I/O 基于Chrome V8引擎 单线程 使用 JavaScript 开发后端代码 优点 事件驱动 非阻塞I/O 前端开发工程师偏爱 Node适合干什么 适合I/O密集场景 CPU 密集和 I/O密集的区别 CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库 I/O密集场景有哪些 文件操作 网络操作 数据库 为什么非常适合Web因为web常见场景基本都是I/O密集场景 静态资源读取 数据库操作 渲染页面 非阻塞I/O 当执行I/O操作时，计算机会调用底层的命令来执行I/O操作，期间程序【cpu】就会等待底层命令返回结果，拿到结果后，才能执行下一条指令。 I/O时函数立即返回，进程不等待IO完成。 I/O会继续进行下一步操作，等I/O完成了，会通知主进程，我I/O完事了，这时主进程会决定是否采用或者遗弃。 阻塞I/O I/O时进程休眠，等待IO完成后进行下一步，也就是I/O阻塞了进程。 事件驱动和非阻塞I/O的联系 怎么告诉主程序I/O完事了，这就要靠事件驱动。 什么是事件驱动 I/O等异步操作结束后的通知 观察者模式 I/O完成后，emit一个事件，然后会去找这个事件所绑定的函数，找到后，会执行这个函数。 为什么I/O要说成非阻塞的？ 其实计算机指令的执行，除了goto语句等，都是按照顺序执行的，也就是同步，但是cpu指令执行的速度大致为一秒30亿次，非常快，我们感觉不到阻塞，但是I/O操作是非常慢的，如果用同步的，就能感觉到阻塞。 矛与盾 其实构建工具如webpack等，是属于cpu密集场景，因为需要打包、编译等操作。用node.js并不好，但是由于node.js应用是用JavaScript开发的，和对应的前端的ide很多，所以综合考虑，node.js是最佳运行环境。 node.js在公司中的使用场景 web Server 本地代码构建 前端写的代码不能直接在浏览器上运行，就需要转化和编译，这就需要用到构建。 实用工具开发 关于node单线程的问题单线程只是针对主进程，I/O操作会进行系统底层多线程调度，node.js只是发起一个请求，交给I/O，I/O调用操作系统底层命令，底层是多线程调度，来达到最佳性能，node.js不是做所有的事情， 它只是负责听，将请求给I/O，I/O完成后告诉node.js。node.js再去执行其他方法。 node.js只有一个主进程，一个进程里只有一个单线程，多线程调度是底层操作系统干的事情。单线程并不是单进程。node有个class，cpu有八核，那么调用class就可以有八个进程，可以满足更高的并发。]]></content>
@@ -13,7 +24,7 @@
   </entry>
   <entry>
     <title><![CDATA[ndoe两种调试方法]]></title>
-    <url>%2F2017%2F12%2F28%2Fscss%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <url>%2F2017%2F12%2F28%2Fndoe%E4%B8%A4%E7%A7%8D%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[chrome调试方法12chrome://inspect点击configure设置host port 然后下载chrome调试工具插件NIM最后运行运行需要调试的脚本1node --inspect-brk xxx.js 自动打开调试界面 VSCODE调试[个人使用此方式，很好用] 点击调试按钮，点击设置图标，进行设置12345678910111213141516171819202122&#123; // 使用 IntelliSense 了解相关属性。 // 悬停以查看现有属性的描述。 // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387 "version": "0.2.0", "configurations": [ &#123; "type": "node", "request": "launch", "name": "Current file", "program": "$&#123;file&#125;", "cwd": "$&#123;cwd&#125;" &#125;, &#123; "type": "node", "request": "launch", "name": "Launch Program", "program": "$&#123;file&#125;" &#125; ]&#125; 保存后，调试一个单文件js时，直接选择Current file， 然后点击运行。 调试按钮有 第一个 进入下一个断点 第二个 单步进入 第三个 退出此断点调试 第四个 重新开始调试 第五个 结束调试 添加条件断点： 目的：在长的for循环中，精确定位到要调试的循环中，比如100次for循环，在第8次后面出现bug，则需要右击点击添加条件断点，然后选择表达式，输入 n&gt;8 回车，运行调试。]]></content>
       <categories>
         <category>Node</category>
@@ -134,9 +145,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[类数组对象]]></title>
+    <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -145,9 +156,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[类数组对象]]></title>
-    <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
-    <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
