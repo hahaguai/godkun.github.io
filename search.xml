@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[node.js总结]]></title>
+    <url>%2F2017%2F12%2F28%2F%E5%AF%B9node%E7%9A%84%E6%B7%B1%E5%88%BB%E8%AE%A4%E7%9F%A5%2F</url>
+    <content type="text"><![CDATA[学习node.js过程中的收获。 node.js是JavaScript的运行环境，或者说是web开发的runtime。 总的介绍 事件驱动 非阻塞I/O 基于Chrome V8引擎 单线程 使用 JavaScript 开发后端代码 优点 事件驱动 非阻塞I/O 前端开发工程师偏爱 Node适合干什么 适合I/O密集场景 CPU 密集和 I/O密集的区别 CPU密集：压缩、解压、加密、解密 I/O密集：文件操作、网络操作、数据库 I/O密集场景有哪些 文件操作 网络操作 数据库 为什么非常适合Web因为web常见场景基本都是I/O密集场景 静态资源读取 数据库操作 渲染页面 非阻塞I/O 当执行I/O操作时，计算机会调用底层的命令来执行I/O操作，期间程序【cpu】就会等待底层命令返回结果，拿到结果后，才能执行下一条指令。 I/O时函数立即返回，进程不等待IO完成。 I/O会继续进行下一步操作，等I/O完成了，会通知主进程，我I/O完事了，这时主进程会决定是否采用或者遗弃。 阻塞I/O I/O时进程休眠，等待IO完成后进行下一步，也就是I/O阻塞了进程。 事件驱动和非阻塞I/O的联系 怎么告诉主程序I/O完事了，这就要靠事件驱动。 什么是事件驱动 I/O等异步操作结束后的通知 观察者模式 I/O完成后，emit一个事件，然后会去找这个事件所绑定的函数，找到后，会执行这个函数。 为什么I/O要说成非阻塞的？ 其实计算机指令的执行，除了goto语句等，都是按照顺序执行的，也就是同步，但是cpu指令执行的速度大致为一秒30亿次，非常快，我们感觉不到阻塞，但是I/O操作是非常慢的，如果用同步的，就能感觉到阻塞。 矛与盾 其实构建工具如webpack等，是属于cpu密集场景，因为需要打包、编译等操作。用node.js并不好，但是由于node.js应用是用JavaScript开发的，和对应的前端的ide很多，所以综合考虑，node.js是最佳运行环境。 node.js在公司中的使用场景 web Server 本地代码构建 前端写的代码不能直接在浏览器上运行，就需要转化和编译，这就需要用到构建。 实用工具开发 关于node单线程的问题单线程只是针对主进程，I/O操作会进行系统底层多线程调度，node.js只是发起一个请求，交给I/O，I/O调用操作系统底层命令，底层是多线程调度，来达到最佳性能，node.js不是做所有的事情， 它只是负责听，将请求给I/O，I/O完成后告诉node.js。node.js再去执行其他方法。 node.js只有一个主进程，一个进程里只有一个单线程，多线程调度是底层操作系统干的事情。单线程并不是单进程。node有个class，cpu有八核，那么调用class就可以有八个进程，可以满足更高的并发。]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ndoe两种调试方法]]></title>
+    <url>%2F2017%2F12%2F28%2Fscss%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[chrome调试方法12chrome://inspect点击configure设置host port 然后下载chrome调试工具插件NIM最后运行运行需要调试的脚本1node --inspect-brk xxx.js 自动打开调试界面 VSCODE调试[个人使用此方式，很好用] 点击调试按钮，点击设置图标，进行设置12345678910111213141516171819202122&#123; // 使用 IntelliSense 了解相关属性。 // 悬停以查看现有属性的描述。 // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387 "version": "0.2.0", "configurations": [ &#123; "type": "node", "request": "launch", "name": "Current file", "program": "$&#123;file&#125;", "cwd": "$&#123;cwd&#125;" &#125;, &#123; "type": "node", "request": "launch", "name": "Launch Program", "program": "$&#123;file&#125;" &#125; ]&#125; 保存后，调试一个单文件js时，直接选择Current file， 然后点击运行。 调试按钮有 第一个 进入下一个断点 第二个 单步进入 第三个 退出此断点调试 第四个 重新开始调试 第五个 结束调试 添加条件断点： 目的：在长的for循环中，精确定位到要调试的循环中，比如100次for循环，在第8次后面出现bug，则需要右击点击添加条件断点，然后选择表达式，输入 n&gt;8 回车，运行调试。]]></content>
+      <categories>
+        <category>Node</category>
+      </categories>
+      <tags>
+        <tag>Node</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[mongoose和express和vue-cli配合初始化商品展示页面]]></title>
     <url>%2F2017%2F12%2F27%2Fmongoose%E5%92%8Cexpress%E8%BF%9B%E8%A1%8C%E9%85%8D%E5%90%88%2F</url>
     <content type="text"><![CDATA[1cnpm i mongoose --save 创建model 创建路由 基于mongoose首先启动mongdb数据库服务器，然后选择需要的数据库12345net start MongDBmongoshow dbsuse db_demo// db_demo数据库下有goods集合 然后在express建的目录下12mkdir modelstouch goods.js 在goods.js里面写入如下代码12345678910111213const mongoose = require('mongoose');const Schema = mongoose.Schema;// 和数据库进行映射const productSchema = new Schema(&#123; productId: &#123; type: String &#125;, productName: String, salePrice: Number, productImage: String,&#125;);// 输出一个Good--表的名字// 会自动在Good后面加一个s，再去数据库里进行匹配goods的集合module.exports = mongoose.model('Good', productSchema); 然后在routes目录下新建goods.js文件，写入如下代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546const express = require('express');const router = express.Router();const mongoose = require('mongoose');const Goods = require('../models/goods');// 连接MongDB数据库mongoose.connect('mongodb://127.0.0.1:27017/db_demo');mongoose.connection.on('connected', () =&gt; &#123; console.log('连接成功');&#125;);mongoose.connection.on('error', () =&gt; &#123; console.log('连接失败');&#125;);mongoose.connection.on('disconnected', () =&gt; &#123; console.log('连接dis');&#125;);// router.get('/', (req, res, next) =&gt; &#123;// res.send('hello goods list');// &#125;);router.get('/', (req, res, next) =&gt; &#123; Goods.find(&#123;&#125;, (err, doc) =&gt; &#123; if (err) &#123; res.json(&#123; status: '1', msg: err.message, &#125;); &#125; else &#123; res.json(&#123; status: '0', msg: '', result: &#123; count: doc.length, list: doc, &#125;, &#125;); &#125; &#125;);&#125;);module.exports = router; 然后在app.js里面写入如下代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950const express = require('express');const path = require('path');const favicon = require('serve-favicon');const logger = require('morgan');const cookieParser = require('cookie-parser');const bodyParser = require('body-parser');const index = require('./routes/index');const users = require('./routes/users');// 获取导出的goods对象const goods = require('./routes/goods');const app = express();// view engine setupapp.set('views', path.join(__dirname, 'views'));app.set('view engine', 'jade');// uncomment after placing your favicon in /public// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));app.use(logger('dev'));app.use(bodyParser.json());app.use(bodyParser.urlencoded(&#123; extended: false &#125;));app.use(cookieParser());app.use(express.static(path.join(__dirname, 'public')));app.use('/', index);app.use('/users', users);// 创建一级路由，并且输入此路由，获取goods对象app.use('/goods', goods);// catch 404 and forward to error handlerapp.use((req, res, next) =&gt; &#123; const err = new Error('Not Found'); err.status = 404; next(err);&#125;);// error handlerapp.use((err, req, res, next) =&gt; &#123; // set locals, only providing error in development res.locals.message = err.message; res.locals.error = req.app.get('env') === 'development' ? err : &#123;&#125;; // render the error page res.status(err.status || 500); res.render('error');&#125;);module.exports = app; 最后进入项目根目录，启动web服务器和客户端服务器。123node server/bin/www// 新开一个终端cnpm run dev 大功告成，就可以建立一个前端从服务器获取需要的资源，服务器从MongoDB数据库里获取对应的数据并且返回给前端，最后展示在浏览器网页上。]]></content>
@@ -112,9 +134,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -134,9 +156,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
