@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title><![CDATA[进程和线程]]></title>
-    <url>%2F2017%2F12%2F28%2Fscss%E7%94%A8%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <url>%2F2017%2F12%2F28%2F%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。 通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。 但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。 这就是多进程： 多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。 线程 进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。 多线程：启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。]]></content>
       <categories>
         <category>Computer-Composition</category>
@@ -101,6 +101,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[SPA的缺点和优点]]></title>
+    <url>%2F2017%2F12%2F13%2FSPA%E7%9A%84%E7%BC%BA%E7%82%B9%E5%92%8C%E4%BC%98%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[优点 减轻服务器端的压力 因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源 提高了页面的渲染效果 缺点 首屏加载时间会很长 SEO不友好 主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。 而SPA使用hash片段的目的是：当片段的内容发送变化时，浏览器不会像URI发送变化时那样发起新的网络请求。这样就可以只请求页面或视图渲染所需要的数据，而不是为每一个页面获取并解析整份文档。]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[DOM和虚拟DOM差别在哪]]></title>
     <url>%2F2017%2F12%2F10%2FDOM%E5%92%8C%E8%99%9A%E6%8B%9FDOM%E5%B7%AE%E5%88%AB%E5%9C%A8%E5%93%AA%2F</url>
     <content type="text"><![CDATA[虚拟DOM核心思想：对复杂的文档DOM结构，提供一种方便的工具，进行最小化地DOM操作。 我个人理解DOM操作之所以慢，其实DOM加载并不慢，慢的是layout。 浏览器经常需要确定哪些地方需要重绘，当js把控制权交给浏览器的时候，他会调用layout算法，也就意味着如果进行了很多js把控制权交给浏览器的话，就会进行多次layout算法。 layout算法更准确地说就是：它会调用 CSS 重算算法，然后layout、然后重绘、重新组合。又由于layout在处理某些属性时，是同步触发的，同步就意味着等待，所以消耗性能。 使用虚拟DOM的优势就在于：它不像DOM操作那样粗放的处理，它会先等很多操作DOM的js语句执行完，然后再一起把控制权交给浏览器，这样就减少了很多次的layout算法。]]></content>
@@ -156,9 +167,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -167,9 +178,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -431,17 +442,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
-    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
-      <categories>
-        <category>tips</category>
-      </categories>
-      <tags>
-        <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JS之贪心算法]]></title>
     <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
@@ -450,6 +450,17 @@
       </categories>
       <tags>
         <tag>JavaScript-Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
+    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
+      <categories>
+        <category>tips</category>
+      </categories>
+      <tags>
+        <tag>tips</tag>
       </tags>
   </entry>
   <entry>

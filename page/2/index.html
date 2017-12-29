@@ -906,7 +906,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/DOM和虚拟DOM差别在哪/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/SPA的缺点和优点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -925,7 +925,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/10/DOM和虚拟DOM差别在哪/" itemprop="url">DOM和虚拟DOM差别在哪</a></h1>
+                <a class="post-title-link" href="/2017/12/13/SPA的缺点和优点/" itemprop="url">SPA的缺点和优点</a></h1>
         
 
         <div class="post-meta">
@@ -937,8 +937,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T22:37:53+08:00">
-                2017-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T12:17:06+08:00">
+                2017-12-13
               </time>
             
 
@@ -960,8 +960,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
                   </a>
                 </span>
 
@@ -996,13 +996,24 @@
       
         
           
-            <p><strong>虚拟DOM核心思想：对复杂的文档DOM结构，提供一种方便的工具，进行最小化地DOM操作。</strong></p>
-<blockquote>
-<p>我个人理解DOM操作之所以慢，其实DOM加载并不慢，慢的是layout。</p>
-<p>浏览器经常需要确定哪些地方需要重绘，当js把控制权交给浏览器的时候，他会调用layout算法，也就意味着如果进行了很多js把控制权交给浏览器的话，就会进行多次layout算法。</p>
-<p>layout算法更准确地说就是：它会调用 CSS 重算算法，然后layout、然后重绘、重新组合。又由于layout在处理某些属性时，是同步触发的，同步就意味着等待，所以消耗性能。</p>
+            <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>减轻服务器端的压力<blockquote>
+<p>因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。<br><strong>payload就是起关键作用的资源</strong></p>
 </blockquote>
-<p><strong>使用虚拟DOM的优势就在于：它不像DOM操作那样粗放的处理，它会先等很多操作DOM的js语句执行完，然后再一起把控制权交给浏览器，这样就减少了很多次的layout算法。</strong></p>
+</li>
+<li>提高了页面的渲染效果</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>首屏加载时间会很长</li>
+<li>SEO不友好<blockquote>
+<p>主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>而SPA使用hash片段的目的是：当片段的内容发送变化时，浏览器不会像URI发送变化时那样发起新的网络请求。这样就可以只请求页面或视图渲染所需要的数据，而不是为每一个页面获取并解析整份文档。</p>
+</blockquote>
 
           
         
@@ -1086,7 +1097,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

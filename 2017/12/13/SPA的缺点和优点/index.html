@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Computer-Composition," />
+  <meta name="keywords" content="FE-Performance-Optimization," />
 
 
 
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。  通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。  但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的">
-<meta name="keywords" content="Computer-Composition">
+<meta name="description" content="优点 减轻服务器端的压力 因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源   提高了页面的渲染效果  缺点 首屏加载时间会很长 SEO不友好 主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。">
+<meta name="keywords" content="FE-Performance-Optimization">
 <meta property="og:type" content="article">
-<meta property="og:title" content="进程和线程">
-<meta property="og:url" content="http://yoursite.com/2017/12/28/scss用法 - 副本/index.html">
+<meta property="og:title" content="SPA的缺点和优点">
+<meta property="og:url" content="http://yoursite.com/2017/12/13/SPA的缺点和优点/index.html">
 <meta property="og:site_name" content="godkun的博客">
-<meta property="og:description" content="进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。  通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。  但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的">
-<meta property="og:updated_time" content="2017-12-28T13:22:44.570Z">
+<meta property="og:description" content="优点 减轻服务器端的压力 因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源   提高了页面的渲染效果  缺点 首屏加载时间会很长 SEO不友好 主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。">
+<meta property="og:updated_time" content="2017-12-29T10:33:31.143Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="进程和线程">
-<meta name="twitter:description" content="进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。  通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。  但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的">
+<meta name="twitter:title" content="SPA的缺点和优点">
+<meta name="twitter:description" content="优点 减轻服务器端的压力 因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。payload就是起关键作用的资源   提高了页面的渲染效果  缺点 首屏加载时间会很长 SEO不友好 主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。">
 
 
 
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/28/scss用法 - 副本/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/13/SPA的缺点和优点/"/>
 
 
 
 
 
-  <title>进程和线程 | godkun的博客</title>
+  <title>SPA的缺点和优点 | godkun的博客</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/scss用法 - 副本/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/SPA的缺点和优点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">进程和线程</h1>
+          <h1 class="post-title" itemprop="name headline">SPA的缺点和优点</h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T23:14:34+08:00">
-                2017-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T12:17:06+08:00">
+                2017-12-13
               </time>
             
 
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Composition/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer-Composition</span>
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
                   </a>
                 </span>
 
@@ -393,7 +393,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/12/28/scss用法 - 副本/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/12/13/SPA的缺点和优点/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -424,21 +424,24 @@
       
 
       
-        <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><blockquote>
-<p>是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。</p>
+        <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<li>减轻服务器端的压力<blockquote>
+<p>因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。<br><strong>payload就是起关键作用的资源</strong></p>
 </blockquote>
-<p><strong>通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。</strong></p>
+</li>
+<li>提高了页面的渲染效果</li>
+</ul>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<li>首屏加载时间会很长</li>
+<li>SEO不友好<blockquote>
+<p>主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
 <blockquote>
-<p>但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。</p>
+<p>而SPA使用hash片段的目的是：当片段的内容发送变化时，浏览器不会像URI发送变化时那样发起新的网络请求。这样就可以只请求页面或视图渲染所需要的数据，而不是为每一个页面获取并解析整份文档。</p>
 </blockquote>
-<p><strong>这就是多进程：</strong></p>
-<blockquote>
-<p>多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。</p>
-</blockquote>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
-<p>进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。</p>
-</blockquote>
-<p><strong>多线程：</strong>启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。</p>
 
       
     </div>
@@ -468,7 +471,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Computer-Composition/" rel="tag"># Computer-Composition</a>
+            <a href="/tags/FE-Performance-Optimization/" rel="tag"># FE-Performance-Optimization</a>
           
         </div>
       
@@ -481,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/28/对node的深刻认知/" rel="next" title="node.js总结">
-                <i class="fa fa-chevron-left"></i> node.js总结
+              <a href="/2017/12/10/DOM和虚拟DOM差别在哪/" rel="next" title="DOM和虚拟DOM差别在哪">
+                <i class="fa fa-chevron-left"></i> DOM和虚拟DOM差别在哪
               </a>
             
           </div>
@@ -490,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/12/18/Vue相关的知识/" rel="prev" title="Vue相关的知识">
+                Vue相关的知识 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -563,7 +570,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-count">55</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -656,7 +663,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程"><span class="nav-number">1.</span> <span class="nav-text">进程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线程"><span class="nav-number">2.</span> <span class="nav-text">线程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">2.</span> <span class="nav-text">缺点</span></a></li></ol></div>
             
 
           </div>
