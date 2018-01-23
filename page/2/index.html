@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/MongoDB的安装、配置、采坑和使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git在工作中要用的高级命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/26/MongoDB的安装、配置、采坑和使用/" itemprop="url">MongoDB的安装、配置、采坑和使用</a></h1>
+                <a class="post-title-link" href="/2018/01/03/git在工作中要用的高级命令/" itemprop="url">git在工作中要用的高级命令</a></h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T12:10:17+08:00">
-                2017-12-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T13:32:11+08:00">
+                2018-01-03
               </time>
             
 
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MongDB/" itemprop="url" rel="index">
-                    <span itemprop="name">MongDB</span>
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
                   </a>
                 </span>
 
@@ -412,168 +412,314 @@
 
       
         
-          <h4 id="版本提示"><a href="#版本提示" class="headerlink" title="版本提示"></a>版本提示</h4><p>这里我用的是3.2.4版本</p>
-<h3 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">linxu命令</div><div class="line">cd d:</div><div class="line"><span class="keyword">cmd</span><span class="bash">命令</span></div><div class="line">d:</div><div class="line">然后执行</div><div class="line">mkdir mongo</div><div class="line">mkdir MongoDB</div></pre></td></tr></table></figure>
-<p>将软件安装到mongo目录里，安装时选择custom模式。安装完成后。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd MondoDB</div><div class="line">mkdir data</div><div class="line">mkdir logs</div><div class="line">mkdir etc</div><div class="line">cd etc/</div><div class="line">vi mongo.conf</div></pre></td></tr></table></figure></p>
-<p>按下 i 进入编辑模式，输入</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">dbpath</span>=D:\MongoDB\data\db</div><div class="line"><span class="attr">logpath</span>=D:\MongoDB\logs\mongo.log</div><div class="line"><span class="attr">logappend</span>=<span class="literal">true</span></div><div class="line"><span class="attr">quiet</span>=<span class="literal">true</span></div><div class="line"><span class="attr">port</span>=<span class="number">27017</span></div><div class="line"><span class="attr">journal</span>=<span class="literal">true</span></div><div class="line"><span class="attr">httpinterface</span>=<span class="literal">true</span></div><div class="line"><span class="attr">storageEngine</span>=mmapv1</div></pre></td></tr></table></figure>
-<ul>
-<li>然后按下ESC键，输入:wq 按下回车保存并退出。</li>
-<li>继续输入以下命令<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> data/</div><div class="line"><span class="keyword">mkdir</span> <span class="keyword">db</span></div><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> logs/</div><div class="line">touch mongo.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+          
+            <h4 id="学会在命令行中查看差异"><a href="#学会在命令行中查看差异" class="headerlink" title="学会在命令行中查看差异"></a>学会在命令行中查看差异</h4><p>每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用<br>git log 查看commit值，然后<br>git show commit-hash值<br>这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息</p>
+<h4 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">本地打标签：</div><div class="line">git <span class="keyword">tag</span> <span class="keyword">tag</span>Name commitId</div><div class="line">本地删除标签:</div><div class="line">git <span class="keyword">tag</span> -d <span class="keyword">tag</span>Name</div><div class="line">将本地的标签push到服务器:</div><div class="line">git push origin <span class="keyword">tag</span>Name</div><div class="line">从服务器端删除标签:</div><div class="line">git push origin :<span class="keyword">tag</span>Name(远程<span class="keyword">tag</span>Name)</div></pre></td></tr></table></figure>
+<h4 id="删除分支要注意的事情"><a href="#删除分支要注意的事情" class="headerlink" title="删除分支要注意的事情"></a>删除分支要注意的事情</h4><p>删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。</p>
+<h4 id="终极工作"><a href="#终极工作" class="headerlink" title="终极工作"></a>终极工作</h4><p>先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发</p>
+<h4 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h4><p>如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git checkout mywork</span></div><div class="line">git rebase origin</div></pre></td></tr></table></figure></p>
+<p>这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git-flow开发流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/03/git-flow开发流程/" itemprop="url">git-flow开发流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T13:32:11+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1：开发任何功能都要先创建自己的分支<br><code>git checkout -b xxx</code>            创建分支并切换到此分支<br>比如： <code>git checkout -b feature/runtime-monitor</code><br>然后 <code>git pull origin develop</code>  拉取最新的开发分支，默认是开发分支，如果是 master  就 <code>git pull origin master</code><br><strong>这里的origin 是我github账号对应的主机</strong></p>
+<p>2：然后开发完代码后</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .  &amp;&amp;  git commit -m <span class="string">"xxx"</span></span></div></pre></td></tr></table></figure>
+<p>然后<code>push</code>到我的主机上的对应的分支上</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> xxx</div></pre></td></tr></table></figure>
+<p><strong>这里要注意，没完成一个点，就<code>git commit</code>一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才<code>git push</code> 到你的分支上</strong></p>
+<p>因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 </p>
+<p><strong>最后提交pr到develop分支上，默认是develop分支</strong></p>
+<p>3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去</p>
+<p>4：一些技巧<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git 删除本地分支</div><div class="line">git branch -d xxx</div><div class="line">git 删除远程分支</div><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> :xxx (<span class="built_in">origin</span> 后面有空格)</div></pre></td></tr></table></figure></p>
+<p>5：非常注意事项<br>在进行git-flow开发时，一定要记住<br>你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。</p>
+<p>正常是这样的流程<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">切换matser</div><div class="line">git checkout -b yk1</div><div class="line">git add .</div><div class="line">git commit </div><div class="line">git push</div><div class="line"></div><div class="line"></div><div class="line">git checkout master</div><div class="line">git checkout -b yk2</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git stash用于保存和恢复工作进度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/03/git stash用于保存和恢复工作进度/" itemprop="url">git stash用于保存和恢复工作进度</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T13:32:11+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li><p>git stash</p>
+<p>  保存当前的工作进度。会分别对暂存区和工作区的状态进行保存</p>
+</li>
+<li><p>git stash save “message…”</p>
+<p>  这条命令实际上是第一条 <code>git stash</code> 命令的完整版</p>
+</li>
+<li><p>git stash list</p>
+<p>  显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择</p>
+</li>
+<li><p>git stash pop [–index] []</p>
+<p>  如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。</p>
+<p>  如果提供<stash>参数（来自 <code>git stash list</code> 显示的列表），则从该 <code>&lt;stash&gt;</code> 中恢复。恢复完毕也将从进度列表中删除 <code>&lt;stash&gt;</code>。</stash></p>
+<p>  选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。</p>
+</li>
+<li><p>git stash apply [–index] []</p>
+<p>  除了不删除恢复的进度之外，其余和 <code>git stash pop</code> 命令一样</p>
+</li>
+<li><p>git stash clear</p>
+<p>  删除所有存储的进度</p>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/26/MongoDB的安装、配置、采坑和使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/20/AMD、CMD、CommonJS、ES6比较/" itemprop="url">AMD、CMD、CommonJS、ES6比较</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:42:12+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Experiences/" itemprop="url" rel="index">
-                    <span itemprop="name">Experiences</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><p><strong>都是前端模块化过程中的标准和规范。</strong></p>
-<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><blockquote>
-<p>是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。</p>
-</blockquote>
-<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><blockquote>
-<p>是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。</p>
-</blockquote>
-<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><blockquote>
-<p>是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。</p>
-</blockquote>
-<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><blockquote>
-<p>是前端模块化划分标准，主流浏览器基本都支持。</p>
-</blockquote>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>每一种标准都是在为前端模块化做贡献，为前端发展做贡献。</strong></p>
+<h4 id="高级知识"><a href="#高级知识" class="headerlink" title="高级知识"></a>高级知识</h4><p>1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。<br>2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存<br>3：然后再用git stash apply 进行恢复<br>4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop<br>或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才</p>
 
           
         
@@ -617,7 +763,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/vue-cli打包到线上怎么进行跨域设置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/性能优化方面的基础知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -636,7 +782,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/20/vue-cli打包到线上怎么进行跨域设置/" itemprop="url">vue-cli打包到线上怎么进行跨域设置</a></h1>
+                <a class="post-title-link" href="/2018/01/03/性能优化方面的基础知识/" itemprop="url">性能优化方面的基础知识</a></h1>
         
 
         <div class="post-meta">
@@ -648,297 +794,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:24:22+08:00">
-                2017-12-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Problem-Solved/" itemprop="url" rel="index">
-                    <span itemprop="name">Problem-Solved</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>vue 在开发环境，涉及跨域，就在本地配置了代理。但是部署到服务器上，就不行了。</p>
-</blockquote>
-<h3 id="解决方法有一下几种"><a href="#解决方法有一下几种" class="headerlink" title="解决方法有一下几种"></a>解决方法有一下几种</h3><ul>
-<li>服务器端配置CORS</li>
-<li>用nginx反向代理,和访问本地服务器是一样的。</li>
-<li>可以修改成正式线上的地址，再build</li>
-</ul>
-<h4 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h4><blockquote>
-<p>使用nginx配置反向代理，这样就可以在前端彻底解决跨域问题。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/18/Vue相关的知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/18/Vue相关的知识/" itemprop="url">Vue相关的知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-18T00:05:00+08:00">
-                2017-12-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><strong>使用Vue过程中的点点滴滴的总结。</strong></p>
-<blockquote>
-<p>vue中带<code>$</code>前缀的变量名中的<code>$</code>是什么意识？<br>这些只是Vue的命名规则，为了区分普通变量属性，避免我们自己声明或者添加自定义属性导致覆盖，比如<code>$component  $http $set</code>。<br><strong>vue实例暴露了一些有用的实例属性和方法，它们都有前缀$，以便与用户定义的属性区分开来</strong></p>
-</blockquote>
-<hr>
-<blockquote>
-<p> router三要素<br> 1：map关系，也就是映射关系 什么样的链接跳转到什么样的页面，什么样的区域显示什么样的页面。<br> 2：link<br> 3：页面中的链接</p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/18/Vue相关的知识/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/13/SPA的缺点和优点/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/13/SPA的缺点和优点/" itemprop="url">SPA的缺点和优点</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T12:17:06+08:00">
-                2017-12-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T09:37:54+08:00">
+                2018-01-03
               </time>
             
 
@@ -996,26 +853,165 @@
       
         
           
-            <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>减轻服务器端的压力<blockquote>
-<p>因为服务器先将一份包含了静态资源、JavsScript和模板的静荷数据(payload)发送到了客户端，之后客户端只需要获取渲染页面或视图所需要的数据即可。<br><strong>payload就是起关键作用的资源</strong></p>
+            <ul>
+<li>tinypng：图片压缩网站<blockquote>
+<p>将jpg转化成base64格式的图片，因为base64是文本格式，可以直接放在body里。一般对于小于10KB大小的图片进行base64转码。</p>
 </blockquote>
 </li>
-<li>提高了页面的渲染效果</li>
+<li>zhitu网站： png格式转成webp</li>
+<li>spritecow.com：在线制作雪碧图网站   减少http请求，但是不能一张太大</li>
 </ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>首屏加载时间会很长</li>
-<li>SEO不友好<blockquote>
-<p>主要是因为SPA利用了hash片段实现路由，而利用hash片段不会作为HTTP请求中的一部分发送给服务器。</p>
+<h3 id="首屏时间："><a href="#首屏时间：" class="headerlink" title="首屏时间："></a>首屏时间：</h3><blockquote>
+<p>通过进行个性化加载资源【就是和首屏无关的资源先不加载】来避免，首屏一次把所有资源加载完成。</p>
 </blockquote>
-</li>
-</ul>
-<hr>
+<h3 id="并发上限："><a href="#并发上限：" class="headerlink" title="并发上限："></a>并发上限：</h3><p>对某一个域名下，其并发请求数是有上限的</p>
 <blockquote>
-<p>而SPA使用hash片段的目的是：当片段的内容发送变化时，浏览器不会像URI发送变化时那样发起新的网络请求。这样就可以只请求页面或视图渲染所需要的数据，而不是为每一个页面获取并解析整份文档。</p>
+<p>JS文件是顺序执行，比如引入10个JS文件，那么它是顺序执行的。因为对于浏览器来说。JS是单线程执行。</p>
 </blockquote>
 
           
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/02/git容易忘记的命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/02/git容易忘记的命令/" itemprop="url">git容易忘记的命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-02T21:34:21+08:00">
+                2018-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1：怎么进行修改回溯<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git stash  </div><div class="line">git <span class="built_in">status</span></div><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> 分支名 </div><div class="line">git stash <span class="built_in">apply</span></div></pre></td></tr></table></figure></p>
+<p>2：git config –global core.autocrlf true<br>设置为true，添加文件到git仓库时，git将其视为文本文件。他将把crlf变成lf。</p>
+<p>3：git 回到上一个版本<br>如果git pull以后发现版本不对，要回退到上一个版本用下面命令</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD</span></div></pre></td></tr></table></figure>
+<p>4：<code>git remote show [remote-name]</code> 查看某个远程仓库的详细信息，比如要看所克隆的 origin 仓库<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ git remote <span class="keyword">show</span> origin</div><div class="line">* remote origin</div><div class="line">  <span class="keyword">Fetch</span> <span class="keyword">URL</span>: https://github.com/schacon/ticgit</div><div class="line">  Push  <span class="keyword">URL</span>: https://github.com/schacon/ticgit</div><div class="line">  <span class="keyword">HEAD</span> branch: <span class="keyword">master</span></div><div class="line">  Remote branches:</div><div class="line">    <span class="keyword">master</span>                               tracked</div><div class="line">    dev-branch                           tracked</div><div class="line">// 默认是git pull 为本地分支</div><div class="line">  <span class="keyword">Local</span> branch configured <span class="keyword">for</span> <span class="string">'git pull'</span>:</div><div class="line">    <span class="keyword">master</span> merges <span class="keyword">with</span> remote <span class="keyword">master</span></div><div class="line">// 设置git push 的本地引用</div><div class="line">  <span class="keyword">Local</span> <span class="keyword">ref</span> configured <span class="keyword">for</span> <span class="string">'git push'</span>:</div><div class="line">    <span class="keyword">master</span> pushes <span class="keyword">to</span> <span class="keyword">master</span> (up <span class="keyword">to</span> <span class="built_in">date</span>)</div></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/02/git容易忘记的命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1052,7 +1048,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1097,7 +1093,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1108,7 +1104,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1119,7 +1115,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1197,7 +1193,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

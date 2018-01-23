@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/10/DOM和虚拟DOM差别在哪/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/git下构建时的一些错误/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/10/DOM和虚拟DOM差别在哪/" itemprop="url">DOM和虚拟DOM差别在哪</a></h1>
+                <a class="post-title-link" href="/2017/12/29/git下构建时的一些错误/" itemprop="url">git下构建时的一些错误</a></h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-10T22:37:53+08:00">
-                2017-12-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T22:34:34+08:00">
+                2017-12-29
               </time>
             
 
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
                   </a>
                 </span>
 
@@ -413,13 +413,11 @@
       
         
           
-            <p><strong>虚拟DOM核心思想：对复杂的文档DOM结构，提供一种方便的工具，进行最小化地DOM操作。</strong></p>
-<blockquote>
-<p>我个人理解DOM操作之所以慢，其实DOM加载并不慢，慢的是layout。</p>
-<p>浏览器经常需要确定哪些地方需要重绘，当js把控制权交给浏览器的时候，他会调用layout算法，也就意味着如果进行了很多js把控制权交给浏览器的话，就会进行多次layout算法。</p>
-<p>layout算法更准确地说就是：它会调用 CSS 重算算法，然后layout、然后重绘、重新组合。又由于layout在处理某些属性时，是同步触发的，同步就意味着等待，所以消耗性能。</p>
-</blockquote>
-<p><strong>使用虚拟DOM的优势就在于：它不像DOM操作那样粗放的处理，它会先等很多操作DOM的js语句执行完，然后再一起把控制权交给浏览器，这样就减少了很多次的layout算法。</strong></p>
+            <p>1：<code>can not resolve module</code> ：就是说没有这个模块。</p>
+<hr>
+<p>2：npm i安装node-sass出现错误无法从<a href="https://github.com/sass/nodesass/releases/download/v4.7.1/win32-x64-57_binding.node下载二进制文件，无法下载https://github.com/sass/node-sass/releases/download/v4.7.1/win3" target="_blank" rel="external">https://github.com/sass/nodesass/releases/download/v4.7.1/win32-x64-57_binding.node下载二进制文件，无法下载https://github.com/sass/node-sass/releases/download/v4.7.1/win3</a> 2-x64-57_binding.node：连接ETIMEDOUT 192.30.255.112:443，在下载预编译的二进制文件时超时<br><strong>原因：</strong><br>有可能没有安装python，无法预编译二进制，因为node 是c++写的<br>还有就是node-sass真的很烦，经常出现下载不了，并没有觉得比less好哪去。<br><strong>终极解决方案：</strong><br>用淘宝镜像cnpm i 安装就可以完美解决这些问题了，不需要安装python什么的</p>
+<hr>
+<p>3：直接用<code>vue init webpcak 项目名</code> 后  然后在vue文件中使用<code>&lt;style lang=&quot;scss&quot; &gt;</code> 出现依赖找不到。原因是没有各种加载器，比如需要安装<code>style-loader  css-loader</code> 还要下载 <code>node-sass  sass  sass-loader</code>因为scss-loader又需要node-sass，另外webpack就不需要配置了，因为<strong>vue-cli会帮你配置安装的loader。</strong><br><strong>其他注意的点</strong><br>用sass，解析scss是没问题的。scss是由sass-loader编译的。<br>如果需要下载<code>scss scss-loader</code>， 那就下载。</p>
 
           
         
@@ -463,7 +461,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/对象，数组，字符串之间的各种形式转换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/git个人快捷键设置和方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -482,7 +480,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/01/对象，数组，字符串之间的各种形式转换/" itemprop="url">对象、数组、字符串之间的各种形式转换</a></h1>
+                <a class="post-title-link" href="/2017/12/29/git个人快捷键设置和方法/" itemprop="url">git个人快捷键设置和方法</a></h1>
         
 
         <div class="post-meta">
@@ -494,8 +492,162 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T20:18:12+08:00">
-                2017-12-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T22:11:06+08:00">
+                2017-12-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>我使用的是git bash here，用<code>cd ~</code>进入用户目录，后在此目录下创建 <code>.bashrc</code>文件，命令如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">touch</span> <span class="selector-class">.bashrc</span></div></pre></td></tr></table></figure>
+<p>然后</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">vi</span> <span class="selector-class">.bashrc</span></div></pre></td></tr></table></figure>
+<p>进行设置快捷键</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> cls=<span class="string">'clear'</span></div></pre></td></tr></table></figure>
+<ul>
+<li>git st      ===   git status</li>
+<li>gst      ==&gt;  git status</li>
+<li>gp  ==&gt; git push</li>
+<li>git ct      ===  git commit</li>
+<li>alias cls=’clear’</li>
+<li>alias gst=’git status’</li>
+<li>alias gp=’git push’</li>
+<li>alias gba=’git branch -a’</li>
+<li>alias gbr=’git branch –remote’</li>
+<li>alias gb=’git branch’</li>
+<li>alias ga=’git add’</li>
+<li>alias gcm=’git commit -m’</li>
+</ul>
+<p>以后可以直接 gcm 汉字或者字母  这里不需要打<code>&#39;&#39;</code>号了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/29/对象字面量里直接设置键值/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/29/对象字面量里直接设置键值/" itemprop="url">对象字面量里直接设置键值</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-29T20:17:06+08:00">
+                2017-12-29
               </time>
             
 
@@ -552,14 +704,329 @@
 
       
         
-          <p><strong>项目开发中总结的各种转换函数的写法</strong></p>
-<h4 id="需要用到的工具函数"><a href="#需要用到的工具函数" class="headerlink" title="需要用到的工具函数"></a>需要用到的工具函数</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function splitEnv(<span class="keyword">str</span>, separator = <span class="string">'='</span>) &#123;</div><div class="line">  const <span class="keyword">index</span> = <span class="keyword">str</span>.indexOf(separator);</div><div class="line">  <span class="keyword">return</span> [</div><div class="line">    <span class="keyword">str</span>.slice(<span class="number">0</span>, <span class="keyword">index</span>),</div><div class="line">    <span class="keyword">str</span>.slice(<span class="keyword">index</span> + <span class="number">1</span>),</div><div class="line">  ];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h4 id="“name-yk”-“age-12”-gt-“name”-“yk”-“age”-“12”"><a href="#“name-yk”-“age-12”-gt-“name”-“yk”-“age”-“12”" class="headerlink" title="[“name=yk”, “age=12”]  ==&gt; [[“name”, “yk”], [“age”, “12”]]"></a>[“name=yk”, “age=12”]  ==&gt; [[“name”, “yk”], [“age”, “12”]]</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将形如键值对的字符串分隔成含有键和值字符串的数组 </span></div><div class="line"><span class="keyword">const</span> arr = [<span class="string">"name=yk"</span>, <span class="string">"age=12"</span>];</div><div class="line">arr.<span class="built_in">map</span>(<span class="built_in">str</span> =&gt; splitEnv(<span class="built_in">str</span>));</div></pre></td></tr></table></figure>
-<h4 id="“name”-“yk”-“age”-“12”-gt-“name”-“yk”"><a href="#“name”-“yk”-“age”-“12”-gt-“name”-“yk”" class="headerlink" title="[[“name”, “yk”], [“age”, “12”]] ==&gt;  [[“name”, “yk”]]"></a>[[“name”, “yk”], [“age”, “12”]] ==&gt;  [[“name”, “yk”]]</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 过滤出键不为‘age’的数组</span></div><div class="line">arr.<span class="keyword">filter</span>(<span class="keyword">env</span> =&gt; <span class="keyword">env</span>[<span class="number">0</span>] !== <span class="string">'age'</span>);</div></pre></td></tr></table></figure>
-<h4 id="“name”-“yk”-gt-“name-yk”"><a href="#“name”-“yk”-gt-“name-yk”" class="headerlink" title="[[“name”, “yk”]], ==&gt; [“name=yk”]"></a>[[“name”, “yk”]], ==&gt; [“name=yk”]</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将数组中含有数组其中是键和值字符串，转换成键值形式字符串数组</span></div><div class="line">arr.map(<span class="function"><span class="params">item</span> =&gt;</span> item.join(<span class="string">'='</span>));</div></pre></td></tr></table></figure>
+          
+            <p>ES6之前<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var mykey = <span class="string">'key3'</span>;</div><div class="line">var obj = &#123;</div><div class="line"><span class="symbol">    key1:</span> <span class="number">1</span>,</div><div class="line"><span class="symbol">    key2:</span> <span class="number">2</span></div><div class="line">&#125;;</div><div class="line">obj[mykey] = <span class="number">3</span>;</div><div class="line"><span class="comment">// obj输出的值为</span></div><div class="line">&#123;<span class="string">key3:</span> <span class="number">3</span>, <span class="string">key1:</span> <span class="number">1</span>, <span class="string">key2:</span> <span class="number">2</span>&#125;</div></pre></td></tr></table></figure></p>
+<p>ES6语法<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mykey = <span class="string">'key3'</span>;</div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    key1: <span class="number">1</span>,</div><div class="line">    key2: <span class="number">2</span>,</div><div class="line">    [<span class="meta">mykey</span>]: <span class="number">3</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// obj输出的值为</span></div><div class="line">&#123;key3: <span class="number">3</span>, key1: <span class="number">1</span>, key2: <span class="number">2</span>&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>ES6可以直接在对象字面量设置变量键值，ES6之前是不可以的，必须要在初始化后对象后面增加变量键值。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/进程和线程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/进程和线程/" itemprop="url">进程和线程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T23:14:34+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Computer-Composition/" itemprop="url" rel="index">
+                    <span itemprop="name">Computer-Composition</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><blockquote>
+<p>是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。</p>
+</blockquote>
+<p><strong>通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。</strong></p>
+<blockquote>
+<p>但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。</p>
+</blockquote>
+<p><strong>这就是多进程：</strong></p>
+<blockquote>
+<p>多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。</p>
+</blockquote>
+<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
+<p>进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。</p>
+</blockquote>
+<p><strong>多线程：</strong>启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/对node的深刻认知/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/28/对node的深刻认知/" itemprop="url">node.js总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T20:31:01+08:00">
+                2017-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>学习node.js过程中的收获。</p>
+</blockquote>
+<p><strong>node.js是JavaScript的运行环境，或者说是web开发的runtime。</strong></p>
+<h3 id="总的介绍"><a href="#总的介绍" class="headerlink" title="总的介绍"></a>总的介绍</h3><ul>
+<li>事件驱动</li>
+<li>非阻塞I/O</li>
+<li>基于Chrome V8引擎</li>
+<li>单线程</li>
+<li>使用 JavaScript 开发后端代码</li>
+</ul>
+<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
+<li>事件驱动</li>
+<li>非阻塞I/O</li>
+<li>前端开发工程师偏爱</li>
+</ul>
+<h3 id="Node适合干什么"><a href="#Node适合干什么" class="headerlink" title="Node适合干什么"></a>Node适合干什么</h3><blockquote>
+<p>适合I/O密集场景</p>
+</blockquote>
+<h3 id="CPU-密集和-I-O密集的区别"><a href="#CPU-密集和-I-O密集的区别" class="headerlink" title="CPU 密集和  I/O密集的区别"></a>CPU 密集和  I/O密集的区别</h3><ul>
+<li>CPU密集：压缩、解压、加密、解密</li>
+<li>I/O密集：文件操作、网络操作、数据库</li>
+</ul>
+<h3 id="I-O密集场景有哪些"><a href="#I-O密集场景有哪些" class="headerlink" title="I/O密集场景有哪些"></a>I/O密集场景有哪些</h3><ul>
+<li>文件操作</li>
+<li>网络操作</li>
+<li>数据库</li>
+</ul>
+<h3 id="为什么非常适合Web"><a href="#为什么非常适合Web" class="headerlink" title="为什么非常适合Web"></a>为什么非常适合Web</h3><p>因为web常见场景基本都是I/O密集场景</p>
+<ul>
+<li>静态资源读取</li>
+<li>数据库操作</li>
+<li>渲染页面</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/01/对象，数组，字符串之间的各种形式转换/#more" rel="contents">
+            <a class="btn" href="/2017/12/28/对node的深刻认知/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -596,447 +1063,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/20/JS数组方法返回值的总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/20/JS数组方法返回值的总结/" itemprop="url">JS数组方法返回值的总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-20T21:08:48+08:00">
-                2017-11-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Experiences/" itemprop="url" rel="index">
-                    <span itemprop="name">Experiences</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="不会改变原数组的方法"><a href="#不会改变原数组的方法" class="headerlink" title="不会改变原数组的方法"></a>不会改变原数组的方法</h4><ul>
-<li>slice</li>
-<li>concat 返回新的数组</li>
-<li>map</li>
-<li>filter</li>
-<li>forEach</li>
-</ul>
-<h4 id="改变原数组的方法"><a href="#改变原数组的方法" class="headerlink" title="改变原数组的方法"></a>改变原数组的方法</h4><ul>
-<li>pop     返回被删除的元素的值</li>
-<li>push   返回数组新的长度</li>
-<li>shift</li>
-<li>unshift</li>
-<li>splice   返回新数组</li>
-<li>sort</li>
-</ul>
-<h4 id="其他数组方法"><a href="#其他数组方法" class="headerlink" title="其他数组方法"></a>其他数组方法</h4><ul>
-<li>join()      返回字符串</li>
-<li>split()     将字符串解析成数组，返回数组，并且数组中的每个元素都是字符串</li>
-<li>sort()      返回排序后的数组</li>
-<li>filter()    返回的数组元素是调用的数组的一个子集，并且是新数组</li>
-<li>map()       返回的是新数组</li>
-<li>indexOf() 返回找到的第一个元素的索引值，没有则返回-1</li>
-<li>isArray()  返回true或者false    用来检测是否为数组的最好的方法，比instanceof靠谱</li>
-<li>reduce()  返回单个值</li>
-<li>forEach()  返回一个数组的拷贝，不会修改原数组</li>
-<li>find() 返回第一个找到的元素，没有找到就返回undefined</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/04/scss用法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/04/scss用法/" itemprop="url">SCSS用法简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-04T14:27:06+08:00">
-                2017-11-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>和CSS用法差不多，<strong>最大优点就是可以解决全局污染的问题，也就是限制作用域和嵌套编写CSS</strong>。以往CSS都是用前缀或者其他东西来解决全局污染，然而到了<code>SCSS</code>，<strong>只需要在最外层套一层带有class的div标签就可以了</strong><br>因为SCSS是用<strong>嵌套规则来书写样式</strong>的，每个域只在父层，比如</p>
-</blockquote>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">.fu&#123;</div><div class="line">	font-size:<span class="number">16</span>px;</div><div class="line">	p&#123;</div><div class="line"><span class="symbol">		background:</span>red;</div><div class="line">		.a-ref&#123;</div><div class="line"><span class="symbol">			color:</span>black;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 相当于</span></div><div class="line"><span class="params">&lt;div class="fu"&gt;</span></div><div class="line">	<span class="params">&lt;p&gt;</span></div><div class="line">		<span class="params">&lt;a&gt;</span><span class="params">&lt;/a&gt;</span></div><div class="line">	<span class="params">&lt;/p&gt;</span></div><div class="line"><span class="params">&lt;/div&gt;</span></div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/类数组对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/类数组对象/" itemprop="url">类数组对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。</strong></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var o =&#123;<span class="number">0</span>:<span class="number">7</span>,<span class="number">1</span>:<span class="number">8</span>,<span class="number">2</span>:<span class="number">9</span>,<span class="built_in">length</span>:<span class="number">3</span>&#125;</div><div class="line">console.<span class="built_in">log</span>(<span class="number">0</span>);</div><div class="line">可以用Array.<span class="keyword">from</span>(o)来使其变成数组</div><div class="line">[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</div></pre></td></tr></table></figure>
-<p>与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串：</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">console.<span class="keyword">log</span>(<span class="built_in">Array</span>.prototype.<span class="keyword">join</span>.call(o));</div><div class="line"><span class="comment">//输出：“7,8,9”</span></div></pre></td></tr></table></figure>
-<p>在浏览器环境中，<code>document.getElementsByTagName()</code>语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。</p>
-<p>在ECMAScript 5标准中，字符串string就是一个只读的类数组对象：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="keyword">var</span> s = <span class="string">"godkun"</span>;</div><div class="line"><span class="number">2</span>  <span class="built_in">console</span>.log(s[<span class="number">3</span>]);</div><div class="line"><span class="comment">//输出：d</span></div><div class="line"><span class="number">3</span>  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.join.call(s, <span class="string">" "</span>));</div><div class="line"><span class="comment">//输出：g o d k u n</span></div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1081,7 +1112,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1092,7 +1123,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1103,7 +1134,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1181,7 +1212,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

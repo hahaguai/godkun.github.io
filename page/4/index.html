@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/reduce用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/ndoe两种调试方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/reduce用法/" itemprop="url">reduce用法</a></h1>
+                <a class="post-title-link" href="/2017/12/28/ndoe两种调试方法/" itemprop="url">ndoe两种调试方法</a></h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:45:23+08:00">
+                2017-12-28
               </time>
             
 
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  <a href="/categories/Node/" itemprop="url" rel="index">
+                    <span itemprop="name">Node</span>
                   </a>
                 </span>
 
@@ -413,14 +413,26 @@
       
         
           
-            <blockquote>
-<p>灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组</p>
+            <h3 id="chrome调试方法"><a href="#chrome调试方法" class="headerlink" title="chrome调试方法"></a>chrome调试方法</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">chrome:</span><span class="comment">//inspect</span></div><div class="line">点击configure设置host port</div></pre></td></tr></table></figure>
+<p>然后下载chrome调试工具插件<strong>NIM</strong><br>最后运行运行需要调试的脚本<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">--inspect-brk</span> xxx.js</div></pre></td></tr></table></figure></p>
+<p>自动打开调试界面</p>
+<h3 id="VSCODE调试-个人使用此方式，很好用"><a href="#VSCODE调试-个人使用此方式，很好用" class="headerlink" title="VSCODE调试[个人使用此方式，很好用]"></a>VSCODE调试[个人使用此方式，很好用]</h3><ul>
+<li>点击调试按钮，点击设置图标，进行设置<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></div><div class="line">  <span class="comment">// 悬停以查看现有属性的描述。</span></div><div class="line">  <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="string">"configurations"</span>: [</div><div class="line">    </div><div class="line">    &#123;</div><div class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">      <span class="string">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Current file"</span>,</div><div class="line">      <span class="string">"program"</span>: <span class="string">"<span class="subst">$&#123;file&#125;</span>"</span>,</div><div class="line">      <span class="string">"cwd"</span>: <span class="string">"<span class="subst">$&#123;cwd&#125;</span>"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">      <span class="string">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Launch Program"</span>,</div><div class="line">      <span class="string">"program"</span>: <span class="string">"<span class="subst">$&#123;file&#125;</span>"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>保存后，调试一个单文件js时，直接选择<code>Current file</code>， 然后点击运行。</p>
+<p><strong>调试按钮有</strong></p>
+<ul>
+<li>第一个  进入下一个断点</li>
+<li>第二个  单步进入</li>
+<li>第三个  退出此断点调试</li>
+<li>第四个  重新开始调试</li>
+<li>第五个  结束调试</li>
+</ul>
+<p><strong>添加条件断点：</strong></p>
+<blockquote>
+<p>目的：在长的for循环中，精确定位到要调试的循环中，比如100次for循环，在第8次后面出现bug，则需要右击点击添加条件断点，然后选择表达式，输入 <code>n&gt;8</code> 回车，运行调试。</p>
 </blockquote>
-<hr>
-<p>结合map，可以任意转成键值对对象</p>
-<figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reduce((<span class="built_in">map</span>, field) =&gt; &#123;</div><div class="line">	<span class="built_in">map</span>.<span class="built_in">set</span>();</div><div class="line">	<span class="keyword">return</span> <span class="built_in">map</span>;	</div><div class="line">&#125;, <span class="literal">new</span> <span class="built_in">Map</span>())</div></pre></td></tr></table></figure>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>, <span class="number">2</span>].reduce(<span class="function"><span class="keyword">function</span><span class="params">(res, cur)</span> </span>&#123; </div><div class="line">    res.push(cur + <span class="number">1</span>); </div><div class="line">    <span class="keyword">return</span> res; </div><div class="line">&#125;, [])</div></pre></td></tr></table></figure>
-<p>后面定义的<code>[]</code>是res, 然后cur是第一个数据，很万能的方法。</p>
 
           
         
@@ -464,7 +476,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/遍历在开发中的使用/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/mongoose和express进行配合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -483,7 +495,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/28/遍历在开发中的使用/" itemprop="url">遍历在开发中的使用</a></h1>
+                <a class="post-title-link" href="/2017/12/27/mongoose和express进行配合/" itemprop="url">mongoose和express和vue-cli配合初始化商品展示页面</a></h1>
         
 
         <div class="post-meta">
@@ -495,8 +507,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T21:08:48+08:00">
-                2017-10-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T16:44:06+08:00">
+                2017-12-27
               </time>
             
 
@@ -518,8 +530,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
+                  <a href="/categories/MongDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongDB</span>
                   </a>
                 </span>
 
@@ -553,146 +565,16 @@
 
       
         
-          
-            <p><strong>下面这种遍历在开发中很常见，在这里总结一下。</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> s1 = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> s2 = <span class="number">2</span>;</div><div class="line"><span class="keyword">const</span> obj = &#123; s1, s2 &#125;;</div><div class="line">上面显示为 obj = &#123; <span class="attr">s1</span>: <span class="number">1</span>, <span class="attr">s2</span>: <span class="number">2</span> &#125;</div><div class="line">一般是用<span class="built_in">Object</span>.keys(obj)方法获得obj对象的所有的键属性值</div><div class="line"><span class="keyword">let</span> arr = [<span class="string">"s1"</span>, <span class="string">"s2"</span>]</div><div class="line">然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作</div><div class="line">arr.forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</div><div class="line">  XXXXX = obj[key]</div><div class="line">&#125;)</div><div class="line"></div><div class="line">获取对象的键对应的值，有两种方法，第一种直接obj.s1   第二种是obj[<span class="string">'s1'</span>]，一般用第二种，先将s1变成字符串形式</div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/27/JSON心得/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/27/JSON心得/" itemprop="url">JSON心得</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-27T15:27:17+08:00">
-                2017-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JavaScript-CSS-HTML/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript-CSS-HTML</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="JSON的总结"><a href="#JSON的总结" class="headerlink" title="JSON的总结"></a>JSON的总结</h3><p>1: 是一种数据交换格式，其实就是一个文本文件<br>2: 独立于编程语言<br>3：基于JS对象字面量表示法<br>4：表达数据的方式对通用的编程概念都很友好<br>注意：数据交换格式是一种在不同平台或者系统间传递数据的文本格式。而表示法是指一个用于诸如数字或单词等数据的字符系统。</p>
-<h3 id="一些值得思考的地方"><a href="#一些值得思考的地方" class="headerlink" title="一些值得思考的地方"></a>一些值得思考的地方</h3><h4 id="字面量是什么意识"><a href="#字面量是什么意识" class="headerlink" title="字面量是什么意识"></a>字面量是什么意识</h4><p>在编程语言中的literal(字面量)是一个名词，所谓字面量，就是对数据值的具体表示。<br>比如 x = 5; 这里的 x 是变量<br>x = x + 5;  这里我们肯定知道 x = 10了，其中的 5 就是字面量，也就是我们看到的实际值，就是字面的值。<br>比如5美元就是字面量，而行用卡就是变量</p>
-<h4 id="书写正确的格式"><a href="#书写正确的格式" class="headerlink" title="书写正确的格式"></a>书写正确的格式</h4><p>JSON中的名称一定要用双引号包裹，值不一定用，值可以是字符串、数字、布尔值、null、对象或者数组。<br>JSON中，多个名称-值对使用逗号分割<br>JSON媒体类型是application/json</p>
+          <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm <span class="selector-tag">i</span> mongoose --save</div></pre></td></tr></table></figure>
+<ul>
+<li>创建model</li>
+<li>创建路由</li>
+<li>基于mongoose<br><strong>首先启动mongdb数据库服务器，然后选择需要的数据库</strong><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">net start MongDB</div><div class="line">mongo</div><div class="line"><span class="keyword">show</span> dbs</div><div class="line"><span class="keyword">use</span> db_demo</div><div class="line"><span class="comment">// db_demo数据库下有goods集合</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/10/27/JSON心得/#more" rel="contents">
+            <a class="btn" href="/2017/12/27/mongoose和express进行配合/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -738,7 +620,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/21/Vue多级组件传值/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/hexo博客上点开某一分类，出现404页面/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -757,7 +639,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/10/21/Vue多级组件传值/" itemprop="url">Vue多级组件传值</a></h1>
+                <a class="post-title-link" href="/2017/12/27/hexo博客上点开某一分类，出现404页面/" itemprop="url">hexo博客上点开某一分类，出现404页面</a></h1>
         
 
         <div class="post-meta">
@@ -769,8 +651,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-21T11:15:35+08:00">
-                2017-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T14:50:35+08:00">
+                2017-12-27
               </time>
             
 
@@ -792,8 +674,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/Problem-Solved/" itemprop="url" rel="index">
+                    <span itemprop="name">Problem-Solved</span>
                   </a>
                 </span>
 
@@ -828,10 +710,20 @@
       
         
           
-            <blockquote>
-<p>在vue2.0中，子组件只能将emit的事件传递给上一级的组件，不能越级传递给上一级的父组件，这在vue1.0中可以使用dispatch来，但是为了层级更清晰，在2.0中取消了dispatch。</p>
+            <p><strong>坑了我30分钟。。。</strong><br>通过命令<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
+<p>看到本地测试可以点开分类，但是部署到github上就出现404，这是因为部署的过程出现了问题，基本就是缓存问题。</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><blockquote>
+<p>我将分类写成vue，但是分类格式没有写对，然后部署后，出现404，这时，我修改了分类格式，还是不行，修改成Vue也不行，部署后还是404。</p>
 </blockquote>
-<p><strong>如果你想从孙子组件触发事件传递给爷爷组件，那必须先传递给爸爸组件，爸爸组件触发事件绑定的函数后，继续将参数emit给爷爷组件，这样就成功的将孙子组件的参数传递给爷爷组件。</strong></p>
+<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><blockquote>
+<p>git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。</p>
+</blockquote>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><blockquote>
+<p>进入到博客项目中 <code>.deploy_git</code>文件夹，修改 .git 目录下的<code>config</code>文件，将<code>ignorecase=true</code> 改为 <code>ignorecase=false</code></p>
+<p>然后删除博客项目中 <code>.deploy_git</code> 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。</p>
+</blockquote>
+<p>清空github文件<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -rf *</div><div class="line">git commit -m <span class="symbol">'clean</span> <span class="keyword">all</span> <span class="keyword">file</span>'</div><div class="line">git push</div></pre></td></tr></table></figure></p>
+<p>重新部署<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">hexo clean</div><div class="line">hexo deploy -<span class="keyword">generate</span></div></pre></td></tr></table></figure></p>
 
           
         
@@ -875,7 +767,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/25/用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/MongoDB的安装、配置、采坑和使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -894,7 +786,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/25/用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标/" itemprop="url">用二分法打印第一个目标元素出现的下标和最后一个元素出现的下标</a></h1>
+                <a class="post-title-link" href="/2017/12/26/MongoDB的安装、配置、采坑和使用/" itemprop="url">MongoDB的安装、配置、采坑和使用</a></h1>
         
 
         <div class="post-meta">
@@ -906,8 +798,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T23:50:41+08:00">
-                2017-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T12:10:17+08:00">
+                2017-12-26
               </time>
             
 
@@ -929,8 +821,155 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
+                  <a href="/categories/MongDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="版本提示"><a href="#版本提示" class="headerlink" title="版本提示"></a>版本提示</h4><p>这里我用的是3.2.4版本</p>
+<h3 id="安装和配置"><a href="#安装和配置" class="headerlink" title="安装和配置"></a>安装和配置</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">linxu命令</div><div class="line">cd d:</div><div class="line"><span class="keyword">cmd</span><span class="bash">命令</span></div><div class="line">d:</div><div class="line">然后执行</div><div class="line">mkdir mongo</div><div class="line">mkdir MongoDB</div></pre></td></tr></table></figure>
+<p>将软件安装到mongo目录里，安装时选择custom模式。安装完成后。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cd MondoDB</div><div class="line">mkdir data</div><div class="line">mkdir logs</div><div class="line">mkdir etc</div><div class="line">cd etc/</div><div class="line">vi mongo.conf</div></pre></td></tr></table></figure></p>
+<p>按下 i 进入编辑模式，输入</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="attr">dbpath</span>=D:\MongoDB\data\db</div><div class="line"><span class="attr">logpath</span>=D:\MongoDB\logs\mongo.log</div><div class="line"><span class="attr">logappend</span>=<span class="literal">true</span></div><div class="line"><span class="attr">quiet</span>=<span class="literal">true</span></div><div class="line"><span class="attr">port</span>=<span class="number">27017</span></div><div class="line"><span class="attr">journal</span>=<span class="literal">true</span></div><div class="line"><span class="attr">httpinterface</span>=<span class="literal">true</span></div><div class="line"><span class="attr">storageEngine</span>=mmapv1</div></pre></td></tr></table></figure>
+<ul>
+<li>然后按下ESC键，输入:wq 按下回车保存并退出。</li>
+<li>继续输入以下命令<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> data/</div><div class="line"><span class="keyword">mkdir</span> <span class="keyword">db</span></div><div class="line"><span class="keyword">cd</span> ..</div><div class="line"><span class="keyword">cd</span> logs/</div><div class="line">touch mongo.<span class="built_in">log</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/26/MongoDB的安装、配置、采坑和使用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/20/AMD、CMD、CommonJS、ES6比较/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/20/AMD、CMD、CommonJS、ES6比较/" itemprop="url">AMD、CMD、CommonJS、ES6比较</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-20T19:42:12+08:00">
+                2017-12-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Experiences/" itemprop="url" rel="index">
+                    <span itemprop="name">Experiences</span>
                   </a>
                 </span>
 
@@ -965,10 +1004,20 @@
       
         
           
-            <h2 id="比较简单，直接上代码了"><a href="#比较简单，直接上代码了" class="headerlink" title="比较简单，直接上代码了"></a>比较简单，直接上代码了</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BinaryFind</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span>[] arr = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">11</span>,<span class="number">22</span>,<span class="number">33</span>,<span class="number">234</span>&#125;;</div><div class="line">		</div><div class="line">        <span class="keyword">int</span> a = f1(arr, <span class="number">4</span>);</div><div class="line">        System.out.println(<span class="string">"4第一次出现的下标为："</span> + a);</div><div class="line">        <span class="keyword">int</span> b = f2(arr, <span class="number">4</span>);</div><div class="line">        System.out.println(<span class="string">"4最后一次出现的下标为: "</span> + b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  用二分法打印打一次出现的目标元素的下标</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f1</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> right = arr.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</div><div class="line"></div><div class="line">            <span class="comment">//  这里是关键代码，向右进位需要多加1</span></div><div class="line">            mid = (left + right) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (arr[mid] &lt; value)&#123;</div><div class="line">                left = mid + <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                right = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] == value)</div><div class="line">            <span class="keyword">return</span> left;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//  用二分法打印打最后出现的目标元素的下标</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">f2</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> value)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> right = arr.length - <span class="number">1</span>;</div><div class="line">        <span class="keyword">int</span> mid;</div><div class="line">        <span class="keyword">while</span> (left &lt; right)&#123;</div><div class="line">            mid = (left + right + <span class="number">1</span>) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (arr[mid] &gt; value)&#123;</div><div class="line">                right = mid - <span class="number">1</span>;</div><div class="line">            &#125;<span class="keyword">else</span> &#123;</div><div class="line">                left = mid;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (arr[left] == value)</div><div class="line">            <span class="keyword">return</span> left;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>在最简单的二分法的实现上进行了优化，使其可以选择输出目标元素的位置。这里需要注意代码中，字为关键代码的注释的那句代码，如果不加1，则会死循环。<br><strong>时间复杂度为O(lgN)</strong></p>
+            <h3 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h3><p><strong>都是前端模块化过程中的标准和规范。</strong></p>
+<h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><blockquote>
+<p>是RequireJS产品的标准，异步加载，依赖前置，也就是我先把需要依赖的都先加载好，后面需要用的时候，才使用。</p>
 </blockquote>
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><blockquote>
+<p>是淘宝SeaJS的标准，依赖就近，同步加载，同步就是即用即返回的意识。也就是我需要用到这个模块的时候，才去加载，然后调用。</p>
+</blockquote>
+<h4 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h4><blockquote>
+<p>是服务端进行模块划分的标准，也就是node.js的标准，前端不支持，也就是浏览器不支持。</p>
+</blockquote>
+<h4 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h4><blockquote>
+<p>是前端模块化划分标准，主流浏览器基本都支持。</p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p><strong>每一种标准都是在为前端模块化做贡献，为前端发展做贡献。</strong></p>
 
           
         
@@ -1007,7 +1056,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1052,7 +1101,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1063,7 +1112,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1074,7 +1123,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1152,7 +1201,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

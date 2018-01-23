@@ -1,6 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[web安全概述]]></title>
+    <url>%2F2018%2F01%2F06%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面安全问题的考虑 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
+      <categories>
+        <category>Web-Security</category>
+      </categories>
+      <tags>
+        <tag>Web-Security</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[全栈的一些知识]]></title>
+    <url>%2F2018%2F01%2F04%2F%E5%85%A8%E6%A0%88%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[cookies是由服务端生成，客户端维护。]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[代码方面的性能优化]]></title>
+    <url>%2F2018%2F01%2F04%2F%E4%BB%A3%E7%A0%81%E6%96%B9%E9%9D%A2%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[缓存DOM查询1234567891011var i;for( i=0; i &lt; document.getElementsByTagName('p').length; i++)&#123; // todo&#125;// 缓存DOM查询var pList = document.getElementsByTagName('p');for (i=0; i &lt; pList.length; i++) &#123; // todo&#125; 合并DOM插入1234567891011var listNode = document.getElementById("list"); // 要插入 10个 li标签var frag = document.createDocumentFragment();var x, li;for (x=0; x&lt;10; x++) &#123; li = document.createElement("li"); li.innerHTML = "List item" + x; frag.appendChild(li);&#125;listNode.appendChild(frag); 先创建一个片段，先在片段里进行创建操作，最后只进行一次DOM操作插入到DOM树上 事件节流12345678910111213var textarea = document.getElementById("text");var timeoutId;textarea.addEventListener('keyup', function() &#123; if(timeoutId) &#123; clearTimeout(timeoutId); &#125; timeoutId = setTimeout(function() &#123; // 触发change事件 console.log(111); &#125;, 1000)&#125;); 事件代理来完善绑定事件函数 绑定事件在我们开发的过程中会经常用到。写一个通用的函数是很必要的。 代理如以下代码:1234567891011121314151617181920212223242526272829303132333435363738&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;&lt;/title&gt; &lt;style type="text/css"&gt; &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;ul id="parent"&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;li&gt;item 5&lt;/li&gt; &lt;li&gt;item 6&lt;/li&gt; &lt;/ul&gt; &lt;script&gt; window.onload = function() &#123; var parent = document.getElementById('parent'); // li 太多了，就代理到ul元素上，这个通过事件冒泡机制传到ul元素上 // 这样就可以只绑定一次事件就可以了 parent.addEventListener('click', function(event) &#123; var event = event || window.event; var target = event.target || event.srcElement; // target.nodeName这个是标签元素的内容 // event.target这个是目标元素[元素是标签和被标签括起来的内容] if(target.nodeName.toUpperCase() == 'LI') &#123; alert(target.innerHTML) &#125; &#125;, false) &#125; &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; ul中有很多个li，而且li还有可能增加。如果要为每个li添加一个点击事件，操作起来将比较麻烦，代码量大不简洁，占内存。这时可以将事件代理到ul上，当点击li时，由于事件冒泡，ul上也起作用，之后再判断是点击那个li即可。 1e.target.nodeName 是返回标签名字的大写 这样可以提高前端性能，多使用代理 不需要为每一个元素都添加监听事件而是通过委托给父元素来处理，这样就减少了内存，性能提高了。 可以方便动态添加元素，不需要再为新添加的元素重新绑定事件。 懒加载和预加载对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 预加载第一种加载方式1&lt;img src="xxx" style="display:none"&gt; 第二种方式，使用Image对象12const image = new Image()image.src = "xxxx" 第三种方式通过xhttpReques预加载，但是会存在跨域的问题 也可以使用proLoad.js实现预加载，很方便]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[前端性能优化概述]]></title>
+    <url>%2F2018%2F01%2F04%2F%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[总的层面 网络层面 构建层面 服务端层面 浏览器渲染层面 涉及到的功能 资源的合并与压缩 图标编解码原理和类型选择 浏览器渲染机制 懒加载预加载 浏览器存储 缓存机制 PWA Vue-SSR 技术栈 作用与原理 如何与真实业务场景结合 理论结合实践 量化分析 基础优化进阶优化结合服务端的优化 web前端的核心概念意义 web前端是一个动量加载静态资源的过程，这个过程收到网络的影响 性能优化点 http请求的过程中及其潜在的性能优化点]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[html、css、JS压缩和文件合并]]></title>
+    <url>%2F2018%2F01%2F03%2Fhtml%E3%80%81css%E3%80%81JS%E5%8E%8B%E7%BC%A9%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6%2F</url>
+    <content type="text"><![CDATA[如何进行html压缩 使用在线网站进行压缩 nodejs提供了html-minifier工具 后端模板引擎渲染压缩 CSS压缩 使用在线网站进行压缩 使用html-minifier对html中的css进行压缩 使用clean-css对css进行压缩 JS压缩 无效字符的删除 剔除注释 代码语义的缩减和优化 代码保护 如何进行JS压缩和混乱 使用在线网站进行压缩 使用html-minifier对html中的js进行压缩 使用uglifyjs2对js进行压缩 先将js读进来 如何文件合并 使用在线网站进行文件合并 使用nodejs实现文件合并 压缩和合并的方法 fis3构建工具 图片小的应该用inline image方式导入html中，这个方法可以用fis语法生成]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git在工作中要用的高级命令]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E8%A6%81%E7%94%A8%E7%9A%84%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[学会在命令行中查看差异每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用git log 查看commit值，然后git show commit-hash值这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息 git tag12345678本地打标签：git tag tagName commitId本地删除标签:git tag -d tagName将本地的标签push到服务器:git push origin tagName从服务器端删除标签:git push origin :tagName(远程tagName) 删除分支要注意的事情删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。 终极工作先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发 git rebase如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令12git checkout myworkgit rebase origin 这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git-flow开发流程]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit-flow%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[1：开发任何功能都要先创建自己的分支git checkout -b xxx 创建分支并切换到此分支比如： git checkout -b feature/runtime-monitor然后 git pull origin develop 拉取最新的开发分支，默认是开发分支，如果是 master 就 git pull origin master这里的origin 是我github账号对应的主机 2：然后开发完代码后 1git add . &amp;&amp; git commit -m "xxx" 然后push到我的主机上的对应的分支上 1git push origin xxx 这里要注意，没完成一个点，就git commit一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才git push 到你的分支上 因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 最后提交pr到develop分支上，默认是develop分支 3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去 4：一些技巧1234git 删除本地分支git branch -d xxxgit 删除远程分支git push origin :xxx (origin 后面有空格) 5：非常注意事项在进行git-flow开发时，一定要记住你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。 正常是这样的流程123456789切换matsergit checkout -b yk1git add .git commit git pushgit checkout mastergit checkout -b yk2]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git stash用于保存和恢复工作进度]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit%20stash%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[git stash 保存当前的工作进度。会分别对暂存区和工作区的状态进行保存 git stash save “message…” 这条命令实际上是第一条 git stash 命令的完整版 git stash list 显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择 git stash pop [–index] [] 如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。 如果提供参数（来自 git stash list 显示的列表），则从该 &lt;stash&gt; 中恢复。恢复完毕也将从进度列表中删除 &lt;stash&gt;。 选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。 git stash apply [–index] [] 除了不删除恢复的进度之外，其余和 git stash pop 命令一样 git stash clear 删除所有存储的进度 高级知识1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存3：然后再用git stash apply 进行恢复4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[性能优化方面的基础知识]]></title>
+    <url>%2F2018%2F01%2F03%2F%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E9%9D%A2%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[tinypng：图片压缩网站 将jpg转化成base64格式的图片，因为base64是文本格式，可以直接放在body里。一般对于小于10KB大小的图片进行base64转码。 zhitu网站： png格式转成webp spritecow.com：在线制作雪碧图网站 减少http请求，但是不能一张太大 首屏时间： 通过进行个性化加载资源【就是和首屏无关的资源先不加载】来避免，首屏一次把所有资源加载完成。 并发上限：对某一个域名下，其并发请求数是有上限的 JS文件是顺序执行，比如引入10个JS文件，那么它是顺序执行的。因为对于浏览器来说。JS是单线程执行。]]></content>
+      <categories>
+        <category>FE-Performance-Optimization</category>
+      </categories>
+      <tags>
+        <tag>FE-Performance-Optimization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git容易忘记的命令]]></title>
+    <url>%2F2018%2F01%2F02%2Fgit%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[1：怎么进行修改回溯1234git stash git statusgit push origin 分支名 git stash apply 2：git config –global core.autocrlf true设置为true，添加文件到git仓库时，git将其视为文本文件。他将把crlf变成lf。 3：git 回到上一个版本如果git pull以后发现版本不对，要回退到上一个版本用下面命令 1git reset --hard HEAD 4：git remote show [remote-name] 查看某个远程仓库的详细信息，比如要看所克隆的 origin 仓库1234567891011121314$ git remote show origin* remote origin Fetch URL: https://github.com/schacon/ticgit Push URL: https://github.com/schacon/ticgit HEAD branch: master Remote branches: master tracked dev-branch tracked// 默认是git pull 为本地分支 Local branch configured for 'git pull': master merges with remote master// 设置git push 的本地引用 Local ref configured for 'git push': master pushes to master (up to date) 如何在git中对比当前工作区和远程仓库的区别？1234先更新下本地的远程分支git fetch origin然后可以比对git diff 本地分支 origin/xxxx 设置git 命令快捷方式12git config --global alias.s status 输入git s就代表git status 显示每次提交的内容差异一个常用的选项是 -p，用来显示每次提交的内容差异。 你也可以加上 -2 来仅显示最近两次提交： 1git log -p -2 删除远程分支假设你已经通过远程分支做完所有的工作了 - 也就是说你和你的协作者已经完成了一个特性并且将其合并到了远程仓库的 master 分支（或任何其他稳定代码分支）。 可以运行带有 –delete 选项的 git push 命令来删除一个远程分支。 如果想要从服务器上删除 serverfix 分支，运行下面的命令： 1git push origin --delete serverfix 删除本地分支git branch -d XXX删除本地分支前，要先切换到本地matser分支，然后拉取一下最新的远程分支，然后才能进行删除本地分支动作。 增加一个本地版本库到现有的 Git 项目可以执行如下的命令： 1git remote add local_proj /opt/git/project.git 注意事项 git clone 自动创建了一个名为 origin 的远端连接 更新分支服务器的某个分支删除了，但是本地通过git branch -a还是可以看得到，感觉很烦，通过以下命令就可以更新分支的情况。 1git fetch origin --prune 拉取远程分支并创建本地分支123git checkout -b 本地分支名x origin/远程分支名x还有一种方法git pull origin XXX: xxx 图形化看commit时间线提交git log --graph git 回滚git 回滚是指混滚到某个commit的阶段 要先用 git log 查看commit 日志 然后用 git --hard reset hash值 就可以回滚到这个commit的版本了，注意是这个commit的版本，比如你的commit2 出现问题了，想回滚，那肯定是回滚到这个commit2的上个版本commit1 分支冲突第一种处理方法不能丢弃本地修改，因为其中的某些内容的确是我们需要的，此时需要对unmerged的文件进行手动修改，删掉其中冲突的部分 你在A分支上commit了，然后PR了，这时你的PR没有冲突的提示，可以合并。但是之后有人在你PR的目标上的相同位置做了修改，这个时候，你的PR就有冲突的提示了，不可以合并，需要先获取 远程最新的origin/master 分支的上的commitID，然后存在本地mstaer分支上的一个文件内，然后再用git merge origin/master 合并到本地的文件上。然后会出现冲突，再在冲突的文件内根据需求将一些内容删除掉，然后在git add git commit git push origin xxx 就不会再冲突了 1234567891011121314151617181920212223242526272829303132333435$ git checkout pr12 $ git fetch origin$ git merge origin/master官方例子$ git remote add upstream https://github.com/schacon/blink (1)$ git fetch upstream (2)remote: Counting objects: 3, done.remote: Compressing objects: 100% (3/3), done.Unpacking objects: 100% (3/3), done.remote: Total 3 (delta 0), reused 0 (delta 0)From https://github.com/schacon/blink * [new branch] master -&gt; upstream/master$ git merge upstream/master (3)Auto-merging blink.inoCONFLICT (content): Merge conflict in blink.inoAutomatic merge failed; fix conflicts and then commit the result.$ vim blink.ino (4)$ git add blink.ino$ git commit[slow-blink 3c8d735] Merge remote-tracking branch 'upstream/master' \ into slower-blink$ git push origin slow-blink (5)Counting objects: 6, done.Delta compression using up to 8 threads.Compressing objects: 100% (6/6), done.Writing objects: 100% (6/6), 682 bytes | 0 bytes/s, done.Total 6 (delta 2), reused 0 (delta 0)To https://github.com/tonychacon/blink ef4725c..3c8d735 slower-blink -&gt; slow-blink 第二种解决方法如果我们确定远程的分支正好是我们需要的，而本地的分支上的修改比较陈旧或者不正确，那么可以直接丢弃本地分支内容，运行如下命令(看需要决定是否需要运行git fetch取得远程分支)： 1$:git reset --hard origin/master]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git下构建时的一些错误]]></title>
+    <url>%2F2017%2F12%2F29%2Fgit%E4%B8%8B%E6%9E%84%E5%BB%BA%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E9%94%99%E8%AF%AF%2F</url>
+    <content type="text"><![CDATA[1：can not resolve module ：就是说没有这个模块。 2：npm i安装node-sass出现错误无法从https://github.com/sass/nodesass/releases/download/v4.7.1/win32-x64-57_binding.node下载二进制文件，无法下载https://github.com/sass/node-sass/releases/download/v4.7.1/win3 2-x64-57_binding.node：连接ETIMEDOUT 192.30.255.112:443，在下载预编译的二进制文件时超时原因：有可能没有安装python，无法预编译二进制，因为node 是c++写的还有就是node-sass真的很烦，经常出现下载不了，并没有觉得比less好哪去。终极解决方案：用淘宝镜像cnpm i 安装就可以完美解决这些问题了，不需要安装python什么的 3：直接用vue init webpcak 项目名 后 然后在vue文件中使用&lt;style lang=&quot;scss&quot; &gt; 出现依赖找不到。原因是没有各种加载器，比如需要安装style-loader css-loader 还要下载 node-sass sass sass-loader因为scss-loader又需要node-sass，另外webpack就不需要配置了，因为vue-cli会帮你配置安装的loader。其他注意的点用sass，解析scss是没问题的。scss是由sass-loader编译的。如果需要下载scss scss-loader， 那就下载。]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git个人快捷键设置和方法]]></title>
+    <url>%2F2017%2F12%2F29%2Fgit%E4%B8%AA%E4%BA%BA%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AE%BE%E7%BD%AE%E5%92%8C%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[方法我使用的是git bash here，用cd ~进入用户目录，后在此目录下创建 .bashrc文件，命令如下： 1touch .bashrc 然后 1vi .bashrc 进行设置快捷键 1alias cls='clear' git st === git status gst ==&gt; git status gp ==&gt; git push git ct === git commit alias cls=’clear’ alias gst=’git status’ alias gp=’git push’ alias gba=’git branch -a’ alias gbr=’git branch –remote’ alias gb=’git branch’ alias ga=’git add’ alias gcm=’git commit -m’ 以后可以直接 gcm 汉字或者字母 这里不需要打&#39;&#39;号了]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[对象字面量里直接设置键值]]></title>
+    <url>%2F2017%2F12%2F29%2F%E5%AF%B9%E8%B1%A1%E5%AD%97%E9%9D%A2%E9%87%8F%E9%87%8C%E7%9B%B4%E6%8E%A5%E8%AE%BE%E7%BD%AE%E9%94%AE%E5%80%BC%2F</url>
+    <content type="text"><![CDATA[ES6之前12345678var mykey = 'key3';var obj = &#123; key1: 1, key2: 2&#125;;obj[mykey] = 3;// obj输出的值为&#123;key3: 3, key1: 1, key2: 2&#125; ES6语法12345678var mykey = 'key3';var obj = &#123; key1: 1, key2: 2, [mykey]: 3&#125;;// obj输出的值为&#123;key3: 3, key1: 1, key2: 2&#125; ES6可以直接在对象字面量设置变量键值，ES6之前是不可以的，必须要在初始化后对象后面增加变量键值。]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[进程和线程]]></title>
     <url>%2F2017%2F12%2F28%2F%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[进程 是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。 通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。 但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。 这就是多进程： 多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。 线程 进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。 多线程：启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。]]></content>
@@ -156,6 +299,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[类数组对象]]></title>
     <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
@@ -170,17 +324,6 @@
     <title><![CDATA[reduce用法]]></title>
     <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
     <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
-      <categories>
-        <category>JavaScript-CSS-HTML</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -442,17 +585,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[JS之贪心算法]]></title>
-    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
-      <categories>
-        <category>JavaScript-Algorithm</category>
-      </categories>
-      <tags>
-        <tag>JavaScript-Algorithm</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[sublime3的经典操作和快捷键]]></title>
     <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
     <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
@@ -461,6 +593,17 @@
       </categories>
       <tags>
         <tag>tips</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS之贪心算法]]></title>
+    <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
+      <categories>
+        <category>JavaScript-Algorithm</category>
+      </categories>
+      <tags>
+        <tag>JavaScript-Algorithm</tag>
       </tags>
   </entry>
   <entry>
@@ -560,6 +703,17 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[清除浮动最常用方式]]></title>
+    <url>%2F2017%2F02%2F13%2F%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%9C%80%E5%B8%B8%E7%94%A8%E6%96%B9%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[找到前兄弟元素xxx1234567xxx:after &#123; clear: both; content: ''; height: 0; display: block; visibility: hidden&#125; 这段的意识是： 在xxx元素后再加一个div标签，并且设置clear:both清除浮动，然后设置高度为0，设置块级格式[这个的目的就是与下面的元素分隔开]，设置可见性为hidden。]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
       </tags>
   </entry>
   <entry>

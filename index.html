@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/进程和线程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/web安全概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/28/进程和线程/" itemprop="url">进程和线程</a></h1>
+                <a class="post-title-link" href="/2018/01/06/web安全概述/" itemprop="url">web安全概述</a></h1>
         
 
         <div class="post-meta">
@@ -354,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T23:14:34+08:00">
-                2017-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T19:23:24+08:00">
+                2018-01-06
               </time>
             
 
@@ -377,8 +377,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Computer-Composition/" itemprop="url" rel="index">
-                    <span itemprop="name">Computer-Composition</span>
+                  <a href="/categories/Web-Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Web-Security</span>
                   </a>
                 </span>
 
@@ -413,21 +413,33 @@
       
         
           
-            <h4 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h4><blockquote>
-<p>是计算机中的程序关于某数据集合上的一次运行活动，是系统进行资源分配和调度的基本单位。</p>
-</blockquote>
-<p><strong>通俗的说：电脑桌面上的程序，比如播放器，点击图标运行程序，那么程序就被加载到了内存中，那么这个运行中的播放器程序就叫进程。</strong></p>
-<blockquote>
-<p>但是单核cpu怎么也可以同时执行很多程序呢？主要是因为计算机做了一个很聪明的事情，它用很快的时间轮换执行多个程序，比如1ns执行这个程序的语句，另一个ns执行那个程序的语句，人类的眼睛是分辨不出的，就像动画片一样，一秒100帧，肉眼分辨不出来的。</p>
-</blockquote>
-<p><strong>这就是多进程：</strong></p>
-<blockquote>
-<p>多进程：启动多个进程，多个进程可以一块执行多个任务。其实并不是同时执行，只是用的快速调度算法，人类感觉是同时执行的。</p>
-</blockquote>
-<h4 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h4><blockquote>
-<p>进程内一个相对独立的、可调度的执行单元，与同属一个进程的线程共享进程的资源，线程只能使用所属的进程内的资源【内存】，相当于水分子和水分子中的原子。</p>
-</blockquote>
-<p><strong>多线程：</strong>启动一个进程，在一个进程内启动多个线程，这样，多个线程也可以一块执行多个任务。</p>
+            <p><strong>对于懒加载一定要对图片设置高度</strong><br>不然第一次加载时，会直接加载所有的资源，因为没有高度。</p>
+<h4 id="外库解决"><a href="#外库解决" class="headerlink" title="外库解决"></a>外库解决</h4><p>zepto.min.js<br>zepto.lazyload.js</p>
+<h2 id="主要指两个方面"><a href="#主要指两个方面" class="headerlink" title="主要指两个方面"></a>主要指两个方面</h2><h4 id="私密性"><a href="#私密性" class="headerlink" title="私密性"></a>私密性</h4><p>不被非法获取和利用</p>
+<h4 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h4><p>不丢失不损坏不被篡改</p>
+<h2 id="体现在几个方面"><a href="#体现在几个方面" class="headerlink" title="体现在几个方面"></a>体现在几个方面</h2><ul>
+<li>代码层面</li>
+<li>架构层面</li>
+<li>运维层面<h2 id="安全问题的考虑"><a href="#安全问题的考虑" class="headerlink" title="安全问题的考虑"></a>安全问题的考虑</h2></li>
+<li>用户身份被盗用</li>
+<li>用户密码泄露</li>
+<li>用户资料被盗取</li>
+<li>网站数据库泄露</li>
+<li>其他<h2 id="web安全的重要性为什么这么高"><a href="#web安全的重要性为什么这么高" class="headerlink" title="web安全的重要性为什么这么高"></a>web安全的重要性为什么这么高</h2></li>
+<li>直面用户，挑战严峻</li>
+<li>网站和用户安全是生命线</li>
+<li>安全事故威胁企业生产，口碑甚至生存</li>
+<li><h2 id="有哪些安全隐患"><a href="#有哪些安全隐患" class="headerlink" title="有哪些安全隐患"></a>有哪些安全隐患</h2></li>
+<li>跨站脚本攻击XSS</li>
+<li>跨站请求伪造攻击CSRF</li>
+<li>前端Cookies 安全性</li>
+<li>点击劫持攻击</li>
+<li>传输过程安全问题</li>
+<li>用户密码安全问题</li>
+<li>SQL注入攻击</li>
+<li>信息泄露和社会工程学</li>
+<li>其他安全问题</li>
+</ul>
 
           
         
@@ -471,7 +483,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/对node的深刻认知/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/全栈的一些知识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -490,7 +502,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/28/对node的深刻认知/" itemprop="url">node.js总结</a></h1>
+                <a class="post-title-link" href="/2018/01/04/全栈的一些知识/" itemprop="url">全栈的一些知识</a></h1>
         
 
         <div class="post-meta">
@@ -502,8 +514,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T20:31:01+08:00">
-                2017-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:37:54+08:00">
+                2018-01-04
               </time>
             
 
@@ -525,8 +537,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
                   </a>
                 </span>
 
@@ -560,43 +572,150 @@
 
       
         
-          <blockquote>
-<p>学习node.js过程中的收获。</p>
+          
+            <ul>
+<li>cookies是由服务端生成，客户端维护。</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/代码方面的性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/04/代码方面的性能优化/" itemprop="url">代码方面的性能优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:37:54+08:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="缓存DOM查询"><a href="#缓存DOM查询" class="headerlink" title="缓存DOM查询"></a>缓存DOM查询</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> i;</div><div class="line"><span class="keyword">for</span>( i=<span class="number">0</span>; i &lt; <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>).length; i++)&#123;</div><div class="line">	<span class="comment">// todo</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 缓存DOM查询</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> pList = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>);</div><div class="line"><span class="keyword">for</span> (i=<span class="number">0</span>; i &lt; pList.length; i++) &#123;</div><div class="line">	<span class="comment">// todo</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="合并DOM插入"><a href="#合并DOM插入" class="headerlink" title="合并DOM插入"></a>合并DOM插入</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> listNode = <span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</div><div class="line">			</div><div class="line"><span class="comment">// 要插入 10个 li标签</span></div><div class="line"><span class="keyword">var</span> frag = <span class="built_in">document</span>.createDocumentFragment();</div><div class="line"><span class="keyword">var</span> x, li;</div><div class="line"><span class="keyword">for</span> (x=<span class="number">0</span>; x&lt;<span class="number">10</span>; x++) &#123;</div><div class="line">	li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</div><div class="line">	li.innerHTML = <span class="string">"List item"</span> + x;</div><div class="line">	frag.appendChild(li);</div><div class="line">&#125;</div><div class="line">listNode.appendChild(frag);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>先创建一个片段，先在片段里进行创建操作，最后只进行一次DOM操作插入到DOM树上</p>
 </blockquote>
-<p><strong>node.js是JavaScript的运行环境，或者说是web开发的runtime。</strong></p>
-<h3 id="总的介绍"><a href="#总的介绍" class="headerlink" title="总的介绍"></a>总的介绍</h3><ul>
-<li>事件驱动</li>
-<li>非阻塞I/O</li>
-<li>基于Chrome V8引擎</li>
-<li>单线程</li>
-<li>使用 JavaScript 开发后端代码</li>
-</ul>
-<h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><ul>
-<li>事件驱动</li>
-<li>非阻塞I/O</li>
-<li>前端开发工程师偏爱</li>
-</ul>
-<h3 id="Node适合干什么"><a href="#Node适合干什么" class="headerlink" title="Node适合干什么"></a>Node适合干什么</h3><blockquote>
-<p>适合I/O密集场景</p>
-</blockquote>
-<h3 id="CPU-密集和-I-O密集的区别"><a href="#CPU-密集和-I-O密集的区别" class="headerlink" title="CPU 密集和  I/O密集的区别"></a>CPU 密集和  I/O密集的区别</h3><ul>
-<li>CPU密集：压缩、解压、加密、解密</li>
-<li>I/O密集：文件操作、网络操作、数据库</li>
-</ul>
-<h3 id="I-O密集场景有哪些"><a href="#I-O密集场景有哪些" class="headerlink" title="I/O密集场景有哪些"></a>I/O密集场景有哪些</h3><ul>
-<li>文件操作</li>
-<li>网络操作</li>
-<li>数据库</li>
-</ul>
-<h3 id="为什么非常适合Web"><a href="#为什么非常适合Web" class="headerlink" title="为什么非常适合Web"></a>为什么非常适合Web</h3><p>因为web常见场景基本都是I/O密集场景</p>
-<ul>
-<li>静态资源读取</li>
-<li>数据库操作</li>
-<li>渲染页面</li>
-</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/12/28/对node的深刻认知/#more" rel="contents">
+            <a class="btn" href="/2018/01/04/代码方面的性能优化/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -642,7 +761,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/28/ndoe两种调试方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/前端性能优化概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -661,7 +780,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/28/ndoe两种调试方法/" itemprop="url">ndoe两种调试方法</a></h1>
+                <a class="post-title-link" href="/2018/01/04/前端性能优化概述/" itemprop="url">前端性能优化概述</a></h1>
         
 
         <div class="post-meta">
@@ -673,8 +792,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-28T10:45:23+08:00">
-                2017-12-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T11:17:06+08:00">
+                2018-01-04
               </time>
             
 
@@ -696,8 +815,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Node/" itemprop="url" rel="index">
-                    <span itemprop="name">Node</span>
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
                   </a>
                 </span>
 
@@ -732,25 +851,34 @@
       
         
           
-            <h3 id="chrome调试方法"><a href="#chrome调试方法" class="headerlink" title="chrome调试方法"></a>chrome调试方法</h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">chrome:</span><span class="comment">//inspect</span></div><div class="line">点击configure设置host port</div></pre></td></tr></table></figure>
-<p>然后下载chrome调试工具插件<strong>NIM</strong><br>最后运行运行需要调试的脚本<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">node</span> <span class="title">--inspect-brk</span> xxx.js</div></pre></td></tr></table></figure></p>
-<p>自动打开调试界面</p>
-<h3 id="VSCODE调试-个人使用此方式，很好用"><a href="#VSCODE调试-个人使用此方式，很好用" class="headerlink" title="VSCODE调试[个人使用此方式，很好用]"></a>VSCODE调试[个人使用此方式，很好用]</h3><ul>
-<li>点击调试按钮，点击设置图标，进行设置<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// 使用 IntelliSense 了解相关属性。 </span></div><div class="line">  <span class="comment">// 悬停以查看现有属性的描述。</span></div><div class="line">  <span class="comment">// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span></div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="string">"configurations"</span>: [</div><div class="line">    </div><div class="line">    &#123;</div><div class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">      <span class="string">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Current file"</span>,</div><div class="line">      <span class="string">"program"</span>: <span class="string">"<span class="subst">$&#123;file&#125;</span>"</span>,</div><div class="line">      <span class="string">"cwd"</span>: <span class="string">"<span class="subst">$&#123;cwd&#125;</span>"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">      <span class="string">"request"</span>: <span class="string">"launch"</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Launch Program"</span>,</div><div class="line">      <span class="string">"program"</span>: <span class="string">"<span class="subst">$&#123;file&#125;</span>"</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+            <h3 id="总的层面"><a href="#总的层面" class="headerlink" title="总的层面"></a>总的层面</h3><ul>
+<li>网络层面</li>
+<li>构建层面</li>
+<li>服务端层面</li>
+<li>浏览器渲染层面</li>
 </ul>
-<p>保存后，调试一个单文件js时，直接选择<code>Current file</code>， 然后点击运行。</p>
-<p><strong>调试按钮有</strong></p>
-<ul>
-<li>第一个  进入下一个断点</li>
-<li>第二个  单步进入</li>
-<li>第三个  退出此断点调试</li>
-<li>第四个  重新开始调试</li>
-<li>第五个  结束调试</li>
+<h3 id="涉及到的功能"><a href="#涉及到的功能" class="headerlink" title="涉及到的功能"></a>涉及到的功能</h3><ul>
+<li>资源的合并与压缩</li>
+<li>图标编解码原理和类型选择</li>
+<li>浏览器渲染机制</li>
+<li>懒加载预加载</li>
+<li>浏览器存储</li>
+<li>缓存机制</li>
+<li>PWA</li>
+<li>Vue-SSR</li>
 </ul>
-<p><strong>添加条件断点：</strong></p>
-<blockquote>
-<p>目的：在长的for循环中，精确定位到要调试的循环中，比如100次for循环，在第8次后面出现bug，则需要右击点击添加条件断点，然后选择表达式，输入 <code>n&gt;8</code> 回车，运行调试。</p>
+<h3 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h3><ul>
+<li>作用与原理</li>
+<li>如何与真实业务场景结合</li>
+<li>理论结合实践</li>
+<li>量化分析</li>
+</ul>
+<p>基础优化<br>进阶优化<br>结合服务端的优化</p>
+<h4 id="web前端的核心概念意义"><a href="#web前端的核心概念意义" class="headerlink" title="web前端的核心概念意义"></a>web前端的核心概念意义</h4><blockquote>
+<p>web前端是一个动量加载静态资源的过程，这个过程收到网络的影响</p>
+</blockquote>
+<h4 id="性能优化点"><a href="#性能优化点" class="headerlink" title="性能优化点"></a>性能优化点</h4><blockquote>
+<p>http请求的过程中及其潜在的性能优化点</p>
 </blockquote>
 
           
@@ -795,7 +923,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/mongoose和express进行配合/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/html、css、JS压缩和文件合并/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -814,7 +942,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/27/mongoose和express进行配合/" itemprop="url">mongoose和express和vue-cli配合初始化商品展示页面</a></h1>
+                <a class="post-title-link" href="/2018/01/03/html、css、JS压缩和文件合并/" itemprop="url">html、css、JS压缩和文件合并</a></h1>
         
 
         <div class="post-meta">
@@ -826,8 +954,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T16:44:06+08:00">
-                2017-12-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T15:27:32+08:00">
+                2018-01-03
               </time>
             
 
@@ -849,8 +977,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MongDB/" itemprop="url" rel="index">
-                    <span itemprop="name">MongDB</span>
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
                   </a>
                 </span>
 
@@ -884,165 +1012,41 @@
 
       
         
-          <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cnpm <span class="selector-tag">i</span> mongoose --save</div></pre></td></tr></table></figure>
-<ul>
-<li>创建model</li>
-<li>创建路由</li>
-<li>基于mongoose<br><strong>首先启动mongdb数据库服务器，然后选择需要的数据库</strong><figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">net start MongDB</div><div class="line">mongo</div><div class="line"><span class="keyword">show</span> dbs</div><div class="line"><span class="keyword">use</span> db_demo</div><div class="line"><span class="comment">// db_demo数据库下有goods集合</span></div></pre></td></tr></table></figure>
+          
+            <h3 id="如何进行html压缩"><a href="#如何进行html压缩" class="headerlink" title="如何进行html压缩"></a>如何进行html压缩</h3><ul>
+<li>使用在线网站进行压缩</li>
+<li>nodejs提供了html-minifier工具</li>
+<li>后端模板引擎渲染压缩</li>
+</ul>
+<h3 id="CSS压缩"><a href="#CSS压缩" class="headerlink" title="CSS压缩"></a>CSS压缩</h3><ul>
+<li>使用在线网站进行压缩</li>
+<li>使用html-minifier对html中的css进行压缩</li>
+<li>使用clean-css对css进行压缩</li>
+</ul>
+<h3 id="JS压缩"><a href="#JS压缩" class="headerlink" title="JS压缩"></a>JS压缩</h3><ul>
+<li>无效字符的删除</li>
+<li>剔除注释</li>
+<li>代码语义的缩减和优化</li>
+<li>代码保护</li>
+</ul>
+<h3 id="如何进行JS压缩和混乱"><a href="#如何进行JS压缩和混乱" class="headerlink" title="如何进行JS压缩和混乱"></a>如何进行JS压缩和混乱</h3><ul>
+<li>使用在线网站进行压缩</li>
+<li>使用html-minifier对html中的js进行压缩</li>
+<li>使用uglifyjs2对js进行压缩<blockquote>
+<p>先将js读进来</p>
+</blockquote>
 </li>
 </ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/27/mongoose和express进行配合/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/hexo博客上点开某一分类，出现404页面/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/27/hexo博客上点开某一分类，出现404页面/" itemprop="url">hexo博客上点开某一分类，出现404页面</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-27T14:50:35+08:00">
-                2017-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Problem-Solved/" itemprop="url" rel="index">
-                    <span itemprop="name">Problem-Solved</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>坑了我30分钟。。。</strong><br>通过命令<br><figure class="highlight axapta"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo <span class="keyword">server</span></div></pre></td></tr></table></figure></p>
-<p>看到本地测试可以点开分类，但是部署到github上就出现404，这是因为部署的过程出现了问题，基本就是缓存问题。</p>
-<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><blockquote>
-<p>我将分类写成vue，但是分类格式没有写对，然后部署后，出现404，这时，我修改了分类格式，还是不行，修改成Vue也不行，部署后还是404。</p>
+<h3 id="如何文件合并"><a href="#如何文件合并" class="headerlink" title="如何文件合并"></a>如何文件合并</h3><ul>
+<li>使用在线网站进行文件合并</li>
+<li>使用nodejs实现文件合并</li>
+</ul>
+<h4 id="压缩和合并的方法"><a href="#压缩和合并的方法" class="headerlink" title="压缩和合并的方法"></a>压缩和合并的方法</h4><blockquote>
+<p>fis3构建工具</p>
+<ul>
+<li>图片小的应该用inline image方式导入html中，这个方法可以用fis语法生成</li>
+</ul>
 </blockquote>
-<h4 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h4><blockquote>
-<p>git 默认忽略文件名大小写，所以即使文件夹大小写变更，git 也检测不到。</p>
-</blockquote>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><blockquote>
-<p>进入到博客项目中 <code>.deploy_git</code>文件夹，修改 .git 目录下的<code>config</code>文件，将<code>ignorecase=true</code> 改为 <code>ignorecase=false</code></p>
-<p>然后删除博客项目中 <code>.deploy_git</code> 文件夹下的所有文件，并 push 到 Github 上, 这一步是清空你的 github.io 项目中所有文件。</p>
-</blockquote>
-<p>清空github文件<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git rm -rf *</div><div class="line">git commit -m <span class="symbol">'clean</span> <span class="keyword">all</span> <span class="keyword">file</span>'</div><div class="line">git push</div></pre></td></tr></table></figure></p>
-<p>重新部署<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">hexo clean</div><div class="line">hexo deploy -<span class="keyword">generate</span></div></pre></td></tr></table></figure></p>
 
           
         
@@ -1081,7 +1085,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1126,7 +1130,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1137,7 +1141,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1148,7 +1152,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1226,7 +1230,7 @@
         <div class="copyright" >
   
   &copy;  2016 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
