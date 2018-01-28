@@ -323,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git在工作中要用的高级命令/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git stash用于保存和恢复工作进度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -342,7 +342,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/git在工作中要用的高级命令/" itemprop="url">git在工作中要用的高级命令</a></h1>
+                <a class="post-title-link" href="/2018/01/03/git stash用于保存和恢复工作进度/" itemprop="url">git stash用于保存和恢复工作进度</a></h1>
         
 
         <div class="post-meta">
@@ -413,12 +413,29 @@
       
         
           
-            <h4 id="学会在命令行中查看差异"><a href="#学会在命令行中查看差异" class="headerlink" title="学会在命令行中查看差异"></a>学会在命令行中查看差异</h4><p>每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用<br>git log 查看commit值，然后<br>git show commit-hash值<br>这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息</p>
-<h4 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">本地打标签：</div><div class="line">git <span class="keyword">tag</span> <span class="keyword">tag</span>Name commitId</div><div class="line">本地删除标签:</div><div class="line">git <span class="keyword">tag</span> -d <span class="keyword">tag</span>Name</div><div class="line">将本地的标签push到服务器:</div><div class="line">git push origin <span class="keyword">tag</span>Name</div><div class="line">从服务器端删除标签:</div><div class="line">git push origin :<span class="keyword">tag</span>Name(远程<span class="keyword">tag</span>Name)</div></pre></td></tr></table></figure>
-<h4 id="删除分支要注意的事情"><a href="#删除分支要注意的事情" class="headerlink" title="删除分支要注意的事情"></a>删除分支要注意的事情</h4><p>删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。</p>
-<h4 id="终极工作"><a href="#终极工作" class="headerlink" title="终极工作"></a>终极工作</h4><p>先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发</p>
-<h4 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h4><p>如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git checkout mywork</span></div><div class="line">git rebase origin</div></pre></td></tr></table></figure></p>
-<p>这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。</p>
+            <ul>
+<li><p>git stash</p>
+<p>  保存当前的工作进度。会分别对暂存区和工作区的状态进行保存</p>
+</li>
+<li><p>git stash save “message…”</p>
+<p>  这条命令实际上是第一条 <code>git stash</code> 命令的完整版</p>
+</li>
+<li><p>git stash list</p>
+<p>  显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择</p>
+</li>
+<li><p>git stash pop [–index] []</p>
+<p>  如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。</p>
+<p>  如果提供<stash>参数（来自 <code>git stash list</code> 显示的列表），则从该 <code>&lt;stash&gt;</code> 中恢复。恢复完毕也将从进度列表中删除 <code>&lt;stash&gt;</code>。</stash></p>
+<p>  选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。</p>
+</li>
+<li><p>git stash apply [–index] []</p>
+<p>  除了不删除恢复的进度之外，其余和 <code>git stash pop</code> 命令一样</p>
+</li>
+<li><p>git stash clear</p>
+<p>  删除所有存储的进度</p>
+</li>
+</ul>
+<h4 id="高级知识"><a href="#高级知识" class="headerlink" title="高级知识"></a>高级知识</h4><p>1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。<br>2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存<br>3：然后再用git stash apply 进行恢复<br>4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop<br>或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才</p>
 
           
         
@@ -607,7 +624,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git stash用于保存和恢复工作进度/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git在工作中要用的高级命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨昆">
@@ -626,7 +643,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/03/git stash用于保存和恢复工作进度/" itemprop="url">git stash用于保存和恢复工作进度</a></h1>
+                <a class="post-title-link" href="/2018/01/03/git在工作中要用的高级命令/" itemprop="url">git在工作中要用的高级命令</a></h1>
         
 
         <div class="post-meta">
@@ -697,29 +714,12 @@
       
         
           
-            <ul>
-<li><p>git stash</p>
-<p>  保存当前的工作进度。会分别对暂存区和工作区的状态进行保存</p>
-</li>
-<li><p>git stash save “message…”</p>
-<p>  这条命令实际上是第一条 <code>git stash</code> 命令的完整版</p>
-</li>
-<li><p>git stash list</p>
-<p>  显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择</p>
-</li>
-<li><p>git stash pop [–index] []</p>
-<p>  如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。</p>
-<p>  如果提供<stash>参数（来自 <code>git stash list</code> 显示的列表），则从该 <code>&lt;stash&gt;</code> 中恢复。恢复完毕也将从进度列表中删除 <code>&lt;stash&gt;</code>。</stash></p>
-<p>  选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。</p>
-</li>
-<li><p>git stash apply [–index] []</p>
-<p>  除了不删除恢复的进度之外，其余和 <code>git stash pop</code> 命令一样</p>
-</li>
-<li><p>git stash clear</p>
-<p>  删除所有存储的进度</p>
-</li>
-</ul>
-<h4 id="高级知识"><a href="#高级知识" class="headerlink" title="高级知识"></a>高级知识</h4><p>1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。<br>2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存<br>3：然后再用git stash apply 进行恢复<br>4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop<br>或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才</p>
+            <h4 id="学会在命令行中查看差异"><a href="#学会在命令行中查看差异" class="headerlink" title="学会在命令行中查看差异"></a>学会在命令行中查看差异</h4><p>每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用<br>git log 查看commit值，然后<br>git show commit-hash值<br>这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息</p>
+<h4 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h4><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">本地打标签：</div><div class="line">git <span class="keyword">tag</span> <span class="keyword">tag</span>Name commitId</div><div class="line">本地删除标签:</div><div class="line">git <span class="keyword">tag</span> -d <span class="keyword">tag</span>Name</div><div class="line">将本地的标签push到服务器:</div><div class="line">git push origin <span class="keyword">tag</span>Name</div><div class="line">从服务器端删除标签:</div><div class="line">git push origin :<span class="keyword">tag</span>Name(远程<span class="keyword">tag</span>Name)</div></pre></td></tr></table></figure>
+<h4 id="删除分支要注意的事情"><a href="#删除分支要注意的事情" class="headerlink" title="删除分支要注意的事情"></a>删除分支要注意的事情</h4><p>删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。</p>
+<h4 id="终极工作"><a href="#终极工作" class="headerlink" title="终极工作"></a>终极工作</h4><p>先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发</p>
+<h4 id="git-rebase"><a href="#git-rebase" class="headerlink" title="git rebase"></a>git rebase</h4><p>如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">git checkout mywork</span></div><div class="line">git rebase origin</div></pre></td></tr></table></figure></p>
+<p>这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。</p>
 
           
         

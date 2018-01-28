@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[web安全概述]]></title>
     <url>%2F2018%2F01%2F06%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%2F</url>
-    <content type="text"><![CDATA[对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面安全问题的考虑 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
+    <content type="text"><![CDATA[对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面 安全问题的考虑11 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他 web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
       <categories>
         <category>Web-Security</category>
       </categories>
@@ -56,9 +56,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git在工作中要用的高级命令]]></title>
-    <url>%2F2018%2F01%2F03%2Fgit%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E8%A6%81%E7%94%A8%E7%9A%84%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%2F</url>
-    <content type="text"><![CDATA[学会在命令行中查看差异每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用git log 查看commit值，然后git show commit-hash值这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息 git tag12345678本地打标签：git tag tagName commitId本地删除标签:git tag -d tagName将本地的标签push到服务器:git push origin tagName从服务器端删除标签:git push origin :tagName(远程tagName) 删除分支要注意的事情删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。 终极工作先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发 git rebase如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令12git checkout myworkgit rebase origin 这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。]]></content>
+    <title><![CDATA[git stash用于保存和恢复工作进度]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit%20stash%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[git stash 保存当前的工作进度。会分别对暂存区和工作区的状态进行保存 git stash save “message…” 这条命令实际上是第一条 git stash 命令的完整版 git stash list 显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择 git stash pop [–index] [] 如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。 如果提供参数（来自 git stash list 显示的列表），则从该 &lt;stash&gt; 中恢复。恢复完毕也将从进度列表中删除 &lt;stash&gt;。 选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。 git stash apply [–index] [] 除了不删除恢复的进度之外，其余和 git stash pop 命令一样 git stash clear 删除所有存储的进度 高级知识1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存3：然后再用git stash apply 进行恢复4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -78,9 +78,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git stash用于保存和恢复工作进度]]></title>
-    <url>%2F2018%2F01%2F03%2Fgit%20stash%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%2F</url>
-    <content type="text"><![CDATA[git stash 保存当前的工作进度。会分别对暂存区和工作区的状态进行保存 git stash save “message…” 这条命令实际上是第一条 git stash 命令的完整版 git stash list 显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择 git stash pop [–index] [] 如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。 如果提供参数（来自 git stash list 显示的列表），则从该 &lt;stash&gt; 中恢复。恢复完毕也将从进度列表中删除 &lt;stash&gt;。 选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。 git stash apply [–index] [] 除了不删除恢复的进度之外，其余和 git stash pop 命令一样 git stash clear 删除所有存储的进度 高级知识1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存3：然后再用git stash apply 进行恢复4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才]]></content>
+    <title><![CDATA[git在工作中要用的高级命令]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit%E5%9C%A8%E5%B7%A5%E4%BD%9C%E4%B8%AD%E8%A6%81%E7%94%A8%E7%9A%84%E9%AB%98%E7%BA%A7%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[学会在命令行中查看差异每当你进行了更新以后，都会生成一个commitID hash值，当别人改完代码或者你改完后，你要看修改了哪些代码后，你需要用git log 查看commit值，然后git show commit-hash值这个git log 可以加参数，比如 git log -2 是查看最近两个的commit信息 git tag12345678本地打标签：git tag tagName commitId本地删除标签:git tag -d tagName将本地的标签push到服务器:git push origin tagName从服务器端删除标签:git push origin :tagName(远程tagName) 删除分支要注意的事情删除分支时，你要先切换到本地的master分支上，才能对其他分支进行删除，包括删除远程分支，如果不切换的话，会被拒绝访问。 终极工作先切换到develop分支，然后gst看一下啊是不是还有没有提交的，然后git pull origin develop 一下拉取最新的分支，然后再git checkout -b XX 新建新的分支进行开发 git rebase如果你想让分支历史看起来像没有经过任何合并一样，可以使用git rebase命令12git checkout myworkgit rebase origin 这些命令会把你的”mywork”分支里的每个提交(commit)取消掉，并且把它们临时 保存为补丁(patch)(这些补丁放到”.git/rebase”目录中),然后把”mywork”分支更新 为最新的”origin”分支，最后把保存的这些补丁应用到”mywork”分支上。当’mywork’分支更新之后，它会指向这些新创建的提交(commit),而那些老的提交会被丢弃。 如果运行垃圾收集命令(pruning garbage collection), 这些被丢弃的提交就会删除。]]></content>
       <categories>
         <category>Git</category>
       </categories>
