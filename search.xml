@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[web安全概述]]></title>
     <url>%2F2018%2F01%2F06%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%2F</url>
-    <content type="text"><![CDATA[对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面 安全问题的考虑11 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他 web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
+    <content type="text"><![CDATA[主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面 安全问题的考虑11 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他 web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
       <categories>
         <category>Web-Security</category>
       </categories>
@@ -56,9 +56,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git stash用于保存和恢复工作进度]]></title>
-    <url>%2F2018%2F01%2F03%2Fgit%20stash%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%2F</url>
-    <content type="text"><![CDATA[git stash 保存当前的工作进度。会分别对暂存区和工作区的状态进行保存 git stash save “message…” 这条命令实际上是第一条 git stash 命令的完整版 git stash list 显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择 git stash pop [–index] [] 如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。 如果提供参数（来自 git stash list 显示的列表），则从该 &lt;stash&gt; 中恢复。恢复完毕也将从进度列表中删除 &lt;stash&gt;。 选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。 git stash apply [–index] [] 除了不删除恢复的进度之外，其余和 git stash pop 命令一样 git stash clear 删除所有存储的进度 高级知识1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存3：然后再用git stash apply 进行恢复4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才]]></content>
+    <title><![CDATA[git-flow开发流程]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit-flow%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[1：开发任何功能都要先创建自己的分支git checkout -b xxx 创建分支并切换到此分支比如： git checkout -b feature/runtime-monitor然后 git pull origin develop 拉取最新的开发分支，默认是开发分支，如果是 master 就 git pull origin master这里的origin 是我github账号对应的主机 2：然后开发完代码后 1git add . &amp;&amp; git commit -m "xxx" 然后push到我的主机上的对应的分支上 1git push origin xxx 这里要注意，没完成一个点，就git commit一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才git push 到你的分支上 因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 最后提交pr到develop分支上，默认是develop分支 3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去 4：一些技巧1234git 删除本地分支git branch -d xxxgit 删除远程分支git push origin :xxx (origin 后面有空格) 5：非常注意事项在进行git-flow开发时，一定要记住你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。 正常是这样的流程123456789切换matsergit checkout -b yk1git add .git commit git pushgit checkout mastergit checkout -b yk2]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -67,9 +67,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git-flow开发流程]]></title>
-    <url>%2F2018%2F01%2F03%2Fgit-flow%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%2F</url>
-    <content type="text"><![CDATA[1：开发任何功能都要先创建自己的分支git checkout -b xxx 创建分支并切换到此分支比如： git checkout -b feature/runtime-monitor然后 git pull origin develop 拉取最新的开发分支，默认是开发分支，如果是 master 就 git pull origin master这里的origin 是我github账号对应的主机 2：然后开发完代码后 1git add . &amp;&amp; git commit -m "xxx" 然后push到我的主机上的对应的分支上 1git push origin xxx 这里要注意，没完成一个点，就git commit一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才git push 到你的分支上 因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 最后提交pr到develop分支上，默认是develop分支 3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去 4：一些技巧1234git 删除本地分支git branch -d xxxgit 删除远程分支git push origin :xxx (origin 后面有空格) 5：非常注意事项在进行git-flow开发时，一定要记住你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。 正常是这样的流程123456789切换matsergit checkout -b yk1git add .git commit git pushgit checkout mastergit checkout -b yk2]]></content>
+    <title><![CDATA[git stash用于保存和恢复工作进度]]></title>
+    <url>%2F2018%2F01%2F03%2Fgit%20stash%E7%94%A8%E4%BA%8E%E4%BF%9D%E5%AD%98%E5%92%8C%E6%81%A2%E5%A4%8D%E5%B7%A5%E4%BD%9C%E8%BF%9B%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[git stash 保存当前的工作进度。会分别对暂存区和工作区的状态进行保存 git stash save “message…” 这条命令实际上是第一条 git stash 命令的完整版 git stash list 显示进度列表。此命令显然暗示了git stash 可以多次保存工作进度，并用在恢复时候进行选择 git stash pop [–index] [] 如果不使用任何参数，会恢复最新保存的工作进度，并将恢复的工作进度从存储的工作进度列表中清除。 如果提供参数（来自 git stash list 显示的列表），则从该 &lt;stash&gt; 中恢复。恢复完毕也将从进度列表中删除 &lt;stash&gt;。 选项–index 除了恢复工作区的文件外，还尝试恢复暂存区。 git stash apply [–index] [] 除了不删除恢复的进度之外，其余和 git stash pop 命令一样 git stash clear 删除所有存储的进度 高级知识1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存3：然后再用git stash apply 进行恢复4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才]]></content>
       <categories>
         <category>Git</category>
       </categories>
@@ -299,6 +299,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+      <categories>
+        <category>JavaScript-CSS-HTML</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[遍历在开发中的使用]]></title>
     <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
@@ -313,17 +324,6 @@
     <title><![CDATA[类数组对象]]></title>
     <url>%2F2017%2F10%2F28%2F%E7%B1%BB%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1%2F</url>
     <content type="text"><![CDATA[而对于一个普通的对象来说，如果它的所有property名均为正整数，同时也有相应的length属性，那么虽然该对象并不是由Array构造函数所创建的，它依然呈现出数组的行为，在这种情况下，这些对象被称为“类数组对象”。 1234var o =&#123;0:7,1:8,2:9,length:3&#125;console.log(0);可以用Array.from(o)来使其变成数组[7,8,9] 与普通对象不同的是，类数组对象拥有一个特性：可以在类数组对象上应用数组的操作方法。比如，在ECMAScript 5标准中，可以用以下方法来将上面的对象o合并成字符串： 12console.log(Array.prototype.join.call(o));//输出：“7,8,9” 在浏览器环境中，document.getElementsByTagName()语句返回的就是一个类数组对象。在function调用中，function代码内的arguments变量(保存传入的参数)也是一个类数组对象。 在ECMAScript 5标准中，字符串string就是一个只读的类数组对象： 123451 var s = "godkun";2 console.log(s[3]);//输出：d3 console.log(Array.prototype.join.call(s, " "));//输出：g o d k u n]]></content>
-      <categories>
-        <category>JavaScript-CSS-HTML</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>

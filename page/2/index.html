@@ -323,6 +323,151 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git-flow开发流程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/03/git-flow开发流程/" itemprop="url">git-flow开发流程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T13:32:11+08:00">
+                2018-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1：开发任何功能都要先创建自己的分支<br><code>git checkout -b xxx</code>            创建分支并切换到此分支<br>比如： <code>git checkout -b feature/runtime-monitor</code><br>然后 <code>git pull origin develop</code>  拉取最新的开发分支，默认是开发分支，如果是 master  就 <code>git pull origin master</code><br><strong>这里的origin 是我github账号对应的主机</strong></p>
+<p>2：然后开发完代码后</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .  &amp;&amp;  git commit -m <span class="string">"xxx"</span></span></div></pre></td></tr></table></figure>
+<p>然后<code>push</code>到我的主机上的对应的分支上</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> xxx</div></pre></td></tr></table></figure>
+<p><strong>这里要注意，没完成一个点，就<code>git commit</code>一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才<code>git push</code> 到你的分支上</strong></p>
+<p>因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 </p>
+<p><strong>最后提交pr到develop分支上，默认是develop分支</strong></p>
+<p>3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去</p>
+<p>4：一些技巧<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git 删除本地分支</div><div class="line">git branch -d xxx</div><div class="line">git 删除远程分支</div><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> :xxx (<span class="built_in">origin</span> 后面有空格)</div></pre></td></tr></table></figure></p>
+<p>5：非常注意事项<br>在进行git-flow开发时，一定要记住<br>你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。</p>
+<p>正常是这样的流程<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">切换matser</div><div class="line">git checkout -b yk1</div><div class="line">git add .</div><div class="line">git commit </div><div class="line">git push</div><div class="line"></div><div class="line"></div><div class="line">git checkout master</div><div class="line">git checkout -b yk2</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git stash用于保存和恢复工作进度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -436,151 +581,6 @@
 </li>
 </ul>
 <h4 id="高级知识"><a href="#高级知识" class="headerlink" title="高级知识"></a>高级知识</h4><p>1：当你新建文件修改了代码，如果没有git add 那么你用 git stash 是不能保存修改到暂存区的，但是如果你没有新建文件，只是在原有文件里进行修改，那么是可以在没有git add 的情况下保存到修改到暂存区的。<br>2：不论做什么样的修改，当你git add 之后，你都可以使用git stash 进行保存<br>3：然后再用git stash apply 进行恢复<br>4：注意，git stash apply 是不能将stash list 里面的暂存列表清除的，必须再用git stash drop<br>或者一开始就用git stash pop 恢复，这样在恢复的同时，就把stash list 里面的数据清楚才</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/git-flow开发流程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/git-flow开发流程/" itemprop="url">git-flow开发流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T13:32:11+08:00">
-                2018-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1：开发任何功能都要先创建自己的分支<br><code>git checkout -b xxx</code>            创建分支并切换到此分支<br>比如： <code>git checkout -b feature/runtime-monitor</code><br>然后 <code>git pull origin develop</code>  拉取最新的开发分支，默认是开发分支，如果是 master  就 <code>git pull origin master</code><br><strong>这里的origin 是我github账号对应的主机</strong></p>
-<p>2：然后开发完代码后</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .  &amp;&amp;  git commit -m <span class="string">"xxx"</span></span></div></pre></td></tr></table></figure>
-<p>然后<code>push</code>到我的主机上的对应的分支上</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> xxx</div></pre></td></tr></table></figure>
-<p><strong>这里要注意，没完成一个点，就<code>git commit</code>一下，当完成一个功能时，并且完全确认没有发生任何错误和bug，才<code>git push</code> 到你的分支上</strong></p>
-<p>因为这个分支有可能会有其他人和你一起开发，这样的话如果有错误，然后提交的话，就会影响到别人 </p>
-<p><strong>最后提交pr到develop分支上，默认是develop分支</strong></p>
-<p>3：当需要修改bug的时候，有一些是在master分支上修改的，这时候就要用git pull origin master来拉取最新的master分支，然后在pr到master上去</p>
-<p>4：一些技巧<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git 删除本地分支</div><div class="line">git branch -d xxx</div><div class="line">git 删除远程分支</div><div class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> :xxx (<span class="built_in">origin</span> 后面有空格)</div></pre></td></tr></table></figure></p>
-<p>5：非常注意事项<br>在进行git-flow开发时，一定要记住<br>你创建分支时，你是依赖的当前分支的文件内容，比如你当前是master分支，你创建一个分支yk1后，这个分支yk1的内容是master分支的内容，然后你进行修改后，在提交。然后这个时候一定要注意，你需要回到master分支上，再创建新的分支yk2，不能在原有的yk1的分支上进行创建分支，以为那样，你的yk2的初始内容会是yk1修改后的内容， 那样你的yk2分支就依赖yk1了，那样的话，在合并的时候肯定会有冲突的。</p>
-<p>正常是这样的流程<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">切换matser</div><div class="line">git checkout -b yk1</div><div class="line">git add .</div><div class="line">git commit </div><div class="line">git push</div><div class="line"></div><div class="line"></div><div class="line">git checkout master</div><div class="line">git checkout -b yk2</div></pre></td></tr></table></figure></p>
 
           
         
