@@ -323,6 +323,198 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/10/web安全概述 - 副本/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/10/web安全概述 - 副本/" itemprop="url">CSRF研究</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T21:43:14+08:00">
+                2018-01-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-Security/" itemprop="url" rel="index">
+                    <span itemprop="name">Web-Security</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>英文：Cross Site Request Forgy</li>
+<li>中文：跨站请求伪造</li>
+<li>攻击者在其他的网站对目标网站产生了影响</li>
+</ul>
+<h4 id="CSRF攻击危害"><a href="#CSRF攻击危害" class="headerlink" title="CSRF攻击危害"></a>CSRF攻击危害</h4><ul>
+<li>利用用户登录态</li>
+<li>用户不知情</li>
+<li>完成业务请求</li>
+<li>盗取用户资金(转账，消费)<blockquote>
+<p>就算警察寻找是谁，也只能找到用户，找不到攻击者，因为攻击者用的ip和cookie都是用户的。</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="CSRF攻击防御"><a href="#CSRF攻击防御" class="headerlink" title="CSRF攻击防御"></a>CSRF攻击防御</h4><blockquote>
+<p><strong>csrf防御核心思想就是利用攻击者不会访问目标网站的前端，只会去访问目标网站的后端，所以如果在目标网站的前端增加验证信息，那就会有效防御csrf攻击，因为csrf无法获取这个验证信息，也就无法得到后端的正确响应。</strong></p>
+</blockquote>
+<h4 id="第一种方法"><a href="#第一种方法" class="headerlink" title="第一种方法"></a>第一种方法</h4><p><strong>禁止第三方网站携带cookie</strong></p>
+<blockquote>
+<p>在cookie中加一个same-site属性 <strong>但是兼容性很差，只有很少的浏览器兼容。</strong></p>
+</blockquote>
+<h4 id="第二种方法"><a href="#第二种方法" class="headerlink" title="第二种方法"></a>第二种方法</h4><p><strong>在前端页面加入验证信息</strong>，比如：</p>
+<ol>
+<li>验证码<ol>
+<li>加入token</li>
+</ol>
+</li>
+</ol>
+<h4 id="验证码"><a href="#验证码" class="headerlink" title="验证码"></a>验证码</h4><blockquote>
+<p>这需要前后端协同<br>1：前端加入验证码输入框。<br>2：后端为前端提供这个验证码，并且在提交的时候进行验证,还有后端还要记住这个验证码是什么，也就是保存下来，以便有第三方进行csrf攻击时进行判断。<br>node.js开发后端的话，有ccap这个插件可以用，它可以生成图形验证码。</p>
+</blockquote>
+<p><strong>这个可以有效防御csrf，但是每次都要让用户输入验证码进行验证，降低了用户体验。而且前端提交后，后端还要再校验一下验证码对不对。</strong></p>
+<hr>
+<h4 id="token"><a href="#token" class="headerlink" title="token"></a>token</h4><blockquote>
+<p>token就是一个随机字符串，放在前端的请求内容中，也可以放在cookie中。</p>
+</blockquote>
+<p>token生成机制:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 后端要做的事情</span></div><div class="line"><span class="comment">// 随机生成token</span></div><div class="line"><span class="keyword">var</span> csrfToken = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random() * <span class="number">9999999</span>, <span class="number">10</span>);</div><div class="line"></div><div class="line"><span class="comment">// 后端生成token并且保存在cookie中</span></div><div class="line">ctx.cookies.set(<span class="string">'csrfToken'</span>, csrfToken);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 前端要做的事情</span></div><div class="line"><span class="comment">// 放置一个表单，不会显示出来，设置隐藏</span></div><div class="line">&lt;input name=<span class="string">"csrfToken"</span> value=csrfToken&gt;<span class="xml"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>然后在相应的动作里进行判断：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">action</span></span>(req, res)&#123;</div><div class="line">    <span class="keyword">var</span> data;</div><div class="line">    <span class="keyword">if</span>(req.method.toLowerCase() === <span class="string">'post'</span>)&#123;</div><div class="line">      data = req.body;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        data = req.query;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(!data.crsfToken)&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span><span class="type"></span>(<span class="string">'csrf token is null'</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(data.csrfToken !== req.cookies.<span class="keyword">get</span>(<span class="string">'csrfToken'</span>))&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span><span class="type"></span>(<span class="string">'csrfToken 错误'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>使用token需要注意的地方</strong></p>
+<ul>
+<li>如果是通过表单提交，则可以直接将token值放在表单里面提交。</li>
+<li>如果是ajax请求，则一般是通过将token放在页面的另外一个地方，比如放在meta中。<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">meta&#123;<span class="attribute">name</span>=<span class="string">"csrf_token"</span>, <span class="attribute">content</span>=csrfToken&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>刷新后，在页面的head中多了一个meta，在ajax请求之前，就可以通过js把这个meta中的toke值取出来，一并发到后台去。</p>
+</blockquote>
+<p><strong>注意：</strong></p>
+<blockquote>
+<p>如果用户打开了很多页面或者很多提交表单，每个页面和表单都是对应不同的token，因为cookies里面只能放置一个token，用户提交只能是提交最后一个页面的token或者是最后一个表单的token，所以这个问题也比较特殊，如何处理。需要思考。</p>
+</blockquote>
+<hr>
+<h4 id="CSRF中的referer"><a href="#CSRF中的referer" class="headerlink" title="CSRF中的referer"></a>CSRF中的referer</h4><p>referer是http协议中的一个请求头，来自攻击网站。所以还有一个防御方式：验证referer，禁止来自第三方网站的请求。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在相应的动作里</span></div><div class="line">function action(req, res)&#123;</div><div class="line">    <span class="built_in">var</span> <span class="built_in">data</span>;</div><div class="line">    <span class="keyword">if</span>(req.method.toLowerCase() === <span class="string">'post'</span>)&#123;</div><div class="line">      <span class="built_in">data</span> = req.body;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="built_in">data</span> = req.query;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">var</span> <span class="keyword">referer</span> = res.headers.<span class="keyword">referer</span>;</div><div class="line">    <span class="comment">// 通过使用indexOf判断</span></div><div class="line">    <span class="keyword">if</span>(<span class="keyword">referer</span> indexOf(<span class="string">'localhost'</span>) === <span class="string">'-1'</span>)&#123;</div><div class="line">        throw <span class="literal">new</span>(<span class="string">'请求非法'</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">// 更好的做法是下面这个，因为referer是http://整个url地址，如果url其他部分有localhost，上面的表达式也可以被匹配到</span></div><div class="line">    <span class="keyword">if</span>(!/^http:\/\/localhost/.test(<span class="keyword">referer</span>))&#123;</div><div class="line">        throw <span class="literal">new</span>(<span class="string">'请求非法'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里面有几个注意的点：</p>
+<ul>
+<li>从本地磁盘访问，没有refere，因为是同域，可以将ftp改成http形式，比如<a href="http://127.0.0.1/" target="_blank" rel="external">http://127.0.0.1/</a></li>
+<li>通过http访问，有referer。</li>
+</ul>
+<p><strong>以上就是我个人对CSRF的理解，前端领域的Web安全所涉及到的内容是很多的，要多去学习和实践，才能更好的写出安全又没有漏洞的代码。</strong></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/06/web安全概述/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,175 +604,28 @@
 
       
         
-          
-            <h3 id="主要指两个方面"><a href="#主要指两个方面" class="headerlink" title="主要指两个方面"></a>主要指两个方面</h3><h4 id="私密性"><a href="#私密性" class="headerlink" title="私密性"></a>私密性</h4><p>不被非法获取和利用</p>
-<h4 id="可靠性"><a href="#可靠性" class="headerlink" title="可靠性"></a>可靠性</h4><p>不丢失不损坏不被篡改</p>
-<h3 id="体现在几个方面"><a href="#体现在几个方面" class="headerlink" title="体现在几个方面"></a>体现在几个方面</h3><ul>
+          <h4 id="主要指两个方面"><a href="#主要指两个方面" class="headerlink" title="主要指两个方面"></a>主要指两个方面</h4><ul>
+<li>私密性<blockquote>
+<p>不被非法获取和利用</p>
+</blockquote>
+</li>
+<li>可靠性<blockquote>
+<p>不丢失不损坏不被篡改</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="体现在几个方面"><a href="#体现在几个方面" class="headerlink" title="体现在几个方面"></a>体现在几个方面</h4><ul>
 <li>代码层面</li>
 <li>架构层面</li>
 <li>运维层面</li>
 </ul>
-<h3 id="安全问题的考虑11"><a href="#安全问题的考虑11" class="headerlink" title="安全问题的考虑11"></a>安全问题的考虑11</h3><ul>
-<li>用户身份被盗用</li>
-<li>用户密码泄露</li>
-<li>用户资料被盗取</li>
-<li>网站数据库泄露</li>
-<li>其他</li>
-</ul>
-<h3 id="web安全的重要性为什么这么高"><a href="#web安全的重要性为什么这么高" class="headerlink" title="web安全的重要性为什么这么高"></a>web安全的重要性为什么这么高</h3><ul>
-<li>直面用户，挑战严峻</li>
-<li>网站和用户安全是生命线</li>
-<li>安全事故威胁企业生产，口碑甚至生存</li>
-</ul>
-<h3 id="有哪些安全隐患"><a href="#有哪些安全隐患" class="headerlink" title="有哪些安全隐患"></a>有哪些安全隐患</h3><ul>
-<li>跨站脚本攻击XSS</li>
-<li>跨站请求伪造攻击CSRF</li>
-<li>前端Cookies 安全性</li>
-<li>点击劫持攻击</li>
-<li>传输过程安全问题</li>
-<li>用户密码安全问题</li>
-<li>SQL注入攻击</li>
-<li>信息泄露和社会工程学</li>
-<li>其他安全问题</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/全栈的一些知识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/04/全栈的一些知识/" itemprop="url">全栈的一些知识</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:37:54+08:00">
-                2018-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
-                    <span itemprop="name">FE-Performance-Optimization</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>cookies是由服务端生成，客户端维护。</li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/06/web安全概述/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -723,6 +768,142 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/04/全栈的一些知识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨昆">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="godkun的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/04/全栈的一些知识/" itemprop="url">全栈的一些知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-04T22:37:54+08:00">
+                2018-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
+                    <span itemprop="name">FE-Performance-Optimization</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>cookies是由服务端生成，客户端维护。</li>
+</ul>
+
+          
         
       
     </div>
@@ -917,173 +1098,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/03/html、css、JS压缩和文件合并/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨昆">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="godkun的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/03/html、css、JS压缩和文件合并/" itemprop="url">html、css、JS压缩和文件合并</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T15:27:32+08:00">
-                2018-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/FE-Performance-Optimization/" itemprop="url" rel="index">
-                    <span itemprop="name">FE-Performance-Optimization</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="如何进行html压缩"><a href="#如何进行html压缩" class="headerlink" title="如何进行html压缩"></a>如何进行html压缩</h3><ul>
-<li>使用在线网站进行压缩</li>
-<li>nodejs提供了html-minifier工具</li>
-<li>后端模板引擎渲染压缩</li>
-</ul>
-<h3 id="CSS压缩"><a href="#CSS压缩" class="headerlink" title="CSS压缩"></a>CSS压缩</h3><ul>
-<li>使用在线网站进行压缩</li>
-<li>使用html-minifier对html中的css进行压缩</li>
-<li>使用clean-css对css进行压缩</li>
-</ul>
-<h3 id="JS压缩"><a href="#JS压缩" class="headerlink" title="JS压缩"></a>JS压缩</h3><ul>
-<li>无效字符的删除</li>
-<li>剔除注释</li>
-<li>代码语义的缩减和优化</li>
-<li>代码保护</li>
-</ul>
-<h3 id="如何进行JS压缩和混乱"><a href="#如何进行JS压缩和混乱" class="headerlink" title="如何进行JS压缩和混乱"></a>如何进行JS压缩和混乱</h3><ul>
-<li>使用在线网站进行压缩</li>
-<li>使用html-minifier对html中的js进行压缩</li>
-<li>使用uglifyjs2对js进行压缩<blockquote>
-<p>先将js读进来</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="如何文件合并"><a href="#如何文件合并" class="headerlink" title="如何文件合并"></a>如何文件合并</h3><ul>
-<li>使用在线网站进行文件合并</li>
-<li>使用nodejs实现文件合并</li>
-</ul>
-<h4 id="压缩和合并的方法"><a href="#压缩和合并的方法" class="headerlink" title="压缩和合并的方法"></a>压缩和合并的方法</h4><blockquote>
-<p>fis3构建工具</p>
-<ul>
-<li>图片小的应该用inline image方式导入html中，这个方法可以用fis语法生成</li>
-</ul>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1133,7 +1147,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">70</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

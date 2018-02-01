@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[web安全概述]]></title>
-    <url>%2F2018%2F01%2F06%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%2F</url>
-    <content type="text"><![CDATA[主要指两个方面私密性不被非法获取和利用 可靠性不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面 安全问题的考虑11 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他 web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
+    <title><![CDATA[CSRF研究]]></title>
+    <url>%2F2018%2F01%2F10%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%20-%20%E5%89%AF%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[英文：Cross Site Request Forgy 中文：跨站请求伪造 攻击者在其他的网站对目标网站产生了影响 CSRF攻击危害 利用用户登录态 用户不知情 完成业务请求 盗取用户资金(转账，消费) 就算警察寻找是谁，也只能找到用户，找不到攻击者，因为攻击者用的ip和cookie都是用户的。 CSRF攻击防御 csrf防御核心思想就是利用攻击者不会访问目标网站的前端，只会去访问目标网站的后端，所以如果在目标网站的前端增加验证信息，那就会有效防御csrf攻击，因为csrf无法获取这个验证信息，也就无法得到后端的正确响应。 第一种方法禁止第三方网站携带cookie 在cookie中加一个same-site属性 但是兼容性很差，只有很少的浏览器兼容。 第二种方法在前端页面加入验证信息，比如： 验证码 加入token 验证码 这需要前后端协同1：前端加入验证码输入框。2：后端为前端提供这个验证码，并且在提交的时候进行验证,还有后端还要记住这个验证码是什么，也就是保存下来，以便有第三方进行csrf攻击时进行判断。node.js开发后端的话，有ccap这个插件可以用，它可以生成图形验证码。 这个可以有效防御csrf，但是每次都要让用户输入验证码进行验证，降低了用户体验。而且前端提交后，后端还要再校验一下验证码对不对。 token token就是一个随机字符串，放在前端的请求内容中，也可以放在cookie中。 token生成机制:1234567891011// 后端要做的事情// 随机生成tokenvar csrfToken = parseInt(Math.random() * 9999999, 10);// 后端生成token并且保存在cookie中ctx.cookies.set('csrfToken', csrfToken);// 前端要做的事情// 放置一个表单，不会显示出来，设置隐藏&lt;input name="csrfToken" value=csrfToken&gt;&lt;input&gt; 然后在相应的动作里进行判断：12345678910111213function action(req, res)&#123; var data; if(req.method.toLowerCase() === 'post')&#123; data = req.body; &#125;else&#123; data = req.query; &#125; if(!data.crsfToken)&#123; throw new('csrf token is null'); &#125;else if(data.csrfToken !== req.cookies.get('csrfToken'))&#123; throw new('csrfToken 错误'); &#125;&#125; 使用token需要注意的地方 如果是通过表单提交，则可以直接将token值放在表单里面提交。 如果是ajax请求，则一般是通过将token放在页面的另外一个地方，比如放在meta中。1meta&#123;name="csrf_token", content=csrfToken&#125; 刷新后，在页面的head中多了一个meta，在ajax请求之前，就可以通过js把这个meta中的toke值取出来，一并发到后台去。 注意： 如果用户打开了很多页面或者很多提交表单，每个页面和表单都是对应不同的token，因为cookies里面只能放置一个token，用户提交只能是提交最后一个页面的token或者是最后一个表单的token，所以这个问题也比较特殊，如何处理。需要思考。 CSRF中的refererreferer是http协议中的一个请求头，来自攻击网站。所以还有一个防御方式：验证referer，禁止来自第三方网站的请求。12345678910111213141516171819// 在相应的动作里function action(req, res)&#123; var data; if(req.method.toLowerCase() === 'post')&#123; data = req.body; &#125;else&#123; data = req.query; &#125; var referer = res.headers.referer; // 通过使用indexOf判断 if(referer indexOf('localhost') === '-1')&#123; throw new('请求非法'); &#125; // 更好的做法是下面这个，因为referer是http://整个url地址，如果url其他部分有localhost，上面的表达式也可以被匹配到 if(!/^http:\/\/localhost/.test(referer))&#123; throw new('请求非法'); &#125;&#125; 这里面有几个注意的点： 从本地磁盘访问，没有refere，因为是同域，可以将ftp改成http形式，比如http://127.0.0.1/ 通过http访问，有referer。 以上就是我个人对CSRF的理解，前端领域的Web安全所涉及到的内容是很多的，要多去学习和实践，才能更好的写出安全又没有漏洞的代码。]]></content>
       <categories>
         <category>Web-Security</category>
       </categories>
@@ -12,9 +12,20 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[全栈的一些知识]]></title>
-    <url>%2F2018%2F01%2F04%2F%E5%85%A8%E6%A0%88%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%2F</url>
-    <content type="text"><![CDATA[cookies是由服务端生成，客户端维护。]]></content>
+    <title><![CDATA[web安全概述]]></title>
+    <url>%2F2018%2F01%2F06%2Fweb%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0%2F</url>
+    <content type="text"><![CDATA[主要指两个方面 私密性 不被非法获取和利用 可靠性 不丢失不损坏不被篡改 体现在几个方面 代码层面 架构层面 运维层面 安全问题的考虑 用户身份被盗用 用户密码泄露 用户资料被盗取 网站数据库泄露 其他 web安全的重要性为什么这么高 直面用户，挑战严峻 网站和用户安全是生命线 安全事故威胁企业生产，口碑甚至生存 有哪些安全隐患 跨站脚本攻击XSS 跨站请求伪造攻击CSRF 前端Cookies 安全性 点击劫持攻击 传输过程安全问题 用户密码安全问题 SQL注入攻击 信息泄露和社会工程学 其他安全问题]]></content>
+      <categories>
+        <category>Web-Security</category>
+      </categories>
+      <tags>
+        <tag>Web-Security</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[代码方面的性能优化]]></title>
+    <url>%2F2018%2F01%2F04%2F%E4%BB%A3%E7%A0%81%E6%96%B9%E9%9D%A2%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[缓存DOM查询1234567891011var i;for( i=0; i &lt; document.getElementsByTagName('p').length; i++)&#123; // todo&#125;// 缓存DOM查询var pList = document.getElementsByTagName('p');for (i=0; i &lt; pList.length; i++) &#123; // todo&#125; 合并DOM插入1234567891011var listNode = document.getElementById("list"); // 要插入 10个 li标签var frag = document.createDocumentFragment();var x, li;for (x=0; x&lt;10; x++) &#123; li = document.createElement("li"); li.innerHTML = "List item" + x; frag.appendChild(li);&#125;listNode.appendChild(frag); 先创建一个片段，先在片段里进行创建操作，最后只进行一次DOM操作插入到DOM树上 事件节流12345678910111213var textarea = document.getElementById("text");var timeoutId;textarea.addEventListener('keyup', function() &#123; if(timeoutId) &#123; clearTimeout(timeoutId); &#125; timeoutId = setTimeout(function() &#123; // 触发change事件 console.log(111); &#125;, 1000)&#125;); 事件代理来完善绑定事件函数 绑定事件在我们开发的过程中会经常用到。写一个通用的函数是很必要的。 代理如以下代码:1234567891011121314151617181920212223242526272829303132333435363738&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;&lt;/title&gt; &lt;style type="text/css"&gt; &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;ul id="parent"&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;li&gt;item 5&lt;/li&gt; &lt;li&gt;item 6&lt;/li&gt; &lt;/ul&gt; &lt;script&gt; window.onload = function() &#123; var parent = document.getElementById('parent'); // li 太多了，就代理到ul元素上，这个通过事件冒泡机制传到ul元素上 // 这样就可以只绑定一次事件就可以了 parent.addEventListener('click', function(event) &#123; var event = event || window.event; var target = event.target || event.srcElement; // target.nodeName这个是标签元素的内容 // event.target这个是目标元素[元素是标签和被标签括起来的内容] if(target.nodeName.toUpperCase() == 'LI') &#123; alert(target.innerHTML) &#125; &#125;, false) &#125; &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; ul中有很多个li，而且li还有可能增加。如果要为每个li添加一个点击事件，操作起来将比较麻烦，代码量大不简洁，占内存。这时可以将事件代理到ul上，当点击li时，由于事件冒泡，ul上也起作用，之后再判断是点击那个li即可。 1e.target.nodeName 是返回标签名字的大写 这样可以提高前端性能，多使用代理 不需要为每一个元素都添加监听事件而是通过委托给父元素来处理，这样就减少了内存，性能提高了。 可以方便动态添加元素，不需要再为新添加的元素重新绑定事件。 懒加载和预加载对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 预加载第一种加载方式1&lt;img src="xxx" style="display:none"&gt; 第二种方式，使用Image对象12const image = new Image()image.src = "xxxx" 第三种方式通过xhttpReques预加载，但是会存在跨域的问题 也可以使用proLoad.js实现预加载，很方便]]></content>
       <categories>
         <category>FE-Performance-Optimization</category>
       </categories>
@@ -23,9 +34,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[代码方面的性能优化]]></title>
-    <url>%2F2018%2F01%2F04%2F%E4%BB%A3%E7%A0%81%E6%96%B9%E9%9D%A2%E7%9A%84%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%2F</url>
-    <content type="text"><![CDATA[缓存DOM查询1234567891011var i;for( i=0; i &lt; document.getElementsByTagName('p').length; i++)&#123; // todo&#125;// 缓存DOM查询var pList = document.getElementsByTagName('p');for (i=0; i &lt; pList.length; i++) &#123; // todo&#125; 合并DOM插入1234567891011var listNode = document.getElementById("list"); // 要插入 10个 li标签var frag = document.createDocumentFragment();var x, li;for (x=0; x&lt;10; x++) &#123; li = document.createElement("li"); li.innerHTML = "List item" + x; frag.appendChild(li);&#125;listNode.appendChild(frag); 先创建一个片段，先在片段里进行创建操作，最后只进行一次DOM操作插入到DOM树上 事件节流12345678910111213var textarea = document.getElementById("text");var timeoutId;textarea.addEventListener('keyup', function() &#123; if(timeoutId) &#123; clearTimeout(timeoutId); &#125; timeoutId = setTimeout(function() &#123; // 触发change事件 console.log(111); &#125;, 1000)&#125;); 事件代理来完善绑定事件函数 绑定事件在我们开发的过程中会经常用到。写一个通用的函数是很必要的。 代理如以下代码:1234567891011121314151617181920212223242526272829303132333435363738&lt;!DOCTYPE html&gt;&lt;html&gt; &lt;head&gt; &lt;meta charset="UTF-8"&gt; &lt;title&gt;&lt;/title&gt; &lt;style type="text/css"&gt; &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;ul id="parent"&gt; &lt;li&gt;item 1&lt;/li&gt; &lt;li&gt;item 2&lt;/li&gt; &lt;li&gt;item 3&lt;/li&gt; &lt;li&gt;item 4&lt;/li&gt; &lt;li&gt;item 5&lt;/li&gt; &lt;li&gt;item 6&lt;/li&gt; &lt;/ul&gt; &lt;script&gt; window.onload = function() &#123; var parent = document.getElementById('parent'); // li 太多了，就代理到ul元素上，这个通过事件冒泡机制传到ul元素上 // 这样就可以只绑定一次事件就可以了 parent.addEventListener('click', function(event) &#123; var event = event || window.event; var target = event.target || event.srcElement; // target.nodeName这个是标签元素的内容 // event.target这个是目标元素[元素是标签和被标签括起来的内容] if(target.nodeName.toUpperCase() == 'LI') &#123; alert(target.innerHTML) &#125; &#125;, false) &#125; &lt;/script&gt; &lt;/body&gt;&lt;/html&gt; ul中有很多个li，而且li还有可能增加。如果要为每个li添加一个点击事件，操作起来将比较麻烦，代码量大不简洁，占内存。这时可以将事件代理到ul上，当点击li时，由于事件冒泡，ul上也起作用，之后再判断是点击那个li即可。 1e.target.nodeName 是返回标签名字的大写 这样可以提高前端性能，多使用代理 不需要为每一个元素都添加监听事件而是通过委托给父元素来处理，这样就减少了内存，性能提高了。 可以方便动态添加元素，不需要再为新添加的元素重新绑定事件。 懒加载和预加载对于懒加载一定要对图片设置高度不然第一次加载时，会直接加载所有的资源，因为没有高度。 外库解决zepto.min.jszepto.lazyload.js 预加载第一种加载方式1&lt;img src="xxx" style="display:none"&gt; 第二种方式，使用Image对象12const image = new Image()image.src = "xxxx" 第三种方式通过xhttpReques预加载，但是会存在跨域的问题 也可以使用proLoad.js实现预加载，很方便]]></content>
+    <title><![CDATA[全栈的一些知识]]></title>
+    <url>%2F2018%2F01%2F04%2F%E5%85%A8%E6%A0%88%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9F%A5%E8%AF%86%2F</url>
+    <content type="text"><![CDATA[cookies是由服务端生成，客户端维护。]]></content>
       <categories>
         <category>FE-Performance-Optimization</category>
       </categories>
@@ -299,9 +310,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[reduce用法]]></title>
-    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
+    <title><![CDATA[遍历在开发中的使用]]></title>
+    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -310,9 +321,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[遍历在开发中的使用]]></title>
-    <url>%2F2017%2F10%2F28%2F%E9%81%8D%E5%8E%86%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[下面这种遍历在开发中很常见，在这里总结一下。123456789101112let s1 = 1;let s2 = 2;const obj = &#123; s1, s2 &#125;;上面显示为 obj = &#123; s1: 1, s2: 2 &#125;一般是用Object.keys(obj)方法获得obj对象的所有的键属性值let arr = ["s1", "s2"]然后对键属性值，也就是字符串数组进行forEach，然后挨个进行添加或者其他操作arr.forEach(key =&gt; &#123; XXXXX = obj[key]&#125;)获取对象的键对应的值，有两种方法，第一种直接obj.s1 第二种是obj['s1']，一般用第二种，先将s1变成字符串形式]]></content>
+    <title><![CDATA[reduce用法]]></title>
+    <url>%2F2017%2F10%2F28%2Freduce%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[灵活的运用reduce来进行各种各样的类型转换，比如将数组按照一定规则转换为对象，也可以将一种形式的数组转换为另一种形式的数组 结合map，可以任意转成键值对对象 1234reduce((map, field) =&gt; &#123; map.set(); return map; &#125;, new Map()) 1234[1, 2].reduce(function(res, cur) &#123; res.push(cur + 1); return res; &#125;, []) 后面定义的[]是res, 然后cur是第一个数据，很万能的方法。]]></content>
       <categories>
         <category>JavaScript-CSS-HTML</category>
       </categories>
@@ -585,17 +596,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
-    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
-    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
-      <categories>
-        <category>tips</category>
-      </categories>
-      <tags>
-        <tag>tips</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[JS之贪心算法]]></title>
     <url>%2F2017%2F06%2F24%2FJS%E4%B9%8B%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%2F</url>
     <content type="text"><![CDATA[概念贪心法就是遵循某种规则，不断贪心地选取当前最优策略的算法设计方法。贪心算法总是会选择当下的最优解，而不去考虑这一次的选择会不会对未来的选择造成影响。 使用贪心算法的思路 使用贪心算法通常表明，实现者希望做出的这一系列局部“最优”选择能够带来最终的整体“最优”选择。如果是这样的话，该算法将会产生一个最优解，否则，则会得到一个次优解。对于很多问题来说，寻找最优解很麻烦，这么做不值得，所以使用贪心算法就足够了。 代码如下 下面用找零做例子 有1元、5元、10元、25元的整钞，先用这些整钞支付66元，最少需要多少张整钞？ 123456789101112131415161718192021222324252627282930313233343536373839404142function makeChange(origAmt, coins) &#123; // 初始化表示剩下的余额，开始设置为0 var remainAmt = 0; if (origAmt % 25 &lt; origAmt) &#123; coins[3] = parseInt(origAmt / 25) remainAmt = origAmt % 25; origAmt = remainAmt; &#125; if (origAmt % 10 &lt; origAmt) &#123; coins[2] = parseInt(origAmt / 10) remainAmt = origAmt % 10; origAmt = remainAmt; &#125; if (origAmt % 5 &lt; origAmt) &#123; coins[1] = parseInt(origAmt / 5) remainAmt = origAmt % 5; origAmt = remainAmt; &#125; coins[0] = parseInt(origAmt / 1);&#125;function showChang(coins) &#123; if(coins[3] &gt;0 )&#123; console.log("该硬币的数量是："+coins[3]+" "+"总面值为："+ coins[3]*25); &#125; if(coins[2] &gt;0 )&#123; console.log("该硬币的数量是："+coins[2]+" "+"总面值为："+ coins[2]*10); &#125; if(coins[1] &gt;0 )&#123; console.log("该硬币的数量是："+coins[1]+" "+"总面值为："+ coins[1]*5); &#125; if(coins[0] &gt;0 )&#123; console.log("该硬币的数量是："+coins[0]+" "+"总面值为："+ coins[0]*1); &#125; &#125;var origAmt = 66;var coins = [];makeChange(origAmt, coins);showChang(coins); 输出如下 心得体会贪心算法很好理解，很经典，掌握其核心：只关注当下的最优解 深刻理解就可以很好的运用贪心算法了。]]></content>
@@ -604,6 +604,17 @@
       </categories>
       <tags>
         <tag>JavaScript-Algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[sublime3的经典操作和快捷键]]></title>
+    <url>%2F2017%2F06%2F24%2Fsublime3%E7%9A%84%E7%BB%8F%E5%85%B8%E5%BF%AB%E6%8D%B7%E9%94%AE%2F</url>
+    <content type="text"><![CDATA[工欲善其事，必先利其器 以下都是在window操作系统下的快捷键【穷，买不起Mac 囧】 最爽的快捷键 可以进行多行选择以及对选择的多行内容进行同时编辑 操作： 把鼠标放到你想要选取的内容上，不必刻意进行全选，只要光标在所选内容上就可以了，然后按 Ctrl + D 那么光标所在的内容将会全部被选中，并且其他的内容会被标记为待选中状态。这个时候再次点击 D 那么下面的第一个带选中的将会被选中。后面再次点击 D 则下面依次被选中。如果选中的不是你想要的，需要跳过某一个内容，继续选择后面的未选中的内容。则需要进行如下操作，Ctrl + D 选中不想要的内容后，按 Ctrl + K 撤销选中，此时你会看到内容还是选中的，没事，这时你按 Ctrl + D 就会看到不想要的内容已经是未选中，并且已经选中了撤销的内容的下面一个待选中的内容了 还有一种可以实现上面的操作： 按住 Shift 然后 按住鼠标右键，进行上下拖动。这个不好说明，只要你按住这两个键，然后试了几下，你就自然知道怎么实现的了。 对于上面两种操作，我的心得体会是： 如果是有内容的，比如你已经写好了三个 if 语句，然后选中三个，那么你可以使用第一种操作。如果是没有内容的，你想在空白处写三个 if 语句，你可以使用第二种操作。 用好这个快捷键，可以极大的提高写代码的效率。 最人性化的保存方式 用其他编辑器，要想使用某一个类型的文件，需要点击保存，然后弹出命名文件和类型的窗口。用sublime3就可以很完美的使用 Ctrl + n 新建文件，不需要点击保存来选择文件类型，新建后文件格式默认是 text 格式，你可以在界面的右下角看到 Plain Text 字样。这时候按住快捷键 Ctrl + Shift + P 后，会弹出一个对话框，此时输入相应的文件名后缀，就会出现对应的格式选项，选择后，按回车键即可发现文件已经是你想要的格式类型了，后面就可以随心所欲的使用对应文件类型的语法提示了。 最完美的扩展插件机制这个就不说了，插件安装可以网上搜一下。我个人觉得上面两个内容是我最喜欢sublime的原因。]]></content>
+      <categories>
+        <category>tips</category>
+      </categories>
+      <tags>
+        <tag>tips</tag>
       </tags>
   </entry>
   <entry>
